@@ -1,0 +1,23 @@
+{
+  "name": "otica-orcamento",
+  "authors": [
+    "mgustavo <mgustavo@ciandt.com>"
+  ],
+  "description": "descricao do orcamento da otica para ellevato",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular": "angularjs#~1.4.8",
+    "angular-route": "~1.4.8"
+  }
+}

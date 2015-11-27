@@ -1,0 +1,49 @@
+
+<!-- Modal -->
+<div class="modal fade" id="produtoCadastroModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">
+					<i class="glyphicon glyphicon-question-sign"></i>&nbsp;Adicionar
+					produto ao orcamento
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div ng-hide="unregistered_item" class="form-group">
+					<label for="sel1">Lista de produtos:</label> <select
+						class="form-control" id="sel1">
+						<option>00231 - Lente de Contato - Azul</option>
+						<option>00234 - Armacao Carolina Herrera</option>
+						<option>00232 - Lente esquerda</option>
+						<option>00236 - Lente direita</option>
+					</select>
+				</div>
+
+
+				<div class="form-horizontal form-group">
+					<label class="checkbox-inline"><input type="checkbox"
+						ng-model="unregistered_item" value="">O produto não está
+						na lista</label>
+
+					<div ng-if="unregistered_item">
+						<label class="checkbox-inline"><input type="checkbox"
+							ng-model="register_item" value="">Cadastrar novo produto
+							ao final da transacão</label>
+						<div ng-include="'/views/produto_cadastro.html'"></div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button data-dismiss="modal" id="singlebutton" name="singlebutton"
+						class="btn btn-primary">
+						<i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar
+					</button>
+				</div>
+			</div>
+
+		</div>
+	</div>

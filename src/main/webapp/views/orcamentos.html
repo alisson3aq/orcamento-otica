@@ -1,0 +1,162 @@
+
+<h4>Novo orcamento</h4>
+<div class="form-horizontal">
+
+
+	<div class="table-responsive">
+		<legend></legend>
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr>
+					<th>Descricão</th>
+					<th>Qtde</th>
+					<th>Unidade</th>
+					<th>Valor unitário</th>
+					<th>Total</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Lente de contato - Azul</td>
+					<td>02</td>
+					<td>un</td>
+					<td>150,00</td>
+					<td>300,00</td>
+					<td>
+						<button id="button2id" name="button2id" class="btn btn-default">
+							<i class="glyphicon glyphicon-plus"></i>
+						</button>
+						<button id="button2id"
+							name="button2id" class="btn btn-default">
+							<i class="glyphicon glyphicon-minus"></i>
+						</button>
+						<button data-toggle="modal" data-target="#modalAsk" id="button2id"
+							name="button2id" class="btn btn-default">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+
+
+	<fieldset>
+		<!-- Form Name -->
+		<legend></legend>
+
+		<!-- Button -->
+		<div class="form-group col-md-12">
+			<button data-toggle="modal" data-target="#produtoCadastroModal"
+				id="singlebutton" name="singlebutton" class="btn btn-primary">
+				<i class="glyphicon glyphicon-plus"></i>&nbsp;Adicionar produto
+			</button>
+			<button data-toggle="modal" data-target="#servicoCadastroModal"
+				id="singlebutton" name="singlebutton" class="btn btn-primary">
+				<i class="glyphicon glyphicon-plus"></i>&nbsp;Adicionar servico
+			</button>
+			<button data-toggle="modal" data-target="#orcamentoFecharModal" id="singlebutton"
+				name="singlebutton" class="btn btn-success">
+				<i class="glyphicon glyphicon-ok"></i>&nbsp;Fechar orcamento
+			</button>
+		</div>
+	</fieldset>
+</div>
+
+<!--
+<legend></legend>
+<table class="table table-hover table-striped">
+	<thead>
+		<tr>
+			<th>cÃ³digo</th>
+			<th>vendedor</th>
+			<th>data</th>
+			<th>status</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>293473298</td>
+			<td>Renan Figueiredo</td>
+			<td>25/04/2015</td>
+			<td>
+				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
+					name="button1id" class="btn btn-success">Aberto</button>
+			</td>
+			<td>
+				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
+					name="button1id" class="btn btn-default">Detalhes</button>
+				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
+					name="button1id" class="btn btn-default">Editar</button>
+				<button data-toggle="modal" data-target="#modalAsk" id="button2id"
+					name="button2id" class="btn btn-default">Excluir</button>
+			</td>
+		</tr>
+		<tr>
+			<td>293473298</td>
+			<td>Renan Figueiredo</td>
+			<td>25/04/2015</td>
+			<td><button data-toggle="modal" data-target="#modalAsk"
+					id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
+			<td>
+				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
+					name="button1id" class="btn btn-default">Detalhes</button>
+				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
+					name="button1id" class="btn btn-default">Editar</button>
+				<button data-toggle="modal" data-target="#modalAsk" id="button2id"
+					name="button2id" class="btn btn-default">Excluir</button>
+			</td>
+		</tr>
+		<tr>
+			<td>293473298</td>
+			<td>Renan Figueiredo</td>
+			<td>25/04/2015</td>
+			<td><button data-toggle="modal" data-target="#modalAsk"
+					id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
+			<td>
+				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
+					name="button1id" class="btn btn-default">Detalhes</button>
+				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
+					name="button1id" class="btn btn-default">Editar</button>
+				<button data-toggle="modal" data-target="#modalAsk" id="button2id"
+					name="button2id" class="btn btn-default">Excluir</button>
+			</td>
+		</tr>
+		<tr>
+			<td>293473298</td>
+			<td>Renan Figueiredo</td>
+			<td>25/04/2015</td>
+			<td><button data-toggle="modal" data-target="#modalAsk"
+					id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
+			<td>
+				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
+					name="button1id" class="btn btn-default">Detalhes</button>
+				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
+					name="button1id" class="btn btn-default">Editar</button>
+				<button data-toggle="modal" data-target="#modalAsk" id="button2id"
+					name="button2id" class="btn btn-default">Excluir</button>
+			</td>
+		</tr>
+		<tr>
+			<td>293473298</td>
+			<td>Renan Figueiredo</td>
+			<td>25/04/2015</td>
+			<td><button data-toggle="modal" data-target="#modalAsk"
+					id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
+			<td>
+				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
+					name="button1id" class="btn btn-default">Detalhes</button>
+				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
+					name="button1id" class="btn btn-default">Editar</button>
+				<button data-toggle="modal" data-target="#modalAsk" id="button2id"
+					name="button2id" class="btn btn-default">Excluir</button>
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+-->
