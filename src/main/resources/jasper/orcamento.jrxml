@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orcamento" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b44921d8-0507-46ed-8d52-978b81482867">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<group name="Group1">
 		<groupHeader>
 			<band height="33">
@@ -8,14 +11,14 @@
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<text><![CDATA[G1Label]]></text>
+					<text><![CDATA[Label]]></text>
 				</staticText>
 				<textField>
 					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="31d87c15-02bd-4fa7-a50a-589bc81e32c3"/>
 					<textElement>
 						<font size="24" isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA["G1Field"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[Orcamento]]></textFieldExpression>
 				</textField>
 				<line>
 					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="d696193f-42d9-443f-bb95-be5c7e9f6ad8"/>
@@ -28,22 +31,7 @@
 	</group>
 	<group name="Group2">
 		<groupHeader>
-			<band height="32">
-				<textField>
-					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="32a2bece-3e5a-4fad-96ed-dd7116a8c20f"/>
-					<textElement>
-						<font size="22" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA["G2Field"]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="d54b6066-a508-416b-9374-330fc7397f60"/>
-					<textElement>
-						<font size="12"/>
-					</textElement>
-					<text><![CDATA[G2Label]]></text>
-				</staticText>
-			</band>
+			<band height="32"/>
 		</groupHeader>
 		<groupFooter>
 			<band/>
@@ -51,22 +39,7 @@
 	</group>
 	<group name="Group3">
 		<groupHeader>
-			<band height="32">
-				<textField>
-					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="e7009c88-32ae-466b-93a7-3bdd97e7820e"/>
-					<textElement>
-						<font size="20" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA["G3Field"]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="ed6f38dd-4ea1-46fa-9d26-cd8df6bb1fbb"/>
-					<textElement>
-						<font size="12"/>
-					</textElement>
-					<text><![CDATA[G3Label]]></text>
-				</staticText>
-			</band>
+			<band height="32"/>
 		</groupHeader>
 		<groupFooter>
 			<band/>
@@ -74,22 +47,7 @@
 	</group>
 	<group name="Group4">
 		<groupHeader>
-			<band height="32">
-				<textField>
-					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="ab6e1347-c718-4ec2-ba02-562f18efc7d7"/>
-					<textElement>
-						<font size="16" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA["G4Field"]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="7b0aba8a-db07-46ef-bb47-908f2b7b2786"/>
-					<textElement>
-						<font size="12"/>
-					</textElement>
-					<text><![CDATA[G4Label]]></text>
-				</staticText>
-			</band>
+			<band height="32"/>
 		</groupHeader>
 		<groupFooter>
 			<band/>
@@ -107,14 +65,14 @@
 					<textElement>
 						<font size="34" isBold="true"/>
 					</textElement>
-					<text><![CDATA[TITLE]]></text>
+					<text><![CDATA[Título]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="d76c0966-02e1-492a-af78-628d2d62ff38"/>
 					<textElement textAlignment="Right">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Add a description here]]></text>
+					<text><![CDATA[Teste]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -129,7 +87,7 @@
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[DetailLabel]]></text>
+				<text><![CDATA[Detalhe]]></text>
 			</staticText>
 			<line>
 				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="580c87e0-5675-44f7-81ac-d5d5ab19a3d5"/>
@@ -138,13 +96,6 @@
 	</columnHeader>
 	<detail>
 		<band height="20">
-			<textField isStretchWithOverflow="true">
-				<reportElement x="0" y="0" width="183" height="20" uuid="3a20b85a-c07a-453b-b129-e3dfddee0c91"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA["DetailField"]]></textFieldExpression>
-			</textField>
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="97abd82d-71b0-4da6-88f0-36a327a1d3e7"/>
 			</line>
