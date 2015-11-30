@@ -26,7 +26,7 @@ public class ReportServlet extends HttpServlet {
 		try {
 			System.out.println("Diretorio do jasper: " + getServletContext().getRealPath("../resources/jasper/orcamento.jrxml"));
 			
-			JasperReport report = JasperCompileManager.compileReport("/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasperorcamento.jrxml");
+			JasperReport report = JasperCompileManager.compileReport("/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasper/orcamento.jrxml");
 			System.out.println("2");
 			Collection<?> clientes = null;
 			JasperPrint print = null;
