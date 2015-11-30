@@ -11,15 +11,8 @@
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<text><![CDATA[Label]]></text>
+					<text><![CDATA["Label"]]></text>
 				</staticText>
-				<textField>
-					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="31d87c15-02bd-4fa7-a50a-589bc81e32c3"/>
-					<textElement>
-						<font size="24" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[Orcamento]]></textFieldExpression>
-				</textField>
 				<line>
 					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="d696193f-42d9-443f-bb95-be5c7e9f6ad8"/>
 				</line>
@@ -65,14 +58,14 @@
 					<textElement>
 						<font size="34" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Título]]></text>
+					<text><![CDATA["Título"]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="d76c0966-02e1-492a-af78-628d2d62ff38"/>
 					<textElement textAlignment="Right">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Teste]]></text>
+					<text><![CDATA["Teste"]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -87,7 +80,7 @@
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Detalhe]]></text>
+				<text><![CDATA["Detalhe"]]></text>
 			</staticText>
 			<line>
 				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="580c87e0-5675-44f7-81ac-d5d5ab19a3d5"/>
@@ -106,15 +99,6 @@
 	</columnFooter>
 	<pageFooter>
 		<band height="17">
-			<textField>
-				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="fecba734-d6a3-44bd-a919-e674a27dc3e5"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="f3ee5281-59f3-40df-be78-a542810c60ac"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement x="0" y="4" width="100" height="13" uuid="90df50b8-e1ad-42ed-984f-c5c96029715a"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
