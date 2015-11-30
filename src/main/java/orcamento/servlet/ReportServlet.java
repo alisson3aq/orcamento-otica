@@ -27,8 +27,14 @@ public class ReportServlet extends HttpServlet {
 
 
 		try {
+			
+			String path = req.getRequestURI().substring(req.getContextPath().length());
 			System.out.println("1");
-			JasperReport report = JasperCompileManager.compileReport("/home/mgustavo/dev/EclipseProjects/orcamento/src/main/resources/jasper/orcamento.jrxml");
+			System.out.println("path: " + path);
+			
+			getServletContext().getRealPath("/servlet/orcamento.jrxml");
+			
+			JasperReport report = JasperCompileManager.compileReport(getServletContext().getRealPath("/servlet/orcamento.jrxml"));
 			System.out.println("2");
 			Collection<?> clientes = null;
 			JasperPrint print = null;
