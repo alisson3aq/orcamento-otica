@@ -1,14 +1,11 @@
 package orcamento.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Collection;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -27,14 +24,9 @@ public class ReportServlet extends HttpServlet {
 
 
 		try {
+			System.out.println(getServletContext().getRealPath("../resources/jasper/orcamento.jrxml"));
 			
-			String path = req.getRequestURI().substring(req.getContextPath().length());
-			System.out.println("1");
-			System.out.println("path: " + path);
-			
-			getServletContext().getRealPath("/servlet/orcamento.jrxml");
-			
-			JasperReport report = JasperCompileManager.compileReport(getServletContext().getRealPath("/servlet/orcamento.jrxml"));
+			JasperReport report = JasperCompileManager.compileReport(getServletContext().getRealPath("../resources/jasper/orcamento.jrxml"));
 			System.out.println("2");
 			Collection<?> clientes = null;
 			JasperPrint print = null;
