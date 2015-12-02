@@ -6,6 +6,8 @@
 	<packaging>war</packaging>
 	<version>1.0</version>
 	<name>orcamento</name>
+    
+
 	<repositories>
 		<repository>
 			<id>eap</id>
@@ -18,6 +20,7 @@
 			</snapshots>
 		</repository>
 	</repositories>
+    
 	<pluginRepositories>
 		<pluginRepository>
 			<id>eap</id>
@@ -30,11 +33,16 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	<properties>
+	
+    
+    <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 	</properties>
+    
+    
+    
 	<dependencies>
 
 		<dependency>
@@ -50,64 +58,20 @@
 			<artifactId>jasperreports</artifactId>
 			<version>5.0.1</version>
 		</dependency>
-
-<dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-entitymanager</artifactId>
-      <version>4.3.0.Final</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
-      <version>4.3.0.Final</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate.javax.persistence</groupId>
-      <artifactId>hibernate-jpa-2.1-api</artifactId>
-      <version>1.0.0.Final</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-orm</artifactId>
-      <version>4.1.0.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.35</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.validation</groupId>
-      <artifactId>validation-api</artifactId>
-      <version>1.0.0.GA</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-validator</artifactId>
-      <version>4.1.0.Final</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-      <version>4.1.0.RELEASE</version>
-      <scope>compile</scope>
-    </dependency>
-
+        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.0.1.RELEASE</version>
+        </dependency>
+        
+        
+        
 	</dependencies>
-	<profiles>
+	
+    
+    <profiles>
 		<profile>
-			<!-- When built in OpenShift the 'openshift' profile will be used when 
-				invoking mvn. -->
-			<!-- Use this profile for any OpenShift specific customization your app 
-				will need. -->
-			<!-- By default that is to put the resulting archive into the 'webapps' 
-				folder. -->
-			<!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
 			<id>openshift</id>
 			<build>
 				<finalName>orcamento</finalName>
@@ -124,4 +88,6 @@
 			</build>
 		</profile>
 	</profiles>
+    
+    
 </project>

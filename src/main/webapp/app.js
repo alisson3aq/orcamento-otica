@@ -11,7 +11,7 @@ mainApp
 		}
 
 	$scope.exportToPDF = function(){
-		window.open("http://orcamento-mgustavocoder.rhcloud.com/reportServlet", "_blank");
+		window.open("/reportServlet", "_blank");
 	}	
  
 })
