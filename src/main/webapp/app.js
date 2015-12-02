@@ -8,7 +8,12 @@ mainApp
 		  popupWin.document.open()
 		  popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="style.css" /></head><body onload="window.print()">' + printContents + '</html>');
 		  popupWin.document.close();
-		} 
+		}
+
+	$scope.exportToPDF = function(){
+		window.open("http://orcamento-mgustavocoder.rhcloud.com/reportServlet", "_blank");
+	}	
+ 
 })
 .config([ '$routeProvider', function($routeProvider) {
 	$routeProvider.when('/clientes', {

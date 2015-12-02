@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orcamento" pageWidth="595" pageHeight="1000" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b44921d8-0507-46ed-8d52-978b81482867">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="5"/>
-	<property name="ireport.y" value="288"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="246"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -193,9 +193,6 @@
 				</textElement>
 				<text><![CDATA[Orcamento]]></text>
 			</staticText>
-			<line>
-				<reportElement x="0" y="20" width="555" height="1" uuid="e2547768-e7e8-4bdb-868d-d7ce7e9d88cf"/>
-			</line>
 			<componentElement>
 				<reportElement key="table 1" style="table 1" x="0" y="21" width="555" height="171" uuid="4722b957-0761-4aa8-89e7-7c316156fda8"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
@@ -203,76 +200,64 @@
 						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="90" uuid="067a669b-084d-42d8-9eb8-bd8d85a8f4aa">
-						<jr:tableHeader style="table 1_TH" height="30">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="d30682ac-b161-4d03-b2fc-6aa252ab2dfc"/>
 								<text><![CDATA[Código]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30"/>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20"/>
+						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="90" uuid="7b249a80-60eb-45b9-abb5-a114d935521e">
-						<jr:tableHeader style="table 1_TH" height="30">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="9303c959-4ab3-43b5-980c-6b4fcc863080"/>
 								<text><![CDATA[Descricão]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30"/>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20"/>
+						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="90" uuid="1d53b3fe-41d1-4657-a557-d4ec1f6f0c76">
-						<jr:tableHeader style="table 1_TH" height="30">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="0af1c12a-4b2b-44ad-8502-8ca576918407"/>
 								<text><![CDATA[Qtde]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30"/>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20"/>
+						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="90" uuid="86ab5b15-f471-4e57-86e6-b19a83e12975">
-						<jr:tableHeader style="table 1_TH" height="30">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="221ae7b8-625c-4c06-b53a-652d7f9de3b2"/>
 								<text><![CDATA[Unidade]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30"/>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20"/>
+						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="90" uuid="799d28d2-f720-49f4-9d81-db5ce1a77334">
-						<jr:tableHeader style="table 1_TH" height="30">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="c3506803-02ec-4d7b-972d-962e54ff72fc"/>
 								<text><![CDATA[Valor unitário]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30"/>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20"/>
+						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="90" uuid="342508dc-96b0-4c80-a36e-22386d4eadb8">
-						<jr:tableHeader style="table 1_TH" height="30">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="065cbca6-eb8b-46db-a6a9-b1efabf2afed"/>
 								<text><![CDATA[Total]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30"/>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20"/>
+						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1"/>
 					</jr:column>
 				</jr:table>
 			</componentElement>
