@@ -1,6 +1,11 @@
+    <label class="radio-inline">
+        <input ng-init="op = 'cadastrar'" ng-model="op" type="radio" name="cadastrar" value="cadastrar">Novo orcamento
+    </label>
+    <label class="radio-inline">
+        <input ng-model="op" type="radio" name="listar" value="listar">Listar orcamentos
+    </label>
 
-<h4>Novo orcamento</h4>
-<div class="form-horizontal">
+<div ng-if="op == 'cadastrar'" class="form-horizontal">
 
 
 	<div class="table-responsive">
@@ -66,9 +71,8 @@
 	</fieldset>
 </div>
 
-<!--
-<legend></legend>
-<table class="table table-hover table-striped">
+
+<table ng-if="op == 'listar'" class="table table-hover table-striped">
 	<thead>
 		<tr>
 			<th>cÃ³digo</th>
@@ -159,4 +163,3 @@
 
 	</tbody>
 </table>
--->

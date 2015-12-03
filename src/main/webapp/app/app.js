@@ -2,30 +2,28 @@ var mainApp = angular.module("mainApp", [ 'ngRoute' ]);
 
 mainApp
 .config([ '$routeProvider', function($routeProvider) {
-	$routeProvider.when('/clientes', {
+	$routeProvider
+    .when('/clientes', {
 		templateUrl : 'views/clientes.html',
-		controller : 'orcamentoCrtl'
+		controller : 'clientesCrtl'
 	}).when('/medicos', {
 		templateUrl : 'views/medicos.html',
-		controller : 'orcamentoCrtl'
+		controller : 'medicosCrtl'
 	}).when('/orcamentos', {
 		templateUrl : 'views/orcamentos.html',
 		controller : 'orcamentoCrtl'
 	}).when('/produtos', {
 		templateUrl : 'views/produtos.html',
-		controller : 'orcamentoCrtl'
+		controller : 'produtosCrtl'
 	}).when('/servicos', {
 		templateUrl : 'views/servicos.html',
-		controller : 'orcamentoCrtl'
-	}).when('/servicos', {
-		templateUrl : 'views/servicos.html',
-		controller : 'orcamentoCrtl'
+		controller : 'servicosCrtl'
 	}).when('/usuarios', {
 		templateUrl : 'views/usuarios.html',
-		controller : 'orcamentoCrtl'
+		controller : 'usuariosCrtl'
 	}).when('/empresa', {
 		templateUrl : 'views/empresa.html',
-		controller : 'orcamentoCrtl'
+		controller : 'empresaCrtl'
 	}).otherwise({
 		redirectTo : '/orcamentos'
 	});
