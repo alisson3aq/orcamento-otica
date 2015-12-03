@@ -1,4 +1,4 @@
-(mainApp
+mainApp
 .controller('orcamentoCrtl', function($scope) {
     $scope.printDiv = function(divName) {
           var printContents = document.getElementById(divName).innerHTML;
@@ -11,4 +11,4 @@
     $scope.exportToPDF = function(){
         window.open("/reportServlet", "_blank");
     }
-}))();
+});
