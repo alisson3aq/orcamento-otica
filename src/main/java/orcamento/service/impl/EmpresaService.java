@@ -37,6 +37,9 @@ public class EmpresaService implements IEmpresaService {
         empresaBean1.setEstado("São Paulo");
         empresaBean1.setTelefone("(21) 99562-7458");
 
+        empresaBeans.add(empresaBean);
+        empresaBeans.add(empresaBean1);
+
         return empresaBeans;
     }
 

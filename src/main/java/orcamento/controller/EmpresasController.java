@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping("/empresa")
-public class EmpresaController {
+@RequestMapping("/empresas")
+public class EmpresasController {
 
 
 	@Autowired
@@ -21,7 +21,7 @@ public class EmpresaController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	public ArrayList<EmpresaBean> listEmpresa(){
+	public ArrayList<EmpresaBean> listEmpresas(){
 		return empresaService.listEmpresas();
 	}
 	
