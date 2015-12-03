@@ -4,28 +4,28 @@ mainApp
 .config([ '$routeProvider', function($routeProvider) {
 	$routeProvider.when('/clientes', {
 		templateUrl : 'views/clientes.html',
-		controller : 'navController'
+		controller : 'orcamentoCrtl'
 	}).when('/medicos', {
 		templateUrl : 'views/medicos.html',
-		controller : 'navController'
+		controller : 'orcamentoCrtl'
 	}).when('/orcamentos', {
 		templateUrl : 'views/orcamentos.html',
-		controller : 'navController'
+		controller : 'orcamentoCrtl'
 	}).when('/produtos', {
 		templateUrl : 'views/produtos.html',
-		controller : 'navController'
+		controller : 'orcamentoCrtl'
 	}).when('/servicos', {
 		templateUrl : 'views/servicos.html',
-		controller : 'navController'
+		controller : 'orcamentoCrtl'
 	}).when('/servicos', {
 		templateUrl : 'views/servicos.html',
-		controller : 'navController'
+		controller : 'orcamentoCrtl'
 	}).when('/usuarios', {
 		templateUrl : 'views/usuarios.html',
-		controller : 'navController'
+		controller : 'orcamentoCrtl'
 	}).when('/empresa', {
 		templateUrl : 'views/empresa.html',
-		controller : 'navController'
+		controller : 'orcamentoCrtl'
 	}).otherwise({
 		redirectTo : '/orcamentos'
 	});

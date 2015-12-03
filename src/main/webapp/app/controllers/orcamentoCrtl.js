@@ -1,5 +1,5 @@
-mainApp
-.controller('navController', function($scope) {
+(mainApp
+.controller('orcamentoCrtl', function($scope) {
     $scope.printDiv = function(divName) {
           var printContents = document.getElementById(divName).innerHTML;
           var popupWin = window.open('', '_blank');
@@ -11,4 +11,4 @@ mainApp
     $scope.exportToPDF = function(){
         window.open("/reportServlet", "_blank");
     }
-})
+}))();
