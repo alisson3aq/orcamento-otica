@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public interface IEmpresaService {
 
 
-    ArrayList<EmpresaBean> listOrcamento();
+    ArrayList<EmpresaBean> listEmpresas();
 
     EmpresaBean getEmpresa(String chavePrimaria);
 

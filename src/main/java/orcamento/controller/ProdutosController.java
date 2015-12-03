@@ -1,6 +1,8 @@
 package orcamento.controller;
 
 import orcamento.bean.ProdutoBean;
+import orcamento.service.impl.ProdutoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,17 +15,20 @@ import java.util.ArrayList;
 @RequestMapping("/produtos")
 public class ProdutosController {
 
+
+	@Autowired
+	ProdutoService produtoService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public ArrayList<ProdutoBean> listProduto(){
-		return new ArrayList<ProdutoBean>();
+		return produtoService.listProdutos();
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean postProduto(@RequestBody ProdutoBean produtoBean){
-		return false;
+		return produtoService.createProduto(produtoBean);
 	}
 	
 }

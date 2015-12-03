@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Created by mgustavo on 03/12/15.
  */
 public interface IUsuariosService {
-    ArrayList<UsuarioBean> listOrcamento();
+    ArrayList<UsuarioBean> listUsuarios();
 
     UsuarioBean getUsuario(String chavePrimaria);
 

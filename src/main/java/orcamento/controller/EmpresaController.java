@@ -1,6 +1,8 @@
 package orcamento.controller;
 
 import orcamento.bean.EmpresaBean;
+import orcamento.service.impl.EmpresaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,17 +15,20 @@ import java.util.ArrayList;
 @RequestMapping("/empresa")
 public class EmpresaController {
 
+
+	@Autowired
+	EmpresaService empresaService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	public ArrayList<EmpresaBean> getEmpresa(){
-		return new ArrayList<EmpresaBean>();
+	public ArrayList<EmpresaBean> listEmpresa(){
+		return empresaService.listEmpresas();
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean postEmpresa(@RequestBody EmpresaBean empresaBean){
-		return false;
+		return empresaService.createEmpresa(empresaBean);
 	}
 	
 }

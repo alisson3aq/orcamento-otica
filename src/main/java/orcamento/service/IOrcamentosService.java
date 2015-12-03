@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public interface IOrcamentosService {
 
-    ArrayList<OrcamentoBean> listOrcamento();
+    ArrayList<OrcamentoBean> listOrcamentos();
 
     OrcamentoBean getOrcamento(String chavePrimaria);
 

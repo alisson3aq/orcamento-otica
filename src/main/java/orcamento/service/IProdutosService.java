@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public interface IProdutosService {
     
-    ArrayList<ProdutoBean> listOrcamento();
+    ArrayList<ProdutoBean> listProdutos();
 
     ProdutoBean getProduto(String chavePrimaria);
 

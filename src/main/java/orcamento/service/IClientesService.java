@@ -9,14 +9,14 @@ import java.util.ArrayList;
  */
 public interface IClientesService {
 
-    ArrayList<ClienteBean> listOrcamento();
+    ArrayList<ClienteBean> listClientes();
 
-    ClienteBean getEmpresa(String chavePrimaria);
+    ClienteBean getCliente(String chavePrimaria);
 
-    Boolean createEmpresa(ClienteBean clienteBean);
+    Boolean createCliente(ClienteBean clienteBean);
 
-    Boolean updateEmpresa(ClienteBean clienteBean);
+    Boolean updateCliente(ClienteBean clienteBean);
 
-    Boolean deleteEmpresa(String chavePrimaria);
+    Boolean deleteCliente(String chavePrimaria);
     
 }

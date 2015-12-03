@@ -9,7 +9,7 @@ public class ProdutoBean {
     private String descricao;
     private String fabricante;
     private String unidade;
-    private String valorUnitario;
+    private Double valorUnitario;
 
     public String getCodigo() {
         return codigo;
@@ -43,11 +43,11 @@ public class ProdutoBean {
         this.unidade = unidade;
     }
 
-    public String getValorUnitario() {
+    public Double getValorUnitario() {
         return valorUnitario;
     }
 
-    public void setValorUnitario(String valorUnitario) {
+    public void setValorUnitario(Double valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 }
