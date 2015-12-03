@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>orcamento</groupId>
 	<artifactId>orcamento</artifactId>
@@ -22,7 +22,7 @@
 			</snapshots>
 		</repository>
 	</repositories>
-    
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>eap</id>
@@ -35,16 +35,16 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	
-    
-    <properties>
+
+
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 	</properties>
-    
-    
-    
+
+
+
 	<dependencies>
 
 		<dependency>
@@ -60,19 +60,24 @@
 			<artifactId>jasperreports</artifactId>
 			<version>5.0.1</version>
 		</dependency>
-        
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>4.0.1.RELEASE</version>
-        </dependency>
-        
-        
-        
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.0.1.RELEASE</version>
+		</dependency>
+
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.10</version>
+		</dependency>
+
 	</dependencies>
-	
-    
-    <profiles>
+
+
+	<profiles>
 		<profile>
 			<id>openshift</id>
 			<build>
@@ -90,6 +95,6 @@
 			</build>
 		</profile>
 	</profiles>
-    
-    
+
+
 </project>
