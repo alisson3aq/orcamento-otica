@@ -58,10 +58,10 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody ng-repeat="usuario in usuarios">
         <tr>
-            <td>Reginaldo Gomes</td>
-            <td>reginaldo</td>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.login}}</td>
             <td>
 
                 <div class="form-group">
@@ -72,4 +72,5 @@
                 </div>
             </td>
         </tr>
+    </tbody>
 </table>

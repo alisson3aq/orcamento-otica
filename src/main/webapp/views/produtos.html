@@ -26,19 +26,21 @@
 <table ng-if="op == 'listar'" class="table table-hover table-striped">
 	<thead>
 		<tr>
-			<th>cÃ³digo</th>
-			<th>nome</th>
+			<th>codigo</th>
+			<th>descricao</th>
 			<th>fabricante</th>
-			<th>valor</th>
+			<th>unidade</th>
+			<th>valor unitário</th>
 			<th></th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody ng-repeat="produto in produtos">
 		<tr>
-			<td>1231564</td>
-			<td>Lente solar</td>
-			<td>Shangai Inc</td>
-			<td>R$ 50,00</td>
+			<td>{{produto.codigo}}</td>
+			<td>{{produto.descricao}}</td>
+			<td>{{produto.fabricante}}</td>
+			<td>{{produto.unidade}}</td>
+			<td>{{produto.valorUnitario}}</td>
 			<td>
 				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
 					name="button1id" class="btn btn-default">Detalhes</button>

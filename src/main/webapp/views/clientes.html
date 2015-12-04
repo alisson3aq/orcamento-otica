@@ -102,20 +102,28 @@
         <thead>
             <tr>
                 <th>nome</th>
-                <th>rg</th>
                 <th>cpf</th>
-                <th>data nascimento</th>
+                <th>endereco</th>
+                <th>bairro</th>
+                <th>cidade</th>
+                <th>estado</th>
+                <th>cep</th>
                 <th>telefone</th>
+                <th>e-mail</th>
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody ng-repeat="cliente in clientes">
             <tr>
-                <td>Reginaldo Gomes</td>
-                <td>35746849-3</td>
-                <td>456773389-09</td>
-                <td>16/02/1981</td>
-                <td>(19) 99382728</td>
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.cpf}}</td>
+                <td>{{cliente.endereco}}</td>
+                <td>{{cliente.bairro}}</td>
+                <td>{{cliente.cidade}}</td>
+                <td>{{cliente.estado}}</td>
+                <td>{{cliente.cep}}</td>
+                <td>{{cliente.telefone}}</td>
+                <td>{{cliente.email}}</td>
                 <td>
                     <button data-toggle="modal" data-target="#modalAsk" id="button1id" name="button1id" class="btn btn-default">Detalhes</button>
                     <button data-toggle="modal" data-target="#modalAsk" id="button1id" name="button1id" class="btn btn-default">Editar</button>
