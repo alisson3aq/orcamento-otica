@@ -1,5 +1,5 @@
 mainApp
-.controller('orcamentoCrtl', function($scope) {
+.controller('orcamentoController', function($scope) {
     $scope.printDiv = function(divName) {
           var printContents = document.getElementById(divName).innerHTML;
           var popupWin = window.open('', '_blank');

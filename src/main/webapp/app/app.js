@@ -5,25 +5,25 @@ mainApp
 	$routeProvider
     .when('/clientes', {
 		templateUrl : 'views/clientes.html',
-		controller : 'clientesCrtl'
+		controller : 'clientesController'
 	}).when('/medicos', {
 		templateUrl : 'views/medicos.html',
-		controller : 'medicosCrtl'
+		controller : 'medicosController'
 	}).when('/orcamentos', {
 		templateUrl : 'views/orcamentos.html',
-		controller : 'orcamentoCrtl'
+		controller : 'orcamentoController'
 	}).when('/produtos', {
 		templateUrl : 'views/produtos.html',
-		controller : 'produtosCrtl'
+		controller : 'produtosController'
 	}).when('/servicos', {
 		templateUrl : 'views/servicos.html',
-		controller : 'servicosCrtl'
+		controller : 'servicosController'
 	}).when('/usuarios', {
 		templateUrl : 'views/usuarios.html',
-		controller : 'usuariosCrtl'
+		controller : 'usuariosController'
 	}).when('/empresa', {
 		templateUrl : 'views/empresa.html',
-		controller : 'empresaCrtl'
+		controller : 'empresaController'
 	}).otherwise({
 		redirectTo : '/orcamentos'
 	});
