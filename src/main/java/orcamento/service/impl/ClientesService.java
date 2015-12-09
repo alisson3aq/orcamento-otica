@@ -3,6 +3,10 @@ package orcamento.service.impl;
 import orcamento.bean.ClienteBean;
 import orcamento.service.IClientesService;
 import org.springframework.stereotype.Service;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.ArrayList;
 
 /**
@@ -62,6 +66,14 @@ public class ClientesService implements IClientesService {
 
     @Override
     public Boolean createCliente(ClienteBean clienteBean) {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
+        EntityManager manager = factory.createEntityManager();
+        manager.getTransaction().begin();
+
+
+        manager.getTransaction().commit();
+        factory.close();
+
         return true;
     }
 
