@@ -66,13 +66,7 @@ public class ClientesService implements IClientesService {
 
     @Override
     public Boolean createCliente(ClienteBean clienteBean) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
-        EntityManager manager = factory.createEntityManager();
-        manager.getTransaction().begin();
 
-
-        manager.getTransaction().commit();
-        factory.close();
 
         return true;
     }

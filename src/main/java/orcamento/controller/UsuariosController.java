@@ -4,10 +4,7 @@ import orcamento.bean.UsuarioBean;
 import orcamento.service.impl.UsuariosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -26,8 +23,18 @@ public class UsuariosController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
-	public Boolean postUsuarios(@RequestBody UsuarioBean usuarioBean){
-		return usuariosService.createUsuario(usuarioBean);
+	public ArrayList<UsuarioBean> postUsuarios(@RequestBody UsuarioBean usuarioBean){
+		System.out.println(usuarioBean);
+		usuariosService.createUsuario(usuarioBean);
+		return usuariosService.listUsuarios();
+	}
+
+
+	@RequestMapping(value = " /{login}",method = RequestMethod.DELETE)
+	@ResponseBody
+	public ArrayList<UsuarioBean> deleteUsuario(@PathVariable String login){
+		usuariosService.deleteUsuario(login);
+		return usuariosService.listUsuarios();
 	}
 	
 }

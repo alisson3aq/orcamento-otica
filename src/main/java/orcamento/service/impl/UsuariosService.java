@@ -1,6 +1,7 @@
 package orcamento.service.impl;
 
 import orcamento.bean.UsuarioBean;
+import orcamento.dao.UsuariosDAO;
 import orcamento.service.IUsuariosService;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -13,25 +14,10 @@ public class UsuariosService implements IUsuariosService {
 
     @Override
     public ArrayList<UsuarioBean> listUsuarios() {
-        ArrayList<UsuarioBean> usuarioBeans = new ArrayList<UsuarioBean>();
 
-        UsuarioBean usuarioBean = new UsuarioBean();
-        usuarioBean.setLogin("matheusct");
-        usuarioBean.setNome("Matheus Cavalcante Teixeira");
+        UsuariosDAO usuariosDAO = new UsuariosDAO();
 
-        UsuarioBean usuarioBean1 = new UsuarioBean();
-        usuarioBean1.setLogin("mgustavo");
-        usuarioBean1.setNome("Matheus Gustavo Pereira de Oliveira");
-
-        UsuarioBean usuarioBean2 = new UsuarioBean();
-        usuarioBean2.setLogin("pedroh");
-        usuarioBean2.setNome("Pedro Henrique Almeida");
-
-        usuarioBeans.add(usuarioBean);
-        usuarioBeans.add(usuarioBean1);
-        usuarioBeans.add(usuarioBean2);
-
-        return usuarioBeans;
+        return usuariosDAO.listUsuarios();
     }
 
     @Override
@@ -47,6 +33,8 @@ public class UsuariosService implements IUsuariosService {
 
     @Override
     public Boolean createUsuario(UsuarioBean usuarioBean) {
+        UsuariosDAO usuariosDAO = new UsuariosDAO();
+        usuariosDAO.createUsuario(usuarioBean);
         return true;
     }
 

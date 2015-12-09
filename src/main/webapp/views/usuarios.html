@@ -13,16 +13,16 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="textinput">nome</label>
+            <label class="col-md-4 control-label" for="nomeinput">nome</label>
             <div class="col-md-5">
-                <input id="textinput" name="textinput" type="text" placeholder="Alexandre Moratto" class="form-control input-md">
+                <input ng-model="usuario.nome" id="nomeinput" name="textinput" type="text" placeholder="Alexandre Moratto" class="form-control input-md">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="textinput">login</label>
+            <label class="col-md-4 control-label" for="logininput">login</label>
             <div class="col-md-5">
-                <input id="textinput" name="textinput" type="text" placeholder="alexmoratto" class="form-control input-md">
+                <input ng-model="usuario.login" id="logininput" name="textinput" type="text" placeholder="alexmoratto" class="form-control input-md">
             </div>
         </div>
 
@@ -30,7 +30,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="passwordinput">senha</label>
             <div class="col-md-5">
-                <input id="passwordinput" name="passwordinput" type="password" placeholder="*******" class="form-control input-md">
+                <input ng-model="usuario.senha" id="passwordinput" name="passwordinput" type="password" placeholder="*******" class="form-control input-md">
             </div>
         </div>
 
@@ -38,7 +38,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div class="col-md-4">
-                <button data-toggle="modal" data-target="#modalAsk" id="singlebutton" name="singlebutton" class="btn btn-primary">
+                <button ng-click="create();" id="singlebutton" name="singlebutton" class="btn btn-primary">
                     <i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar
                 </button>
 
@@ -65,9 +65,10 @@
             <td>
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="button1id"></label>
+                    <label class="col-md-4 control-label" for="excluirid"></label>
                     <div class="col-md-8">
-                        <button data-toggle="modal" data-target="#modalAsk" id="button2id" name="button2id" class="btn btn-default">Excluir</button>
+                        <button ng-click="excluir(usuario.login);" id="excluirid" class="btn btn-danger">Excluir</button>
+                        <!-- data-toggle="modal" data-target="#modalAsk" -->
                     </div>
                 </div>
             </td>
