@@ -17,7 +17,7 @@
          <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/orcamento"/>-->
         <property name="javax.persistence.jdbc.user" value="admine8eKGLZ"/>
         <property name="javax.persistence.jdbc.password" value="NZlq5Npa4umb"/>
-        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://admine8eKGLZ:NZlq5Npa4umb@127.12.98.130:3306/"/>
+        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://admine8eKGLZ:NZlq5Npa4umb@127.12.98.130:3306/orcamento"/>
     </properties>
 </persistence-unit>
 </persistence>
