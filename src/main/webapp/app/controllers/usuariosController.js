@@ -27,7 +27,7 @@ mainApp
             };
             $http.post('api/v1/usuarios/', data)
             .success(function(data, status) {
-                $scope.message = data;
+                $scope.usuarios = data;
             })
             .error(function(data, status) {
                 alert( "failure message: " + JSON.stringify({data: data}));

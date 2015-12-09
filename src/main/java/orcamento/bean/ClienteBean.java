@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 /**
  * Created by mgustavo on 03/12/15.
  */
-@Entity
 public class ClienteBean {
 
     private String nome;

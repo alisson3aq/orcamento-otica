@@ -1,10 +1,15 @@
 package orcamento.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Created by mgustavo on 03/12/15.
  */
+@Entity
 public class UsuarioBean {
 
+    @Id
     private String nome;
     private String login;
     private String senha;
