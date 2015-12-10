@@ -44,7 +44,9 @@ public class UsuariosService implements IUsuariosService {
     }
 
     @Override
-    public Boolean deleteUsuario(String chavePrimaria) {
+    public Boolean deleteUsuario(String login) {
+        UsuariosDAO usuariosDAO = new UsuariosDAO();
+        usuariosDAO.deleteUsuario(login);
         return true;
     }
 }

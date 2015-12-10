@@ -1,15 +1,24 @@
 <label class="radio-inline">
-    <input ng-init="op = 'cadastrar'" ng-model="op" type="radio" name="cadastrar" value="cadastrar">Cadastrar usuário
+    <input ng-init="op = 'cadastrar'" ng-click="showSuccessAlert = false;showErrorAlert = false;" ng-model="op" type="radio" name="cadastrar" value="cadastrar">Cadastrar usuário
 </label>
 <label class="radio-inline">
     <input ng-model="op" type="radio" name="listar" value="listar">Listar usuários
 </label>
 
 <div ng-if="op == 'cadastrar'" class="form-horizontal">
+
     <fieldset>
 
         <!-- Form Name -->
         <legend></legend>
+
+        <div ng-if="showSuccessAlert" class="alert alert-success" role="alert">
+            <strong>Sucesso!</strong> Usuário cadastrado.
+        </div>
+
+        <div ng-if="showErrorAlert"  class="alert alert-danger" role="alert">
+            <strong>Erro!</strong> Todos os campos devem ser preenchidos, o campo login não pode ser repetido.
+        </div>
 
         <!-- Text input-->
         <div class="form-group">
@@ -68,7 +77,6 @@
                     <label class="col-md-4 control-label" for="excluirid"></label>
                     <div class="col-md-8">
                         <button ng-click="excluir(usuario.login);" id="excluirid" class="btn btn-danger">Excluir</button>
-                        <!-- data-toggle="modal" data-target="#modalAsk" -->
                     </div>
                 </div>
             </td>

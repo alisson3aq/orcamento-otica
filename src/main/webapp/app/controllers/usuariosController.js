@@ -2,6 +2,8 @@ mainApp
     .controller('usuariosController', function ($scope,$http) {
 
         $scope.usuario = {};
+        $scope.showSuccessAlert = false;
+        $scope.showErrorAlert = false;
 
         $scope.listarUsuarios = function(){
             $http.get("api/v1/usuarios")
@@ -28,9 +30,14 @@ mainApp
             $http.post('api/v1/usuarios/', data)
             .success(function(data, status) {
                 $scope.usuarios = data;
+                $scope.usuario = {};
+                $scope.showSuccessAlert = true;
+                $scope.showErrorAlert = false;
             })
             .error(function(data, status) {
-                alert( "failure message: " + JSON.stringify({data: data}));
+               $scope.showErrorAlert = true;
+               $scope.showSuccessAlert = false;
+               $scope.usuario = {};
             });
         }
 

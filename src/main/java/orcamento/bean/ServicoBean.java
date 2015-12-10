@@ -1,16 +1,23 @@
 package orcamento.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
 /**
  * Created by mgustavo on 03/12/15.
  */
+@Entity
 public class ServicoBean {
-
+    @Id
+    @Column(unique = true,nullable = false)
     private String codigo;
+    @Column(nullable = false)
     private String descricao;
     private String unidade;
     private String Fornecedor;
+    @Column(nullable = false,precision = 2)
     private BigDecimal valorUnitario;
 
     public String getCodigo() {

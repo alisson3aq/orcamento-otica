@@ -1,5 +1,6 @@
 package orcamento.bean;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -10,8 +11,11 @@ import javax.persistence.Id;
 public class UsuarioBean {
 
     @Id
-    private String nome;
+    @Column(unique = true,nullable = false)
     private String login;
+    @Column(nullable = false)
+    private String nome;
+    @Column(nullable = false)
     private String senha;
 
     public String getSenha() {

@@ -1,25 +1,46 @@
 mainApp
 .controller('servicosController', function($scope,$http) {
 
-        $http.get("api/v1/servicos")
-            .then(function (response) {
-/*            [
-               {
-                  "codigo":"0521",
-                  "descricao":"Limpeza de lentes",
-                  "unidade":"par",
-                  "valorUnitario":113.900000000000005684341886080801486968994140625,
-                  "fornecedor":"In House"
-               },
-               {
-                  "codigo":"0522",
-                  "descricao":"Conserto de armação",
-                  "unidade":"un",
-                  "valorUnitario":123.5,
-                  "fornecedor":"In house"
-               }
-            ]*/
-                $scope.servicos = response.data;
-        });
+        $scope.servico = {};
+        $scope.showSuccessAlert = false;
+        $scope.showErrorAlert = false;
+
+        $scope.listarServicos = function(){
+            $http.get("api/v1/servicos")
+                .then(function (response) {
+                    $scope.servicos = response.data;
+            });
+        }
+
+         $scope.listarServicos();
+
+         $scope.excluir = function(codigo){
+             $http.delete('api/v1/servicos/' + codigo)
+                 .then(function (response) {
+                     $scope.servicos = response.data;
+             });
+         }
+
+         $scope.create = function(){
+             var data = {
+                 codigo : $scope.servico.codigo,
+                 descricao : $scope.servico.descricao,
+                 unidade : $scope.servico.unidade,
+                 valorUnitario : $scope.servico.valorUnitario,
+                 fornecedor : $scope.servico.fornecedor
+             };
+             $http.post('api/v1/servicos/', data)
+             .success(function(data, status) {
+                 $scope.servicos = data;
+                 $scope.servico = {};
+                 $scope.showSuccessAlert = true;
+                 $scope.showErrorAlert = false;
+             })
+             .error(function(data, status) {
+                $scope.showErrorAlert = true;
+                $scope.showSuccessAlert = false;
+                $scope.servico = {};
+             });
+         }
 
 })

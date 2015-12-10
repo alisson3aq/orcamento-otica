@@ -1,6 +1,6 @@
 package orcamento.dao;
 
-import orcamento.bean.UsuarioBean;
+import orcamento.bean.ServicoBean;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -11,37 +11,37 @@ import java.util.List;
 /**
  * Created by mgustavo on 09/12/15.
  */
-public class UsuariosDAO {
+public class ServicosDAO {
 
 
-    public void createUsuario(UsuarioBean usuarioBean){
+    public void createServico(ServicoBean servicoBean){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();
 
         manager.getTransaction().begin();
-        manager.persist(usuarioBean);
+        manager.persist(servicoBean);
         manager.getTransaction().commit();
 
         factory.close();
     }
 
-    public ArrayList<UsuarioBean> listUsuarios(){
+    public ArrayList<ServicoBean> listServicos(){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT u FROM UsuarioBean u" ) ;
-        List<UsuarioBean> listUsuario = query.getResultList();
+        Query query = manager.createQuery("SELECT s FROM ServicoBean s" ) ;
+        List<ServicoBean> listServico = query.getResultList();
 
         factory.close();
-        return (ArrayList) listUsuario;
+        return (ArrayList) listServico;
     }
 
-    public void deleteUsuario(String login){
+    public void deleteServico(String codigo){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();
 
         manager.getTransaction().begin();
-        manager.remove(manager.getReference(UsuarioBean.class, login));
+        manager.remove(manager.getReference(ServicoBean.class, codigo));
         manager.getTransaction().commit();
 
         factory.close();

@@ -1,6 +1,7 @@
 package orcamento.service.impl;
 
 import orcamento.bean.ServicoBean;
+import orcamento.dao.ServicosDAO;
 import orcamento.service.IServicosService;
 import org.springframework.stereotype.Service;
 
@@ -15,28 +16,8 @@ public class ServicoService implements IServicosService {
 
     @Override
     public ArrayList<ServicoBean> listServicos() {
-
-        ArrayList<ServicoBean> servicoBeans = new ArrayList<ServicoBean>();
-
-        ServicoBean servicoBean = new ServicoBean();
-        servicoBean.setCodigo("0521");
-        servicoBean.setDescricao("Limpeza de lentes");
-        servicoBean.setFornecedor("In House");
-        servicoBean.setUnidade("par");
-        servicoBean.setValorUnitario(new BigDecimal(113.90));
-
-        ServicoBean servicoBean1 = new ServicoBean();
-        servicoBean1.setCodigo("0522");
-        servicoBean1.setDescricao("Conserto de armação");
-        servicoBean1.setFornecedor("In house");
-        servicoBean1.setUnidade("un");
-        servicoBean1.setValorUnitario(new BigDecimal(123.5));
-
-        servicoBeans.add(servicoBean);
-        servicoBeans.add(servicoBean1);
-
-
-        return servicoBeans;
+        final ServicosDAO servicosDAO = new ServicosDAO();
+        return servicosDAO.listServicos();
     }
 
     @Override
@@ -53,6 +34,8 @@ public class ServicoService implements IServicosService {
 
     @Override
     public Boolean createServico(ServicoBean servicoBean) {
+        final ServicosDAO servicosDAO = new ServicosDAO();
+        servicosDAO.createServico(servicoBean);
         return true;
     }
 
@@ -62,7 +45,9 @@ public class ServicoService implements IServicosService {
     }
 
     @Override
-    public Boolean deleteServico(String chavePrimaria) {
+    public Boolean deleteServico(String codigo) {
+        final ServicosDAO servicosDAO = new ServicosDAO();
+        servicosDAO.deleteServico(codigo);
         return true;
     }
 }
