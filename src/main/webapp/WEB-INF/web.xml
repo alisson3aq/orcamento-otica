@@ -5,7 +5,18 @@
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 		 metadata-complete="false">
+	<!-- Servlet convencional -->
+	<servlet>
+		<servlet-name>reportServlet</servlet-name>
+		<servlet-class>orcamento.servlet.ReportServlet</servlet-class>
+	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>reportServlet</servlet-name>
+		<url-pattern>/reportServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- Rest -->
 	<servlet>
 		<servlet-name>rest</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

@@ -1,9 +1,9 @@
-    <label class="radio-inline">
-        <input ng-init="op = 'cadastrar'" ng-model="op" type="radio" name="cadastrar" value="cadastrar">Cadastrar produto
-    </label>
-    <label class="radio-inline">
-        <input ng-model="op" type="radio" name="listar" value="listar">Listar produto
-    </label>
+<label class="radio-inline">
+	<input ng-init="op = 'cadastrar'" ng-click="showSuccessAlert = false;showErrorAlert = false;" ng-model="op" type="radio" name="cadastrar" value="cadastrar">Cadastrar produto
+</label>
+<label class="radio-inline">
+	<input ng-model="op" type="radio" name="listar" value="listar">Listar produto
+</label>
 
 
 <div ng-if="op == 'cadastrar'" class="form-horizontal">
@@ -14,7 +14,7 @@
 <div class="form-group">
 	<label class="col-md-4 control-label" for="singlebutton"></label>
 	<div class="col-md-4">
-		<button data-toggle="modal" data-target="#modalAsk" id="singlebutton"
+		<button ng-click="create()" id="singlebutton"
 			name="singlebutton" class="btn btn-primary">
 			<i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar
 		</button>
@@ -42,12 +42,8 @@
 			<td>{{produto.unidade}}</td>
 			<td>{{produto.valorUnitario}}</td>
 			<td>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Detalhes</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Editar</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button2id"
-					name="button2id" class="btn btn-default">Excluir</button>
+				<button ng-click="excluir(produto.codigo)" id="button2id"
+					name="button2id" class="btn btn-danger">Excluir</button>
 			</td>
 		</tr>
 

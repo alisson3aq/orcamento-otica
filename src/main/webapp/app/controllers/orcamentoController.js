@@ -7,6 +7,6 @@ mainApp
     });
 
     $scope.exportToPDF = function(){
-        window.open("/reportServlet", "_blank");
+        window.open("reportServlet", "_blank");
     }
 })

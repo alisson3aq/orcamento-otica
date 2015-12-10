@@ -1,14 +1,18 @@
 package orcamento.bean;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Created by mgustavo on 03/12/15.
  */
+@Entity
 public class ClienteBean {
-
-    private String nome;
+    @Id
     private String cpf;
+    @Column(nullable = false)
+    private String nome;
     private String endereco;
     private String bairro;
     private String cidade;

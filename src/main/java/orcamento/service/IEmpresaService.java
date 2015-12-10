@@ -16,7 +16,7 @@ public interface IEmpresaService {
 
     Boolean createEmpresa(EmpresaBean empresaBean);
 
-    Boolean updateEmpresa(EmpresaBean empresaBean);
+    EmpresaBean updateEmpresa(EmpresaBean empresaBean);
 
     Boolean deleteEmpresa(String chavePrimaria);
 

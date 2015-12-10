@@ -1,14 +1,22 @@
 package orcamento.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Created by mgustavo on 03/12/15.
  */
+@Entity
 public class ProdutoBean {
 
+    @Id
     private String codigo;
+    @Column(nullable = false,unique = true)
     private String descricao;
     private String fabricante;
     private String unidade;
+    @Column(nullable = false,precision = 2)
     private Double valorUnitario;
 
     public String getCodigo() {

@@ -1,26 +1,30 @@
 package orcamento.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Created by mgustavo on 03/12/15.
  */
+@Entity
 public class EmpresaBean {
-    private String empresa;
+
+    @Id
     private String cnpj;
+    @Column(nullable = false,unique = true)
+    private String nome;
+    @Column(nullable = false)
     private String endereco;
     private String bairro;
+    @Column(nullable = false)
     private String cidade;
+    @Column(nullable = false)
     private String estado;
+    @Column(nullable = false)
     private String cep;
     private String telefone;
     private String email;
-
-    public String getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
-    }
 
     public String getCnpj() {
         return cnpj;
@@ -85,4 +89,13 @@ public class EmpresaBean {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
 }

@@ -13,7 +13,7 @@ public class ServicoBean {
     @Id
     @Column(unique = true,nullable = false)
     private String codigo;
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private String descricao;
     private String unidade;
     private String Fornecedor;

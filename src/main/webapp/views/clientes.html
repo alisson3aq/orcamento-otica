@@ -1,5 +1,5 @@
     <label class="radio-inline">
-        <input ng-init="op = 'cadastrar'" ng-model="op" type="radio" name="cadastrar" value="cadastrar">Cadastrar cliente
+        <input ng-init="op = 'cadastrar'" ng-click="showSuccessAlert = false;showErrorAlert = false;" ng-model="op" type="radio" name="cadastrar" value="cadastrar">Cadastrar cliente
     </label>
     <label class="radio-inline">
         <input ng-model="op" type="radio" name="listar" value="listar">Listar clientes
@@ -11,74 +11,82 @@
             <!-- Form Name -->
             <legend></legend>
 
+            <div ng-if="showSuccessAlert" class="alert alert-success" role="alert">
+                <strong>Sucesso!</strong> Cliente cadastrado.
+            </div>
+
+            <div ng-if="showErrorAlert"  class="alert alert-danger" role="alert">
+                <strong>Erro!</strong> Erro ao cadastrar o cliente.
+            </div>
+
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">nome</label>
+                <label class="col-md-4 control-label" for="nomeinput">nome</label>
                 <div class="col-md-5">
-                    <input id="textinput" name="textinput" type="text" placeholder="José Carlos Goncalves" class="form-control input-md">
+                    <input ng-model="cliente.nome" id="nomeinput" name="textinput" type="text" placeholder="José Carlos Goncalves" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">cpf</label>
+                <label class="col-md-4 control-label" for="cpfinput">cpf</label>
                 <div class="col-md-5">
-                    <input id="textinput" name="textinput" type="text" placeholder="36784909-06" class="form-control input-md">
+                    <input ng-model="cliente.cpf" id="cpfinput" name="textinput" type="text" placeholder="36784909-06" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">endereco</label>
+                <label class="col-md-4 control-label" for="enderecoinput">endereco</label>
                 <div class="col-md-5">
-                    <input id="textinput" name="textinput" type="text" placeholder="Rua Algusto Malagutti, 228" class="form-control input-md">
+                    <input ng-model="cliente.endereco" id="enderecoinput" name="textinput" type="text" placeholder="Rua Algusto Malagutti, 228" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">bairro</label>
+                <label class="col-md-4 control-label" for="bairroinput">bairro</label>
                 <div class="col-md-5">
-                    <input id="textinput" name="textinput" type="text" placeholder="Jardim Miriam" class="form-control input-md">
+                    <input ng-model="cliente.bairro" id="bairroinput" name="textinput" type="text" placeholder="Jardim Miriam" class="form-control input-md">
                 </div>
             </div>
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">cidade</label>
+                <label class="col-md-4 control-label" for="cidadeinput">cidade</label>
                 <div class="col-md-5">
-                    <input id="textinput" name="textinput" type="text" placeholder="Sorocaba" class="form-control input-md">
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">estado</label>
-                <div class="col-md-5">
-                    <input id="textinput" name="textinput" type="text" placeholder="SP" class="form-control input-md">
+                    <input ng-model="cliente.cidade" id="cidadeinput" name="textinput" type="text" placeholder="Sorocaba" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">cep</label>
+                <label class="col-md-4 control-label" for="estadoinput">estado</label>
                 <div class="col-md-5">
-                    <input id="textinput" name="textinput" type="text" placeholder="147367-890" class="form-control input-md">
+                    <input ng-model="cliente.estado" id="estadoinput" name="textinput" type="text" placeholder="SP" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">telefone</label>
+                <label class="col-md-4 control-label" for="cepinput">cep</label>
                 <div class="col-md-5">
-                    <input id="textinput" name="textinput" type="text" placeholder="(21)32764563" class="form-control input-md">
+                    <input ng-model="cliente.cep" id="cepinput" name="textinput" type="text" placeholder="147367-890" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">e-mail</label>
+                <label class="col-md-4 control-label" for="telefoneinput">telefone</label>
                 <div class="col-md-5">
-                    <input id="textinput" name="textinput" type="text" placeholder="jose@gmail.com" class="form-control input-md">
+                    <input ng-model="cliente.telefone" id="telefoneinput" name="textinput" type="text" placeholder="(21)32764563" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="emailinput">e-mail</label>
+                <div class="col-md-5">
+                    <input ng-model="cliente.email" id="emailinput" name="textinput" type="text" placeholder="jose@gmail.com" class="form-control input-md">
                 </div>
             </div>
 
@@ -88,7 +96,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="singlebutton"></label>
                 <div class="col-md-4">
-                    <button data-toggle="modal" data-target="#modalAsk" id="singlebutton" name="singlebutton" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar</button>
+                    <button ng-click="create()" id="singlebutton" name="singlebutton" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar</button>
                 </div>
             </div>
 
@@ -125,9 +133,7 @@
                 <td>{{cliente.telefone}}</td>
                 <td>{{cliente.email}}</td>
                 <td>
-                    <button data-toggle="modal" data-target="#modalAsk" id="button1id" name="button1id" class="btn btn-default">Detalhes</button>
-                    <button data-toggle="modal" data-target="#modalAsk" id="button1id" name="button1id" class="btn btn-default">Editar</button>
-                    <button data-toggle="modal" data-target="#modalAsk" id="button2id" name="button2id" class="btn btn-default">Excluir</button>
+                    <button ng-click="excluir(cliente.cpf)" id="button2id" name="button2id" class="btn btn-danger">Excluir</button>
                 </td>
             </tr>
         </tbody>

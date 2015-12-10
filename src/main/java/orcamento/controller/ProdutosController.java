@@ -4,11 +4,7 @@ import orcamento.bean.ProdutoBean;
 import orcamento.service.impl.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @Controller
@@ -27,8 +23,16 @@ public class ProdutosController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
-	public Boolean postProduto(@RequestBody ProdutoBean produtoBean){
-		return produtoService.createProduto(produtoBean);
+	public ArrayList<ProdutoBean> postProduto(@RequestBody ProdutoBean produtoBean){
+		produtoService.createProduto(produtoBean);
+		return produtoService.listProdutos();
 	}
-	
+
+	@RequestMapping(value = " /{codigo}",method = RequestMethod.DELETE)
+	@ResponseBody
+	public ArrayList<ProdutoBean> deleteUsuario(@PathVariable String codigo){
+		produtoService.deleteProduto(codigo);
+		return produtoService.listProdutos();
+	}
+
 }

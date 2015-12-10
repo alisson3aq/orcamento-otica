@@ -1,10 +1,9 @@
 package orcamento.service.impl;
 
 import orcamento.bean.ProdutoBean;
+import orcamento.dao.ProdutosDAO;
 import orcamento.service.IProdutosService;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
@@ -15,27 +14,8 @@ public class ProdutoService implements IProdutosService {
 
     @Override
     public ArrayList<ProdutoBean> listProdutos() {
-
-        ArrayList<ProdutoBean> produtoBeans = new ArrayList<ProdutoBean>();
-
-        ProdutoBean produtoBean = new ProdutoBean();
-        produtoBean.setDescricao("Lente de contatos");
-        produtoBean.setCodigo("0465");
-        produtoBean.setFabricante("Mormai");
-        produtoBean.setUnidade("un");
-        produtoBean.setValorUnitario(19.99);
-
-        ProdutoBean produtoBean1 = new ProdutoBean();
-        produtoBean1.setDescricao("Oculos de sol");
-        produtoBean1.setCodigo("0466");
-        produtoBean1.setFabricante("Mormai");
-        produtoBean1.setUnidade("un");
-        produtoBean1.setValorUnitario(199.99);
-
-        produtoBeans.add(produtoBean1);
-        produtoBeans.add(produtoBean);
-
-        return produtoBeans;
+        ProdutosDAO produtosDAO = new ProdutosDAO();
+        return produtosDAO.listProdutos();
     }
 
     @Override
@@ -51,6 +31,8 @@ public class ProdutoService implements IProdutosService {
 
     @Override
     public Boolean createProduto(ProdutoBean produtoBean) {
+        ProdutosDAO produtosDAO = new ProdutosDAO();
+        produtosDAO.createProduto(produtoBean);
         return true;
     }
 
@@ -60,7 +42,9 @@ public class ProdutoService implements IProdutosService {
     }
 
     @Override
-    public Boolean deleteProduto(String chavePrimaria) {
+    public Boolean deleteProduto(String codigo) {
+        ProdutosDAO produtosDAO = new ProdutosDAO();
+        produtosDAO.deleteProduto(codigo);
         return true;
     }
 }

@@ -1,18 +1,68 @@
 mainApp
 .controller('empresaController', function($scope,$http) {
-        $http.get("api/v1/empresas")
-            .then(function (response) {
-                /*{
-                   "empresa":"Ótica ver bem - ltda",
-                   "cnpj":"145826-856",
-                   "endereco":"Rua dos alecrins 258",
-                   "bairro":"Nova Veneza",
-                   "cidade":"São Paulo",
-                   "estado":"Paraná",
-                   "cep":"130452-854",
-                   "telefone":"(21) 32568-9856",
-                   "email":"contato@empresa.com.br"
-                }*/
-                $scope.empresas = response.data;
-        });
+        $scope.showSuccessAlert = false;
+        $scope.showErrorAlert = false;
+
+        $scope.getEmpresa = function(){
+           $http.get("api/v1/empresas/mockId")//TODO:retorna sempre a mesma empresa com CNPJ teste123
+               .then(function (response) {
+                   $scope.empresa = response.data;
+           });
+        }
+
+        $scope.getEmpresa();
+
+        $scope.excluir = function(codigo){
+            $http.delete('api/v1/empresas/' + codigo)
+                .then(function (response) {
+
+            });
+        }
+
+        $scope.editar = function(){
+            var data = {
+                nome : $scope.empresa.nome,
+                cnpj : $scope.empresa.cnpj,
+                endereco : $scope.empresa.endereco,
+                bairro : $scope.empresa.bairro,
+                cidade : $scope.empresa.cidade,
+                estado : $scope.empresa.estado,
+                cep : $scope.empresa.cep,
+                telefone : $scope.empresa.telefone,
+                email : $scope.empresa.email
+            };
+            $http.put('api/v1/empresas/', data)
+            .success(function(data, status) {
+                $scope.showSuccessAlert = true;
+                $scope.showErrorAlert = false;
+            })
+            .error(function(data, status) {
+               $scope.showErrorAlert = true;
+               $scope.showSuccessAlert = false;
+            });
+        }
+
+
+        $scope.create = function(){
+            var data = {
+                nome : $scope.empresa.nome,
+                cnpj : $scope.empresa.cnpj,
+                endereco : $scope.empresa.endereco,
+                bairro : $scope.empresa.bairro,
+                cidade : $scope.empresa.cidade,
+                estado : $scope.empresa.estado,
+                cep : $scope.empresa.cep,
+                telefone : $scope.empresa.telefone,
+                email : $scope.empresa.email
+            };
+            $http.post('api/v1/empresas/', data)
+            .success(function(data, status) {
+                $scope.showSuccessAlert = true;
+                $scope.showErrorAlert = false;
+            })
+            .error(function(data, status) {
+               $scope.showErrorAlert = true;
+               $scope.showSuccessAlert = false;
+            });
+        }
 })

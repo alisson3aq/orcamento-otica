@@ -1,23 +1,44 @@
 mainApp
 .controller('produtosController', function($scope,$http) {
-        $http.get("api/v1/produtos")
-            .then(function (response) {
-/*            [
-               {
-                  "codigo":"0466",
-                  "descricao":"Oculos de sol",
-                  "fabricante":"Mormai",
-                  "unidade":"un",
-                  "valorUnitario":199.99
-               },
-               {
-                  "codigo":"0465",
-                  "descricao":"Lente de contatos",
-                  "fabricante":"Mormai",
-                  "unidade":"un",
-                  "valorUnitario":19.99
+               $scope.produto = {};
+               $scope.showSuccessAlert = false;
+               $scope.showErrorAlert = false;
+
+               $scope.listarProdutos = function(){
+                   $http.get("api/v1/produtos")
+                       .then(function (response) {
+                           $scope.produtos = response.data;
+                   });
                }
-            ]*/
-                $scope.produtos = response.data;
-        });
+
+                $scope.listarProdutos();
+
+                $scope.excluir = function(codigo){
+                    $http.delete('api/v1/produtos/' + codigo)
+                        .then(function (response) {
+                            $scope.produtos = response.data;
+                    });
+                }
+
+                $scope.create = function(){
+                    var data = {
+                        codigo : $scope.produto.codigo,
+                        descricao : $scope.produto.descricao,
+                        unidade : $scope.produto.unidade,
+                        valorUnitario : $scope.produto.valorUnitario,
+                        fabricante : $scope.produto.fabricante
+                    };
+                    $http.post('api/v1/produtos/', data)
+                    .success(function(data, status) {
+                        $scope.produtos = data;
+                        $scope.produto = {};
+                        $scope.showSuccessAlert = true;
+                        $scope.showErrorAlert = false;
+                    })
+                    .error(function(data, status) {
+                       $scope.showErrorAlert = true;
+                       $scope.showSuccessAlert = false;
+                       $scope.produto = {};
+                    });
+                }
 })
