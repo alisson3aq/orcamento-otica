@@ -19,13 +19,14 @@ mainApp
     $scope.item.valorUnitario = 19.90;
     $scope.items.push($scope.item);
 
-    $scope.plus = function(){
-        $scope.items[0].quantidade = $scope.items[0].quantidade + 1;
+    $scope.plus = function(index){
+        $scope.items[index].quantidade = $scope.items[index].quantidade + 1;
     }
 
-    $scope.minus = function(){
-        $scope.items[0].quantidade = $scope.items[0].quantidade - 1;
+    $scope.minus = function(index){
+        $scope.items[index].quantidade = $scope.items[index].quantidade - 1;
     }
+
 
 //referente ao modal de produtos
     $scope.produtos = [];
@@ -38,7 +39,14 @@ mainApp
     $scope.listarProdutos();
 
     $scope.addProduto = function(){
-
+       $scope.item1 = {};
+       $scope.item1.codigo = "093841";
+       $scope.item1.descricao = "Lente de contatos";
+       $scope.item1.quantidade = 2;
+       $scope.item1.unidade = "un";
+       $scope.item1.valorUnitario = 19.90;
+       $scope.items.push($scope.item1);
+       $('#produtoCadastroModal').modal('hide');
     }
 
 //referente ao modal

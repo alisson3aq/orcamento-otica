@@ -8,6 +8,27 @@
 <div ng-if="op == 'cadastrar'" class="form-horizontal">
 
 
+	<fieldset>
+		<!-- Form Name -->
+		<legend></legend>
+
+		<!-- Button -->
+		<div class="form-group col-md-12">
+			<button ng-click="openModalProduto()"
+					id="buttonaddproduto" name="singlebutton" class="btn btn-primary">
+				<i class="glyphicon glyphicon-plus"></i>&nbsp;Adicionar produto
+			</button>
+			<button id="buttonaddservico" name="singlebutton" class="btn btn-primary">
+				<i class="glyphicon glyphicon-plus"></i>&nbsp;Adicionar servico
+			</button>
+			<button data-toggle="modal" data-target="#orcamentoFecharModal" id="singlebutton"
+					name="singlebutton" class="btn btn-success">
+				<i class="glyphicon glyphicon-ok"></i>&nbsp;Fechar orcamento
+			</button>
+		</div>
+	</fieldset>
+
+
 	<div class="table-responsive">
 		<legend></legend>
 		<table ng-if="items.length > 0" class="table table-hover table-striped">
@@ -31,10 +52,10 @@
 					<td>{{item.valorUnitario | currency:"R$ "}}</td>
 					<td>{{(item.valorUnitario * item.quantidade) | currency:"R$ "}}</td>
 					<td>
-						<button ng-click="plus()" id="buttonplus" name="button2id" class="btn btn-default">
+						<button ng-click="plus($index)" id="buttonplus" name="button2id" class="btn btn-default">
 							<i class="glyphicon glyphicon-plus"></i>
 						</button>
-						<button ng-click="minus()" id="buttonminus"
+						<button ng-click="minus($index)" id="buttonminus"
 							name="button2id" class="btn btn-default">
 							<i class="glyphicon glyphicon-minus"></i>
 						</button>
@@ -45,28 +66,6 @@
 		</table>
 	</div>
 
-
-
-	<fieldset>
-		<!-- Form Name -->
-		<legend></legend>
-
-		<!-- Button -->
-		<div class="form-group col-md-12">
-			<button data-toggle="modal" data-target="#produtoCadastroModal"
-				id="singlebutton" name="singlebutton" class="btn btn-primary">
-				<i class="glyphicon glyphicon-plus"></i>&nbsp;Adicionar produto
-			</button>
-			<button data-toggle="modal" data-target="#servicoCadastroModal"
-				id="singlebutton" name="singlebutton" class="btn btn-primary">
-				<i class="glyphicon glyphicon-plus"></i>&nbsp;Adicionar servico
-			</button>
-			<button data-toggle="modal" data-target="#orcamentoFecharModal" id="singlebutton"
-				name="singlebutton" class="btn btn-success">
-				<i class="glyphicon glyphicon-ok"></i>&nbsp;Fechar orcamento
-			</button>
-		</div>
-	</fieldset>
 </div>
 
 

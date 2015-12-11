@@ -1,6 +1,6 @@
 
 <!-- Modal -->
-<div ng-controller="orcamentoController" class="modal fade" id="produtoCadastroModal" role="dialog">
+<div class="modal fade" id="produtoCadastroModal" role="dialog">
 	<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -14,9 +14,10 @@
 			</div>
 			<div class="modal-body">
 				<div ng-hide="unregistered_item" class="form-group">
-					<label for="sel1">Lista de produtos:</label> <select
-						class="form-control" id="sel1">
-						<option ng-repeat="produto in produtos">
+					<label for="sel1">Lista de produtos:</label>
+					<select ng-model="selectProduto" class="form-control" id="sel1">
+						<option value="">---Selecione o produto---</option>
+						<option ng-repeat="produto in produtos" value="{{produto}}">
 							{{produto.codigo + ' - ' + produto.descricao}}
 						</option>
 					</select>
@@ -36,7 +37,7 @@
 
 				</div>
 				<div class="modal-footer">
-					<button ng-click="addProduto()" data-dismiss="modal" id="singlebutton" name="singlebutton"
+					<button ng-click="addProduto()" id="singlebutton" name="singlebutton"
 						class="btn btn-primary">
 						<i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar
 					</button>
