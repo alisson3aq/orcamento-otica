@@ -63,7 +63,18 @@ mainApp
     $scope.listarServicos();
 
     $scope.addServico = function(){
-        $scope.select.servico.quantidade = 1;
-        $scope.items.push(JSON.parse($scope.select.servico));
+        if(angular.isUndefined($scope.select.servico) || $scope.select.servico == ""){
+            return;
+        }
+        var servico = JSON.parse($scope.select.servico);
+        //Se o item já está no orçamento, então incrementa a quantidade.
+        for(var i in $scope.items){
+            if($scope.items[i].codigo === servico.codigo){
+                $scope.items[i].quantidade = $scope.items[i].quantidade + 1;
+                return;
+            }
+        }
+        servico.quantidade = 1;
+        $scope.items.push(servico);
     }
 })

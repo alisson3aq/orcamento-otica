@@ -12,25 +12,25 @@
 		<select ng-model="select.produto" class="form-control" id="sel1">
 			<option value="">Lista de produtos:</option>
 			<option ng-repeat="produto in produtos" value="{{produto}}">
-				{{produto.codigo + ' - ' + produto.descricao}}
+				{{produto.descricao}}&nbsp;({{produto.codigo}})
 			</option>
 		</select>
 		<button ng-click="addProduto()" id="buttonadd" name="buttonadd"
 				class="btn btn-primary">
-			<i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar
+			<i class="glyphicon glyphicon-plus"></i>
 		</button>
 	</div>
 
 	<div class="form-group form-inline">
 		<select ng-model="select.servico" class="form-control">
-			<option>Lista de servicos:</option>
+			<option value="">Lista de servicos:</option>
 			<option ng-repeat="servico in servicos" value="{{servico}}">
-				{{servico.codigo + ' - ' + servico.descricao}}
+				{{servico.descricao}}&nbsp;({{servico.codigo}})
 			</option>
 		</select>
 		<button ng-click="addServico()" id="singlebutton" name="singlebutton"
 				class="btn btn-primary">
-			<i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar
+			<i class="glyphicon glyphicon-plus"></i>
 		</button>
 	</div>
 
