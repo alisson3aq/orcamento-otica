@@ -1,6 +1,6 @@
 
 <!-- Modal -->
-<div class="modal fade" id="servicoCadastroModal" role="dialog">
+<div ng-controller="orcamentoController" class="modal fade" id="servicoCadastroModal" role="dialog">
 	<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -16,14 +16,14 @@
 				<div ng-hide="unregistered_item" class="form-group">
 					<label for="sel1">Lista de servicos:</label> <select
 						class="form-control" id="sel1">
-						<option>00231 - Limpeza de lentes</option>
-						<option>00234 - Conserto de armacão</option>
-						<option>00232 - Troca de lentes</option>
+					<option ng-repeat="servico in servicos">
+						{{servico.codigo + ' - ' + servico.descricao}}
+					</option>
 					</select>
 				</div>
 
 
-				<div class="form-horizontal form-group">
+<!--				<div class="form-horizontal form-group">
 					<label class="checkbox-inline"><input type="checkbox"
 						ng-model="unregistered_item" value="">O servico não está
 						na lista</label>
@@ -33,7 +33,7 @@
 							ng-model="register_item" value="">Cadastrar novo servico
 							ao final da transacão</label>
 						<div ng-include="'/views/servico_cadastro.html'"></div>
-					</div>
+					</div>-->
 
 				</div>
 				<div class="modal-footer">

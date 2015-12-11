@@ -10,7 +10,7 @@
 
 	<div class="table-responsive">
 		<legend></legend>
-		<table class="table table-hover table-striped">
+		<table ng-if="items.length > 0" class="table table-hover table-striped">
 			<thead>
 				<tr>
 					<th>Código</th>
@@ -22,24 +22,21 @@
 					<th></th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody ng-repeat="item in items">
 				<tr>
-					<td>Lente de contato - Azul</td>
-					<td>02</td>
-					<td>un</td>
-					<td>150,00</td>
-					<td>300,00</td>
+					<td>{{item.codigo}}</td>
+					<td>{{item.descricao}}</td>
+					<td>{{item.quantidade}}</td>
+					<td>{{item.unidade}}</td>
+					<td>{{item.valorUnitario | currency:"R$ "}}</td>
+					<td>{{(item.valorUnitario * item.quantidade) | currency:"R$ "}}</td>
 					<td>
-						<button id="button2id" name="button2id" class="btn btn-default">
+						<button ng-click="plus()" id="buttonplus" name="button2id" class="btn btn-default">
 							<i class="glyphicon glyphicon-plus"></i>
 						</button>
-						<button id="button2id"
+						<button ng-click="minus()" id="buttonminus"
 							name="button2id" class="btn btn-default">
 							<i class="glyphicon glyphicon-minus"></i>
-						</button>
-						<button data-toggle="modal" data-target="#modalAsk" id="button2id"
-							name="button2id" class="btn btn-default">
-							<i class="glyphicon glyphicon-remove"></i>
 						</button>
 					</td>
 				</tr>
