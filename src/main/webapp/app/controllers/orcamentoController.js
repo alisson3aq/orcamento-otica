@@ -11,13 +11,14 @@ mainApp
     }
 
     $scope.items = [];
-    $scope.item = {};
+    $scope.select = {};
+/*    $scope.item = {};
     $scope.item.codigo = "093841";
     $scope.item.descricao = "Lente de contatos";
     $scope.item.quantidade = 2;
     $scope.item.unidade = "un";
     $scope.item.valorUnitario = 19.90;
-    $scope.items.push($scope.item);
+    $scope.items.push($scope.item);*/
 
     $scope.plus = function(index){
         $scope.items[index].quantidade = $scope.items[index].quantidade + 1;
@@ -28,7 +29,6 @@ mainApp
     }
 
 
-//referente ao modal de produtos
     $scope.produtos = [];
     $scope.listarProdutos = function(){
        $http.get("api/v1/produtos")
@@ -39,17 +39,21 @@ mainApp
     $scope.listarProdutos();
 
     $scope.addProduto = function(){
-       $scope.item1 = {};
-       $scope.item1.codigo = "093841";
-       $scope.item1.descricao = "Lente de contatos";
-       $scope.item1.quantidade = 2;
-       $scope.item1.unidade = "un";
-       $scope.item1.valorUnitario = 19.90;
-       $scope.items.push($scope.item1);
-       $('#produtoCadastroModal').modal('hide');
+        if(angular.isUndefined($scope.select.produto) || $scope.select.produto == ""){
+            return;
+        }
+        var produto = JSON.parse($scope.select.produto);
+        //Se o item já está no orçamento, então incrementa a quantidade.
+        for(var i in $scope.items){
+            if($scope.items[i].codigo === produto.codigo){
+                $scope.items[i].quantidade = $scope.items[i].quantidade + 1;
+                return;
+            }
+        }
+        produto.quantidade = 1;
+        $scope.items.push(produto);
     }
 
-//referente ao modal
     $scope.listarServicos = function(){
         $http.get("api/v1/servicos")
             .then(function (response) {
@@ -58,4 +62,8 @@ mainApp
     }
     $scope.listarServicos();
 
+    $scope.addServico = function(){
+        $scope.select.servico.quantidade = 1;
+        $scope.items.push(JSON.parse($scope.select.servico));
+    }
 })

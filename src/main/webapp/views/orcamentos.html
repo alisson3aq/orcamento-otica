@@ -7,27 +7,32 @@
 
 <div ng-if="op == 'cadastrar'" class="form-horizontal">
 
+	<legend></legend>
+	<div class="form-group form-inline">
+		<select ng-model="select.produto" class="form-control" id="sel1">
+			<option value="">Lista de produtos:</option>
+			<option ng-repeat="produto in produtos" value="{{produto}}">
+				{{produto.codigo + ' - ' + produto.descricao}}
+			</option>
+		</select>
+		<button ng-click="addProduto()" id="buttonadd" name="buttonadd"
+				class="btn btn-primary">
+			<i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar
+		</button>
+	</div>
 
-	<fieldset>
-		<!-- Form Name -->
-		<legend></legend>
-
-		<!-- Button -->
-		<div class="form-group col-md-12">
-			<button ng-click="openModalProduto()"
-					id="buttonaddproduto" name="singlebutton" class="btn btn-primary">
-				<i class="glyphicon glyphicon-plus"></i>&nbsp;Adicionar produto
-			</button>
-			<button id="buttonaddservico" name="singlebutton" class="btn btn-primary">
-				<i class="glyphicon glyphicon-plus"></i>&nbsp;Adicionar servico
-			</button>
-			<button data-toggle="modal" data-target="#orcamentoFecharModal" id="singlebutton"
-					name="singlebutton" class="btn btn-success">
-				<i class="glyphicon glyphicon-ok"></i>&nbsp;Fechar orcamento
-			</button>
-		</div>
-	</fieldset>
-
+	<div class="form-group form-inline">
+		<select ng-model="select.servico" class="form-control">
+			<option>Lista de servicos:</option>
+			<option ng-repeat="servico in servicos" value="{{servico}}">
+				{{servico.codigo + ' - ' + servico.descricao}}
+			</option>
+		</select>
+		<button ng-click="addServico()" id="singlebutton" name="singlebutton"
+				class="btn btn-primary">
+			<i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar
+		</button>
+	</div>
 
 	<div class="table-responsive">
 		<legend></legend>
@@ -65,6 +70,26 @@
 			</tbody>
 		</table>
 	</div>
+
+	<fieldset>
+		<!-- Form Name -->
+		<legend></legend>
+
+		<!-- Button -->
+		<div class="form-group col-md-12">
+<!--			<button ng-click="openModalProduto()"
+					id="buttonaddproduto" name="singlebutton" class="btn btn-primary">
+				<i class="glyphicon glyphicon-plus"></i>&nbsp;Adicionar produto
+			</button>
+			<button id="buttonaddservico" name="singlebutton" class="btn btn-primary">
+				<i class="glyphicon glyphicon-plus"></i>&nbsp;Adicionar servico
+			</button>-->
+			<button data-toggle="modal" data-target="#orcamentoFecharModal" id="singlebutton"
+					name="singlebutton" class="btn btn-success">
+				<i class="glyphicon glyphicon-ok"></i>&nbsp;Fechar orcamento
+			</button>
+		</div>
+	</fieldset>
 
 </div>
 
