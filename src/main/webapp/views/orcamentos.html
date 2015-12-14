@@ -9,10 +9,10 @@
 
 	<legend></legend>
 	<div class="form-inline form-group">
-		<select ng-model="select.produto" class="form-control" id="sel1">
+		<select ng-model="select.cliente" class="form-control" id="sel1">
 			<option value="">Selecione o cliente</option>
-			<option ng-repeat="produto in produtos" value="{{produto}}">
-				{{produto.descricao}}&nbsp;({{produto.codigo}})
+			<option ng-repeat="cliente in clientes" value="{{produto}}">
+				{{cliente.nome}}&nbsp;({{cliente.codigo}})
 			</option>
 		</select>
 	</div>

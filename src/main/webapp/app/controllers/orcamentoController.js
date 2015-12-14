@@ -28,6 +28,15 @@ mainApp
         $scope.items[index].quantidade = $scope.items[index].quantidade - 1;
     }
 
+    $scope.clientes = [];
+    $scope.listarClientes = function(){
+       $http.get("api/v1/clientes")
+           .then(function (response) {
+               $scope.clientes = response.data;
+       });
+    }
+    $scope.listarClientes();
+
 
     $scope.produtos = [];
     $scope.listarProdutos = function(){
