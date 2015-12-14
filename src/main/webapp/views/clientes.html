@@ -11,14 +11,6 @@
             <!-- Form Name -->
             <legend></legend>
 
-            <div ng-if="showSuccessAlert" class="alert alert-success" role="alert">
-                <strong>Sucesso!</strong> Cliente cadastrado.
-            </div>
-
-            <div ng-if="showErrorAlert"  class="alert alert-danger" role="alert">
-                <strong>Erro!</strong> Erro ao cadastrar o cliente.
-            </div>
-
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="nomeinput">nome</label>
@@ -98,6 +90,14 @@
                 <div class="col-md-4">
                     <button ng-click="create()" id="singlebutton" name="singlebutton" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar</button>
                 </div>
+            </div>
+
+            <div ng-if="showSuccessAlert" class="alert alert-success" role="alert">
+                <strong>Sucesso!</strong> Cliente cadastrado.
+            </div>
+
+            <div ng-if="showErrorAlert"  class="alert alert-danger" role="alert">
+                <strong>Erro!</strong> Erro ao cadastrar o cliente.
             </div>
 
         </fieldset>
