@@ -34,6 +34,14 @@
             </div>
         </div>
 
+        <div ng-if="showSuccessAlert" class="alert alert-success" role="alert">
+            <strong>Sucesso!</strong> Usuário cadastrado.
+        </div>
+
+        <div ng-if="showErrorAlert"  class="alert alert-danger" role="alert">
+            <strong>Erro!</strong> Todos os campos devem ser preenchidos, o campo login não pode ser repetido.
+        </div>
+
         <!-- Button -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
@@ -45,13 +53,7 @@
             </div>
         </div>
 
-        <div ng-if="showSuccessAlert" class="alert alert-success" role="alert">
-            <strong>Sucesso!</strong> Usuário cadastrado.
-        </div>
 
-        <div ng-if="showErrorAlert"  class="alert alert-danger" role="alert">
-            <strong>Erro!</strong> Todos os campos devem ser preenchidos, o campo login não pode ser repetido.
-        </div>
 
     </fieldset>
 
