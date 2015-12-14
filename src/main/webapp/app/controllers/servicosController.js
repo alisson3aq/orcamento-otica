@@ -39,7 +39,6 @@ mainApp
              .error(function(data, status) {
                 $scope.showErrorAlert = true;
                 $scope.showSuccessAlert = false;
-                $scope.servico = {};
              });
          }
 

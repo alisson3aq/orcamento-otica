@@ -8,7 +8,17 @@
 <div ng-if="op == 'cadastrar'" class="form-horizontal">
 
 	<legend></legend>
-	<div class="form-group form-inline">
+	<div class="form-inline form-group">
+		<select ng-model="select.produto" class="form-control" id="sel1">
+			<option value="">Selecione o cliente</option>
+			<option ng-repeat="produto in produtos" value="{{produto}}">
+				{{produto.descricao}}&nbsp;({{produto.codigo}})
+			</option>
+		</select>
+	</div>
+
+
+	<div class="form-inline form-group">
 		<select ng-model="select.produto" class="form-control" id="sel1">
 			<option value="">Lista de produtos:</option>
 			<option ng-repeat="produto in produtos" value="{{produto}}">
@@ -21,7 +31,7 @@
 		</button>
 	</div>
 
-	<div class="form-group form-inline">
+	<div class="form-inline form-group ">
 		<select ng-model="select.servico" class="form-control">
 			<option value="">Lista de servicos:</option>
 			<option ng-repeat="servico in servicos" value="{{servico}}">
