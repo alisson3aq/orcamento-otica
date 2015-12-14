@@ -12,7 +12,7 @@
 		<select ng-model="select.cliente" class="form-control" id="sel1">
 			<option value="">Selecione o cliente</option>
 			<option ng-repeat="cliente in clientes" value="{{produto}}">
-				{{cliente.nome}}&nbsp;({{cliente.cidade}})
+				{{cliente.nome}}&nbsp;-&nbsp;{{cliente.cidade}}
 			</option>
 		</select>
 	</div>
@@ -35,7 +35,7 @@
 		<select ng-model="select.servico" class="form-control">
 			<option value="">Lista de servicos:</option>
 			<option ng-repeat="servico in servicos" value="{{servico}}">
-				{{servico.descricao}}&nbsp;-&nbsp;{{servico.codigo}}
+				{{servico.descricao}}({{servico.codigo}})
 			</option>
 		</select>
 		<button ng-click="addServico()" id="singlebutton" name="singlebutton"

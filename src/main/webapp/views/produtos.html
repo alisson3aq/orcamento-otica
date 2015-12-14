@@ -50,7 +50,7 @@
 			<td>{{produto.descricao}}</td>
 			<td>{{produto.fabricante}}</td>
 			<td>{{produto.unidade}}</td>
-			<td>{{produto.valorUnitario}}</td>
+			<td>{{produto.valorUnitario  | currency:"R$ "}}</td>
 			<td>
 				<button ng-click="excluir(produto.codigo)" id="button2id"
 					name="button2id" class="btn btn-danger">Excluir</button>
