@@ -86,4 +86,43 @@ mainApp
         servico.quantidade = 1;
         $scope.items.push(servico);
     }
+
+    $scope.$watch('items', function() {
+       $scope.totalGeral = 0.00;
+       for(var i in $scope.items){
+               console.log("i: " + i);
+             $scope.totalGeral =  $scope.totalGeral + ($scope.items[i].valorUnitario * $scope.items[i].quantidade);
+       }
+        },function() {}
+    );
+    //Código para o Datepicker
+      $scope.today = function() {
+        $scope.dt = new Date();
+      };
+      $scope.today();
+
+      $scope.clear = function () {
+        $scope.dt = null;
+      };
+
+      $scope.toggleMin = function() {
+        $scope.minDate = $scope.minDate ? null : new Date();
+      };
+      $scope.toggleMin();
+      $scope.maxDate = new Date(2020, 5, 22);
+
+      $scope.open = function($event) {
+        $scope.status.opened = true;
+      };
+
+      $scope.setDate = function(year, month, day) {
+        $scope.dt = new Date(year, month, day);
+      };
+
+      $scope.status = {
+        opened: false
+      };
+
+    //Fim código Datapicker
+
 })
