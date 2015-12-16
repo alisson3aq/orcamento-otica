@@ -12,13 +12,6 @@ mainApp
 
     $scope.items = [];
     $scope.select = {};
-/*    $scope.item = {};
-    $scope.item.codigo = "093841";
-    $scope.item.descricao = "Lente de contatos";
-    $scope.item.quantidade = 2;
-    $scope.item.unidade = "un";
-    $scope.item.valorUnitario = 19.90;
-    $scope.items.push($scope.item);*/
 
     $scope.plus = function(index){
         $scope.items[index].quantidade = $scope.items[index].quantidade + 1;
@@ -26,6 +19,9 @@ mainApp
 
     $scope.minus = function(index){
         $scope.items[index].quantidade = $scope.items[index].quantidade - 1;
+        if($scope.items[index].quantidade == 0){
+            $scope.items.splice(index, 1);
+        }
     }
 
     $scope.clientes = [];
@@ -122,7 +118,6 @@ mainApp
       $scope.status = {
         opened: false
       };
-
     //Fim código Datapicker
 
 })
