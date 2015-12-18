@@ -58,6 +58,7 @@ mainApp
             };
             $http.post('api/v1/empresas/', data)
             .success(function(data, status) {
+                $scope.empresa = response.data;
                 $scope.showSuccessAlert = true;
                 $scope.showErrorAlert = false;
             })
