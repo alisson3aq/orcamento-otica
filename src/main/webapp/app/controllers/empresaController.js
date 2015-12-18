@@ -2,6 +2,7 @@ mainApp
 .controller('empresaController', function($scope,$http) {
         $scope.showSuccessAlert = false;
         $scope.showErrorAlert = false;
+        $scope.empresa = {};
 
         $scope.getEmpresa = function(){
            $http.get("api/v1/empresas/mockId")
