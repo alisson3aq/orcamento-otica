@@ -1,5 +1,84 @@
 <div class="form-horizontal">
 	<fieldset>
+		<!-- Text input-->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="empresainput">empresa</label>
+			<div class="col-md-5">
+				<input ng-click="showSuccessAlert = false; showErrorAlert = false;" ng-model="empresa.nome" id="empresainput" name="textinput" type="text"
+					   placeholder="Óticas Ver Bem - Inc" class="form-control input-md" value="{{empresa.nome}}">
+			</div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="cnpjinput">cnpj</label>
+			<div class="col-md-5">
+				<input ng-click="showSuccessAlert = false; showErrorAlert = false;" ng-model="empresa.cnpj" id="cnpjinput" name="textinput" type="text"
+					   placeholder="18.141.410/0001-18" value="{{empresa.cnpj}}" class="form-control input-md">
+			</div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="enderecoinput">endereco</label>
+			<div class="col-md-5">
+				<input ng-click="showSuccessAlert = false; showErrorAlert = false;" ng-model="empresa.endereco" id="enderecoinput" name="textinput" type="text"
+					   placeholder="Avenida Castelo Branco - sn" value="{{empresa.endereco}}" class="form-control input-md">
+			</div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="bairroinput">bairro</label>
+			<div class="col-md-5">
+				<input ng-click="showSuccessAlert = false; showErrorAlert = false;" ng-model="empresa.bairro" id="bairroinput" name="textinput" type="text"
+					   placeholder="Parque Imperador" value="{{empresa.bairro}}" class="form-control input-md">
+			</div>
+		</div>
+		<!-- Text input-->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="cidadeinput">cidade</label>
+			<div class="col-md-5">
+				<input ng-click="showSuccessAlert = false; showErrorAlert = false;" ng-model="empresa.cidade" id="cidadeinput" name="textinput" type="text"
+					   placeholder="Louveira" value="{{empresa.cidade}}" class="form-control input-md">
+			</div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="estadoinput">estado</label>
+			<div class="col-md-5">
+				<input ng-click="showSuccessAlert = false; showErrorAlert = false;" ng-model="empresa.estado" id="estadoinput" name="textinput" type="text"
+					   placeholder="PR" value="{{empresa.estado}}" class="form-control input-md">
+			</div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="cepinput">cep</label>
+			<div class="col-md-5">
+				<input ng-click="showSuccessAlert = false; showErrorAlert = false;" ng-model="empresa.cep" id="cepinput" name="textinput" type="text"
+					   placeholder="1352637-098" value="{{empresa.cep}}" class="form-control input-md">
+			</div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="telefoneinput">telefone</label>
+			<div class="col-md-5">
+				<input ng-click="showSuccessAlert = false; showErrorAlert = false;" ng-model="empresa.telefone" id="telefoneinput" name="textinput" type="text"
+					   placeholder="(27)448373676" value="{{empresa.telefone}}" class="form-control input-md">
+			</div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="emailinput">e-mail</label>
+			<div class="col-md-5">
+				<input ng-click="showSuccessAlert = false; showErrorAlert = false;" ng-model="empresa.email" id="emailinput" name="textinput" type="text"
+					   placeholder="ouvidoria@oticasverbem.com.br" value="{{empresa.email}}" class="form-control input-md">
+			</div>
+		</div>
 
 		<!-- Form Name -->
 		<legend></legend>
@@ -10,86 +89,6 @@
 
 		<div ng-if="showErrorAlert"  class="alert alert-danger" role="alert">
 			<strong>Erro!</strong> dados não editados.
-		</div>
-
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="empresainput">empresa</label>
-			<div class="col-md-5">
-				<input ng-model="empresa.nome" id="empresainput" name="textinput" type="text"
-					   placeholder="Óticas Ver Bem - Inc" class="form-control input-md" value="{{empresa.nome}}">
-			</div>
-		</div>
-
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="cnpjinput">cnpj</label>
-			<div class="col-md-5">
-				<input ng-model="empresa.cnpj" id="cnpjinput" name="textinput" type="text"
-					   placeholder="18.141.410/0001-18" value="{{empresa.cnpj}}" class="form-control input-md">
-			</div>
-		</div>
-
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="enderecoinput">endereco</label>
-			<div class="col-md-5">
-				<input ng-model="empresa.endereco" id="enderecoinput" name="textinput" type="text"
-					   placeholder="Avenida Castelo Branco - sn" value="{{empresa.endereco}}" class="form-control input-md">
-			</div>
-		</div>
-
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="bairroinput">bairro</label>
-			<div class="col-md-5">
-				<input ng-model="empresa.bairro" id="bairroinput" name="textinput" type="text"
-					   placeholder="Parque Imperador" value="{{empresa.bairro}}" class="form-control input-md">
-			</div>
-		</div>
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="cidadeinput">cidade</label>
-			<div class="col-md-5">
-				<input ng-model="empresa.cidade" id="cidadeinput" name="textinput" type="text"
-					   placeholder="Louveira" value="{{empresa.cidade}}" class="form-control input-md">
-			</div>
-		</div>
-
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="estadoinput">estado</label>
-			<div class="col-md-5">
-				<input ng-model="empresa.estado" id="estadoinput" name="textinput" type="text"
-					   placeholder="PR" value="{{empresa.estado}}" class="form-control input-md">
-			</div>
-		</div>
-
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="cepinput">cep</label>
-			<div class="col-md-5">
-				<input ng-model="empresa.cep" id="cepinput" name="textinput" type="text"
-					   placeholder="1352637-098" value="{{empresa.cep}}" class="form-control input-md">
-			</div>
-		</div>
-
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="telefoneinput">telefone</label>
-			<div class="col-md-5">
-				<input ng-model="empresa.telefone" id="telefoneinput" name="textinput" type="text"
-					   placeholder="(27)448373676" value="{{empresa.telefone}}" class="form-control input-md">
-			</div>
-		</div>
-
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="emailinput">e-mail</label>
-			<div class="col-md-5">
-				<input ng-model="empresa.email" id="emailinput" name="textinput" type="text"
-					   placeholder="ouvidoria@oticasverbem.com.br" value="{{empresa.email}}" class="form-control input-md">
-			</div>
 		</div>
 
 	</fieldset>

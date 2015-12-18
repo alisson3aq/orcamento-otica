@@ -49,7 +49,16 @@ public class EmpresasDAO {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();
 
-        EmpresaBean emp = manager.find(EmpresaBean.class,empresaBean.getCnpj());
+/*        Query query = manager.createQuery("SELECT p FROM EmpresaBean p" ) ;
+        List<EmpresaBean> listEmpresa = query.getResultList();*/
+
+        //Deleta tudo e grava novamente
+        manager.createQuery("delete from EmpresaBean").executeUpdate();
+        createEmpresa(empresaBean);
+        return empresaBean;
+
+
+/*        EmpresaBean emp = manager.find(EmpresaBean.class,empresaBean.getCnpj());
 
         if(emp != null) {
             manager.getTransaction().begin();
@@ -68,7 +77,7 @@ public class EmpresasDAO {
         }else {
             createEmpresa(empresaBean);
             return empresaBean;
-        }
+        }*/
     }
 
 }
