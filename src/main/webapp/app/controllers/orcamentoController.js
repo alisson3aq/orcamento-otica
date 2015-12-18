@@ -92,32 +92,23 @@ mainApp
         },function() {}
     );
     //Código para o Datepicker
-      $scope.today = function() {
-        $scope.dt = new Date();
-      };
-      $scope.today();
+    $scope.minDate = new Date();
+    $scope.maxDate = new Date(2020, 5, 22);
 
-      $scope.clear = function () {
-        $scope.dt = null;
-      };
+    $scope.status = {
+      opened: false
+    };
 
-      $scope.toggleMin = function() {
-        $scope.minDate = $scope.minDate ? null : new Date();
-      };
-      $scope.toggleMin();
-      $scope.maxDate = new Date(2020, 5, 22);
+    $scope.status_orc = {
+       opened: false
+    };
 
-      $scope.open = function($event) {
-        $scope.status.opened = true;
-      };
+    $scope.open = function($event) {
+      $scope.status.opened = true;
+    };
 
-      $scope.setDate = function(year, month, day) {
-        $scope.dt = new Date(year, month, day);
-      };
-
-      $scope.status = {
-        opened: false
-      };
+    $scope.open_orc_dt = function($event) {
+      $scope.status_orc.opened = true;
+    };
     //Fim código Datapicker
-
 })

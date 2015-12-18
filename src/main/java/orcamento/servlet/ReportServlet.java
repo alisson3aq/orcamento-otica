@@ -12,29 +12,26 @@ import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.JasperRunManager;
+import net.sf.jasperreports.engine.util.ClassUtils;
 import net.sf.jasperreports.engine.util.JRLoader;
 
 public class ReportServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	private final String jasper_path = "/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasper/orcamento.jasper";
+//	private final String jasper_path = "/home/mgustavo/dev/openshift-projects/orcamento/src/main/resources/jasper/orcamento.jasper";
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		//try {
 			Map paramMap = new HashMap();
-			/*	InputStream reportStream = ClassLoader.getSystemResourceAsStream("/home/mgustavocoder/dev/eclipse-workspace/orcamento/src/main/resources/jasper/orcamento.jasper");
-			ServletOutputStream servletOutputStream = resp.getOutputStream();
-			resp.setContentType("application/pdf");
-			JasperRunManager.runReportToPdfStream(reportStream, servletOutputStream, parameterMap);
-*/
 			 //Variaveis locais..  
 	        JasperReport jasperReport = null;  
 	        byte[] pdfSegundaVia = null;  
 			
 			 //Carrega o arquivo com o jasperReport  
 	        try {  
-	            jasperReport = (JasperReport) JRLoader.loadObject( "/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasper/orcamento.jasper");  
+	            jasperReport = (JasperReport) JRLoader.loadObject(jasper_path);
 	        } catch (JRException jre) {  
 	            jre.printStackTrace();  
 	        }  

@@ -1,6 +1,8 @@
 package orcamento.dao;
 
 import orcamento.bean.EmpresaBean;
+import org.hibernate.SessionFactory;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +55,10 @@ public class EmpresasDAO {
         List<EmpresaBean> listEmpresa = query.getResultList();*/
 
         //Deleta tudo e grava novamente
-        manager.createQuery("delete from EmpresaBean").executeUpdate();
+        manager.getTransaction().begin();
+        manager.createNativeQuery("delete from EmpresaBean").executeUpdate();
+        manager.getTransaction().commit();
+        factory.close();
         createEmpresa(empresaBean);
         return empresaBean;
 
