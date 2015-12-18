@@ -94,6 +94,8 @@ mainApp
     //Código para o Datepicker
     $scope.minDate = new Date();
     $scope.maxDate = new Date(2020, 5, 22);
+    $scope.dt = new Date();
+    $scope.dt_orc = new Date();
 
     $scope.status = {
       opened: false

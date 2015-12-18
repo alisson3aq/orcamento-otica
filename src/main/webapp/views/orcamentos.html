@@ -14,6 +14,11 @@
 	<div class="col-md-6"><!-- style="background-color:green" -->
 
 	<div class="form-inline form-group input-group">
+		<span class="input-group-addon" style="width:160px" id="basic-addon1">Código</span>
+		<input type="text" class="form-control" placeholder="05218AX" aria-describedby="basic-addon1">
+	</div>
+
+	<div class="form-inline form-group input-group">
 			<span class="input-group-addon" style="width:160px" id="basic-addon1">Vendedor</span>
 			<input type="text" class="form-control" placeholder="Renato" aria-describedby="basic-addon1">
 	</div>
@@ -114,7 +119,12 @@
 		</table>
 	</div>
 
-	<button ng-click="exportToPDF()" id="singlebutton" name="singlebutton"
+
+	<button name="singlebutton"
+			class="btn btn-primary">
+		<i class="glyphicon glyphicon-floppy-disk"></i>&nbsp;Salvar
+	</button>
+	<button ng-click="exportToPDF()" name="singlebutton"
 			class="btn btn-primary">
 		<i class="glyphicon glyphicon-download"></i>&nbsp;Baixar
 	</button>
@@ -122,114 +132,9 @@
 			class="btn btn-primary">
 		<i class="glyphicon glyphicon-print"></i>&nbsp;Imprimir
 	</button>
-	<!--<fieldset>
-        &lt;!&ndash; Form Name &ndash;&gt;
-        <legend></legend>
-
-        <div class="form-group">
-            <label>Total geral:</label><span>{{totalGeral | currency:"R$ "}}</span><br>
-        </div>
-
-            <button data-toggle="modal" data-target="#orcamentoFecharModal" id="singlebutton"
-                    name="singlebutton" class="btn btn-success">
-                <i class="glyphicon glyphicon-ok"></i>&nbsp;Fechar orcamento
-            </button>
-    </fieldset>-->
-
-
 
 </div>
 
-<div class="table-responsive">
-<table ng-if="op == 'listar'" class="table table-hover table-striped">
-	<thead>
-		<tr>
-			<th>código</th>
-			<th>vendedor</th>
-			<th>data</th>
-			<th>status</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>293473298</td>
-			<td>Renan Figueiredo</td>
-			<td>25/04/2015</td>
-			<td>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-success">Aberto</button>
-			</td>
-			<td>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Detalhes</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Editar</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button2id"
-					name="button2id" class="btn btn-default">Excluir</button>
-			</td>
-		</tr>
-		<tr>
-			<td>293473298</td>
-			<td>Renan Figueiredo</td>
-			<td>25/04/2015</td>
-			<td><button data-toggle="modal" data-target="#modalAsk"
-					id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
-			<td>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Detalhes</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Editar</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button2id"
-					name="button2id" class="btn btn-default">Excluir</button>
-			</td>
-		</tr>
-		<tr>
-			<td>293473298</td>
-			<td>Renan Figueiredo</td>
-			<td>25/04/2015</td>
-			<td><button data-toggle="modal" data-target="#modalAsk"
-					id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
-			<td>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Detalhes</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Editar</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button2id"
-					name="button2id" class="btn btn-default">Excluir</button>
-			</td>
-		</tr>
-		<tr>
-			<td>293473298</td>
-			<td>Renan Figueiredo</td>
-			<td>25/04/2015</td>
-			<td><button data-toggle="modal" data-target="#modalAsk"
-					id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
-			<td>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Detalhes</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Editar</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button2id"
-					name="button2id" class="btn btn-default">Excluir</button>
-			</td>
-		</tr>
-		<tr>
-			<td>293473298</td>
-			<td>Renan Figueiredo</td>
-			<td>25/04/2015</td>
-			<td><button data-toggle="modal" data-target="#modalAsk"
-					id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
-			<td>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Detalhes</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button1id"
-					name="button1id" class="btn btn-default">Editar</button>
-				<button data-toggle="modal" data-target="#modalAsk" id="button2id"
-					name="button2id" class="btn btn-default">Excluir</button>
-			</td>
-		</tr>
-
-	</tbody>
-</table>
-	</div>
+<div ng-if="op == 'listar'">
+	<div ng-include="'views/orcamentos_lista.html'"></div>
+</div>
