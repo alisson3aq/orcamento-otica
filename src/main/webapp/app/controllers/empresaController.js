@@ -4,7 +4,7 @@ mainApp
         $scope.showErrorAlert = false;
 
         $scope.getEmpresa = function(){
-           $http.get("api/v1/empresas/mockId")//TODO:retorna sempre a mesma empresa com CNPJ teste123
+           $http.get("api/v1/empresas/mockId")
                .then(function (response) {
                    $scope.empresa = response.data;
            });

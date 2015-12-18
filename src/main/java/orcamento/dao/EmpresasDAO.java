@@ -1,10 +1,7 @@
 package orcamento.dao;
 
 import orcamento.bean.EmpresaBean;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +51,7 @@ public class EmpresasDAO {
 
         EmpresaBean emp = manager.find(EmpresaBean.class,empresaBean.getCnpj());
 
-        if(emp != null) {//TODO:Exceção?
+        if(emp != null) {
             manager.getTransaction().begin();
             emp.setTelefone(empresaBean.getTelefone());
             emp.setEstado(empresaBean.getEstado());
@@ -66,10 +63,12 @@ public class EmpresasDAO {
             emp.setEmail(empresaBean.getEmail());
             manager.persist(emp);
             manager.getTransaction().commit();
+            factory.close();
+            return emp;
+        }else {
+            createEmpresa(empresaBean);
+            return empresaBean;
         }
-
-        factory.close();
-        return null;
     }
 
 }

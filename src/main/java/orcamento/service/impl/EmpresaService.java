@@ -20,17 +20,8 @@ public class EmpresaService implements IEmpresaService {
 
     @Override
     public EmpresaBean getEmpresa(String chavePrimaria) {
-        EmpresaBean empresaBean = new EmpresaBean();
-        empresaBean.setBairro("Nova empresa");
-        empresaBean.setCep("130452-854");
-        empresaBean.setCidade("São Paulo");
-        empresaBean.setCnpj("145826-856");
-        empresaBean.setEmail("contato@empresa.com.br");
-        empresaBean.setNome("Ótica ver bem - ltda");
-        empresaBean.setEndereco("Rua dos alecrins 258");
-        empresaBean.setEstado("Paraná");
-        empresaBean.setTelefone("(21) 32568-9856");
-        return empresaBean;
+        EmpresasDAO empresasDAO = new EmpresasDAO();
+        return empresasDAO.listEmpresas().get(0);
     }
 
     @Override
@@ -42,6 +33,9 @@ public class EmpresaService implements IEmpresaService {
 
     @Override
     public EmpresaBean updateEmpresa(EmpresaBean empresaBean) {
+        EmpresasDAO empresasDAO = new EmpresasDAO();
+        //Se empresa não existir, cria.
+        empresasDAO.updateEmpresa(empresaBean);
         return empresaBean;
     }
 
