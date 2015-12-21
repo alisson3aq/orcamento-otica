@@ -1,0 +1,10 @@
+{
+  "name": "orcamento",
+  "version": "1.0.0",
+  "title": "Orcamento",
+  "homepage": "http://orcamento-mgustavocoder.rhcloud.com/",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-uglify": "~0.11.0"
+  }
+}
