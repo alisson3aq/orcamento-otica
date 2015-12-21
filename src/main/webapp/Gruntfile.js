@@ -4,7 +4,9 @@ module.exports = function( grunt ) {
 
     uglify : {
       options : {
-        mangle : false
+        mangle: {toplevel: true},
+    	squeeze: {dead_code: false},
+    	codegen: {quote_keys: true}
       },
 
       my_target : {
