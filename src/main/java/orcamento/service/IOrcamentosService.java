@@ -1,7 +1,6 @@
 package orcamento.service;
 
 import orcamento.bean.OrcamentoBean;
-
 import java.util.ArrayList;
 
 /**
@@ -13,7 +12,7 @@ public interface IOrcamentosService {
 
     OrcamentoBean getOrcamento(String chavePrimaria);
 
-    Boolean createOrcamento(OrcamentoBean orcamentoBean);
+    void createOrcamento(OrcamentoBean orcamentoBean);
 
     Boolean updateOrcamento(OrcamentoBean orcamentoBean);
 

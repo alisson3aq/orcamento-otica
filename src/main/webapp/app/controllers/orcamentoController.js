@@ -1,10 +1,32 @@
 mainApp
 .controller('orcamentoController', function($scope,$http) {
 
+    $scope.orcamento = {};
+
     $http.get("api/v1/orcamentos")
         .then(function (response) {
             $scope.orcamentos = response.data;
     });
+
+    $scope.create = function(){
+        var data = {
+            codigo : $scope.orcamento.codigo,
+            vendedor : $scope.orcamento.vendedor,
+            validade : $scope.orcamento.validade,
+            dataentrega : $scope.orcamento.dataentrega,
+            dataorcamento : $scope.orcamento.dataorcamento,
+            cliente : $scope.orcamento.cliente,
+            produtos : $scope.orcamento.produto,
+            servicos : $scope.orcamento.servico
+        };
+        $http.post('api/v1/orcamentos/', data)
+        .success(function(data, status) {
+
+        })
+        .error(function(data, status) {
+
+        });
+    }
 
     $scope.exportToPDF = function(){
         window.open("reportServlet", "_blank");
@@ -44,10 +66,10 @@ mainApp
     $scope.listarProdutos();
 
     $scope.addProduto = function(){
-        if(angular.isUndefined($scope.select.produto) || $scope.select.produto == ""){
+        if(angular.isUndefined($scope.orcamento.produto) || $scope.orcamento.produto == ""){
             return;
         }
-        var produto = JSON.parse($scope.select.produto);
+        var produto = JSON.parse($scope.orcamento.produto);
         //Se o item já está no orçamento, então incrementa a quantidade.
         for(var i in $scope.items){
             if($scope.items[i].codigo === produto.codigo){
@@ -68,10 +90,10 @@ mainApp
     $scope.listarServicos();
 
     $scope.addServico = function(){
-        if(angular.isUndefined($scope.select.servico) || $scope.select.servico == ""){
+        if(angular.isUndefined($scope.orcamento.servico) || $scope.orcamento.servico == ""){
             return;
         }
-        var servico = JSON.parse($scope.select.servico);
+        var servico = JSON.parse($scope.orcamento.servico);
         //Se o item já está no orçamento, então incrementa a quantidade.
         for(var i in $scope.items){
             if($scope.items[i].codigo === servico.codigo){
@@ -86,7 +108,6 @@ mainApp
     $scope.$watch('items', function() {
        $scope.totalGeral = 0.00;
        for(var i in $scope.items){
-               console.log("i: " + i);
              $scope.totalGeral =  $scope.totalGeral + ($scope.items[i].valorUnitario * $scope.items[i].quantidade);
        }
         },function() {}
