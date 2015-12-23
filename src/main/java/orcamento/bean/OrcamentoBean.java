@@ -1,9 +1,6 @@
 package orcamento.bean;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,18 +14,18 @@ public class OrcamentoBean {
     private String codigo;
     //TODO: Transformar isso em objeto?
     private String validade;
-    //TODO: enum?...
-    private String status;
+    /*    //TODO: enum?...
+        private String status;*/
     private Date dataentrega;
     private Date dataorcamento;
     //TODO: Transformar isso em objeto, vendedor é um perfil do usuário?
     private String vendedor;
-    @ManyToOne
+    @OneToOne
     private ClienteBean cliente;
-    @ElementCollection
+/*    @ElementCollection
     private ArrayList<ProdutoBean> produtos;
     @ElementCollection
-    private ArrayList<ServicoBean> servicos;
+    private ArrayList<ServicoBean> servicos;*/
 
     public String getCodigo() {
         return codigo;
@@ -36,14 +33,6 @@ public class OrcamentoBean {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
-    }
-
-    public String getVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(String vendedor) {
-        this.vendedor = vendedor;
     }
 
     public String getValidade() {
@@ -70,6 +59,14 @@ public class OrcamentoBean {
         this.dataorcamento = dataorcamento;
     }
 
+    public String getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(String vendedor) {
+        this.vendedor = vendedor;
+    }
+
     public ClienteBean getCliente() {
         return cliente;
     }
@@ -78,27 +75,6 @@ public class OrcamentoBean {
         this.cliente = cliente;
     }
 
-    public ArrayList<ProdutoBean> getProdutos() {
-        return produtos;
-    }
 
-    public void setProdutos(ArrayList<ProdutoBean> produtos) {
-        this.produtos = produtos;
-    }
 
-    public ArrayList<ServicoBean> getServicos() {
-        return servicos;
-    }
-
-    public void setServicos(ArrayList<ServicoBean> servicos) {
-        this.servicos = servicos;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }

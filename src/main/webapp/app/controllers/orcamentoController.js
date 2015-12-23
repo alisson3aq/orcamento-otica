@@ -16,8 +16,8 @@ mainApp
             dataentrega : $scope.orcamento.dataentrega,
             dataorcamento : $scope.orcamento.dataorcamento,
             cliente : $scope.orcamento.cliente,
-            produtos : $scope.orcamento.produto,
-            servicos : $scope.orcamento.servico
+/*            produtos : $scope.orcamento.produto,
+            servicos : $scope.orcamento.servico*/
         };
         $http.post('api/v1/orcamentos/', data)
         .success(function(data, status) {
