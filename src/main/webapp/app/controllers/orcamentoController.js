@@ -2,6 +2,8 @@ mainApp
 .controller('orcamentoController', function($scope,$http) {
 
     $scope.orcamento = {};
+    $scope.items = [];
+    $scope.select = {};
 
     $http.get("api/v1/orcamentos")
         .then(function (response) {
@@ -15,9 +17,8 @@ mainApp
             validade : $scope.orcamento.validade,
             dataentrega : $scope.orcamento.dataentrega,
             dataorcamento : $scope.orcamento.dataorcamento,
-            cliente : $scope.orcamento.cliente,
-/*            produtos : $scope.orcamento.produto,
-            servicos : $scope.orcamento.servico*/
+            cliente : JSON.parse($scope.orcamento.cliente),
+            items : $scope.items
         };
         $http.post('api/v1/orcamentos/', data)
         .success(function(data, status) {
@@ -32,8 +33,7 @@ mainApp
         window.open("reportServlet", "_blank");
     }
 
-    $scope.items = [];
-    $scope.select = {};
+
 
     $scope.plus = function(index){
         $scope.items[index].quantidade = $scope.items[index].quantidade + 1;

@@ -4,7 +4,7 @@ import orcamento.bean.OrcamentoBean;
 import orcamento.dao.OrcamentosDAO;
 import orcamento.service.IOrcamentosService;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by mgustavo on 03/12/15.
@@ -13,8 +13,9 @@ import java.util.ArrayList;
 public class OrcamentosService implements IOrcamentosService {
 
     @Override
-    public ArrayList<OrcamentoBean> listOrcamentos() {
-        return null;
+    public Collection<OrcamentoBean> listOrcamentos() {
+        final OrcamentosDAO orcamentosDAO = new OrcamentosDAO();
+        return orcamentosDAO.listOrcamentos();
     }
 
     @Override

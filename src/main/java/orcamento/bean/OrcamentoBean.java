@@ -1,7 +1,7 @@
 package orcamento.bean;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -9,7 +9,6 @@ import java.util.Date;
  */
 @Entity
 public class OrcamentoBean {
-
     @Id
     private String codigo;
     //TODO: Transformar isso em objeto?
@@ -22,10 +21,17 @@ public class OrcamentoBean {
     private String vendedor;
     @OneToOne
     private ClienteBean cliente;
-/*    @ElementCollection
-    private ArrayList<ProdutoBean> produtos;
-    @ElementCollection
-    private ArrayList<ServicoBean> servicos;*/
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Collection<ItemBean> items;
+
+    public Collection<ItemBean> getItems() {
+        return items;
+    }
+
+    public void setItems(Collection<ItemBean> items) {
+        this.items = items;
+    }
 
     public String getCodigo() {
         return codigo;
@@ -75,6 +81,6 @@ public class OrcamentoBean {
         this.cliente = cliente;
     }
 
-
-
 }
+
+

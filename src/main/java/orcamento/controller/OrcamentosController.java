@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import java.util.ArrayList;
+import java.util.Collection;
 
 @Controller
 @RequestMapping("/orcamentos")
@@ -19,13 +19,13 @@ public class OrcamentosController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	public ArrayList<OrcamentoBean> listOrcamento(){
+	public Collection<OrcamentoBean> listOrcamento(){
 		return orcamentosService.listOrcamentos();
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
-	public ArrayList<OrcamentoBean> postOrcamento(@RequestBody OrcamentoBean orcamentoBean){
+	public Collection<OrcamentoBean> postOrcamento(@RequestBody OrcamentoBean orcamentoBean){
 		orcamentosService.createOrcamento(orcamentoBean);
 		return orcamentosService.listOrcamentos();
 	}

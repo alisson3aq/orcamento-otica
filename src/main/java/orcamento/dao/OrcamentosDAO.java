@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public class OrcamentosDAO {
         factory.close();
     }
 
-    public ArrayList<OrcamentoBean> listOrcamentos(){
+    public Collection<OrcamentoBean> listOrcamentos(){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();
 
@@ -34,7 +35,7 @@ public class OrcamentosDAO {
         List<OrcamentoBean> listOrcamento = query.getResultList();
 
         factory.close();
-        return (ArrayList) listOrcamento;
+        return listOrcamento;
     }
 
     public void deleteOrcamento(String codigo){

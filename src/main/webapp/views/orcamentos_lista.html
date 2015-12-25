@@ -4,87 +4,24 @@
         <tr>
             <th>código</th>
             <th>vendedor</th>
-            <th>data</th>
-            <th>status</th>
+            <th>data do orcamento</th>
+            <th>data da entrega</th>
+            <th>cliente</th>
             <th></th>
         </tr>
         </thead>
-        <tbody>
+        <tbody ng-repeat="orc in orcamentos">
         <tr>
-            <td>293473298</td>
-            <td>Renan Figueiredo</td>
-            <td>25/04/2015</td>
+            <td>{{orc.codigo}}</td>
+            <td>{{orc.vendedor}}</td>
+            <td>{{orc.dataorcamento | date : 'dd/MM/yyyy'}}</td>
+            <td>{{orc.dataentrega | date : 'dd/MM/yyyy'}}</td>
+            <td>{{orc.cliente.nome}}</td>
             <td>
-                <button data-toggle="modal" data-target="#modalAsk" id="button1id"
-                        name="button1id" class="btn btn-success">Aberto</button>
-            </td>
-            <td>
-                <button data-toggle="modal" data-target="#modalAsk" id="button1id"
+                <button data-toggle="modal" data-target="#modalAsk"
                         name="button1id" class="btn btn-default">Detalhes</button>
-                <button data-toggle="modal" data-target="#modalAsk" id="button1id"
-                        name="button1id" class="btn btn-default">Editar</button>
-                <button data-toggle="modal" data-target="#modalAsk" id="button2id"
-                        name="button2id" class="btn btn-default">Excluir</button>
-            </td>
-        </tr>
-        <tr>
-            <td>293473298</td>
-            <td>Renan Figueiredo</td>
-            <td>25/04/2015</td>
-            <td><button data-toggle="modal" data-target="#modalAsk"
-                        id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
-            <td>
-                <button data-toggle="modal" data-target="#modalAsk" id="button1id"
-                        name="button1id" class="btn btn-default">Detalhes</button>
-                <button data-toggle="modal" data-target="#modalAsk" id="button1id"
-                        name="button1id" class="btn btn-default">Editar</button>
-                <button data-toggle="modal" data-target="#modalAsk" id="button2id"
-                        name="button2id" class="btn btn-default">Excluir</button>
-            </td>
-        </tr>
-        <tr>
-            <td>293473298</td>
-            <td>Renan Figueiredo</td>
-            <td>25/04/2015</td>
-            <td><button data-toggle="modal" data-target="#modalAsk"
-                        id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
-            <td>
-                <button data-toggle="modal" data-target="#modalAsk" id="button1id"
-                        name="button1id" class="btn btn-default">Detalhes</button>
-                <button data-toggle="modal" data-target="#modalAsk" id="button1id"
-                        name="button1id" class="btn btn-default">Editar</button>
-                <button data-toggle="modal" data-target="#modalAsk" id="button2id"
-                        name="button2id" class="btn btn-default">Excluir</button>
-            </td>
-        </tr>
-        <tr>
-            <td>293473298</td>
-            <td>Renan Figueiredo</td>
-            <td>25/04/2015</td>
-            <td><button data-toggle="modal" data-target="#modalAsk"
-                        id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
-            <td>
-                <button data-toggle="modal" data-target="#modalAsk" id="button1id"
-                        name="button1id" class="btn btn-default">Detalhes</button>
-                <button data-toggle="modal" data-target="#modalAsk" id="button1id"
-                        name="button1id" class="btn btn-default">Editar</button>
-                <button data-toggle="modal" data-target="#modalAsk" id="button2id"
-                        name="button2id" class="btn btn-default">Excluir</button>
-            </td>
-        </tr>
-        <tr>
-            <td>293473298</td>
-            <td>Renan Figueiredo</td>
-            <td>25/04/2015</td>
-            <td><button data-toggle="modal" data-target="#modalAsk"
-                        id="button1id" name="button1id" class="btn btn-success">Aberto</button></td>
-            <td>
-                <button data-toggle="modal" data-target="#modalAsk" id="button1id"
-                        name="button1id" class="btn btn-default">Detalhes</button>
-                <button data-toggle="modal" data-target="#modalAsk" id="button1id"
-                        name="button1id" class="btn btn-default">Editar</button>
-                <button data-toggle="modal" data-target="#modalAsk" id="button2id"
-                        name="button2id" class="btn btn-default">Excluir</button>
+                <button data-toggle="modal" data-target="#modalAsk"
+                        name="button2id" class="btn btn-danger">Excluir</button>
             </td>
         </tr>
 

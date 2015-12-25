@@ -3,12 +3,13 @@ package orcamento.bean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by mgustavo on 03/12/15.
  */
 @Entity
-public class ClienteBean {
+public class ClienteBean implements Serializable{
     @Id
     private String cpf;
     @Column(nullable = false)

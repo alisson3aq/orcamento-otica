@@ -119,6 +119,7 @@
 		</table>
 	</div>
 
+	<p>Valor total: {{totalGeral | currency:"R$ "}}</p>
 
 	<button ng-click="create()" name="singlebutton"
 			class="btn btn-primary">
@@ -134,6 +135,9 @@
 	</button>
 
 </div>
+
+
+
 
 <div ng-if="op == 'listar'">
 	<div ng-include="'views/orcamentos_lista.html'"></div>
