@@ -121,6 +121,18 @@
 
 	<p>Valor total: {{totalGeral | currency:"R$ "}}</p>
 
+	<div ng-if="showSuccessAlert" class="alert alert-success" role="alert">
+		<strong>Sucesso!</strong> Orcamento salvo!
+	</div>
+
+	<div ng-if="showErrorAlert"  class="alert alert-danger" role="alert">
+		<strong>Erro!</strong> O código nao pode ser duplicado!
+	</div>
+
+	<div ng-if="showFrontErrorAlert"  class="alert alert-danger" role="alert">
+		{{frontErrorMessage}}
+	</div>
+
 	<button ng-click="create()" name="singlebutton"
 			class="btn btn-primary">
 		<i class="glyphicon glyphicon-floppy-disk"></i>&nbsp;Salvar

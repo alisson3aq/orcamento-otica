@@ -10,7 +10,45 @@ mainApp
             $scope.orcamentos = response.data;
     });
 
+     $scope.excluir = function(codigo){
+         $http.delete('api/v1/orcamentos/' + codigo)
+             .then(function (response) {
+                 $scope.orcamentos = response.data;
+         });
+     }
+
     $scope.create = function(){
+        $scope.showFrontErrorAlert = false;
+        if(angular.isUndefined($scope.orcamento.codigo)){
+            $scope.showFrontErrorAlert = true;
+            $scope.frontErrorMessage = "Código inválido!";
+            return;
+        }else if(angular.isUndefined($scope.orcamento.vendedor)){
+            $scope.showFrontErrorAlert = true;
+            $scope.frontErrorMessage = "Vendedor inválido!";
+            return;
+        }else if(angular.isUndefined($scope.orcamento.validade)){
+            $scope.showFrontErrorAlert = true;
+            $scope.frontErrorMessage = "Validade inválida!";
+            return;
+        }else if(angular.isUndefined($scope.orcamento.dataentrega)){
+            $scope.showFrontErrorAlert = true;
+            $scope.frontErrorMessage = "Data da entrega inválida!";
+            return;
+        }else if(angular.isUndefined($scope.orcamento.dataorcamento)){
+            $scope.showFrontErrorAlert = true;
+            $scope.frontErrorMessage = "Data do orcamento inválida!";
+            return;
+        }else if(angular.isUndefined($scope.orcamento.cliente)){
+            $scope.showFrontErrorAlert = true;
+            $scope.frontErrorMessage = "Cliente inváildo!";
+            return;
+        }else if(angular.isUndefined($scope.items)){
+            $scope.showFrontErrorAlert = true;
+            $scope.frontErrorMessage = "Items inválidos!";
+            return;
+        }
+
         var data = {
             codigo : $scope.orcamento.codigo,
             vendedor : $scope.orcamento.vendedor,
@@ -22,10 +60,15 @@ mainApp
         };
         $http.post('api/v1/orcamentos/', data)
         .success(function(data, status) {
-
+                $scope.orcamentos = data;
+                $scope.orcamento = {};
+                $scope.items = [];
+                $scope.showSuccessAlert = true;
+                $scope.showErrorAlert = false;
         })
         .error(function(data, status) {
-
+                $scope.showSuccessAlert = false;
+                $scope.showErrorAlert = true;
         });
     }
 

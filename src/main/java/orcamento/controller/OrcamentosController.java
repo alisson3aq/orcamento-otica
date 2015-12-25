@@ -4,10 +4,8 @@ import orcamento.bean.OrcamentoBean;
 import orcamento.service.impl.OrcamentosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Collection;
 
 @Controller
@@ -27,6 +25,13 @@ public class OrcamentosController {
 	@ResponseBody
 	public Collection<OrcamentoBean> postOrcamento(@RequestBody OrcamentoBean orcamentoBean){
 		orcamentosService.createOrcamento(orcamentoBean);
+		return orcamentosService.listOrcamentos();
+	}
+
+	@RequestMapping(value = " /{codigo}",method = RequestMethod.DELETE)
+	@ResponseBody
+	public Collection<OrcamentoBean> deleteUsuario(@PathVariable String codigo){
+		orcamentosService.deleteOrcamento(codigo);
 		return orcamentosService.listOrcamentos();
 	}
 	

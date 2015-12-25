@@ -18,10 +18,9 @@
             <td>{{orc.dataentrega | date : 'dd/MM/yyyy'}}</td>
             <td>{{orc.cliente.nome}}</td>
             <td>
-                <button data-toggle="modal" data-target="#modalAsk"
-                        name="button1id" class="btn btn-default">Detalhes</button>
-                <button data-toggle="modal" data-target="#modalAsk"
-                        name="button2id" class="btn btn-danger">Excluir</button>
+                <button name="button1id" class="btn btn-default">Detalhes</button>
+                <button ng-click="excluir(orc.codigo)"
+                 name="button2id" class="btn btn-danger">Excluir</button>
             </td>
         </tr>
 

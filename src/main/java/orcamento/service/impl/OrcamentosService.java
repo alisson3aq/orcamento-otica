@@ -35,7 +35,9 @@ public class OrcamentosService implements IOrcamentosService {
     }
 
     @Override
-    public Boolean deleteOrcamento(String chavePrimaria) {
+    public Boolean deleteOrcamento(String codigo) {
+        final OrcamentosDAO orcamentosDAO = new OrcamentosDAO();
+        orcamentosDAO.deleteOrcamento(codigo);
         return true;
     }
 }
