@@ -12,7 +12,7 @@ public interface IOrcamentosService {
 
     OrcamentoBean getOrcamento(String chavePrimaria);
 
-    void createOrcamento(OrcamentoBean orcamentoBean);
+    OrcamentoBean createOrcamento(OrcamentoBean orcamentoBean);
 
     Boolean updateOrcamento(OrcamentoBean orcamentoBean);
 

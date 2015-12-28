@@ -12,7 +12,7 @@
         </thead>
         <tbody ng-repeat="orc in orcamentos">
         <tr>
-            <td>{{orc.codigo}}</td>
+            <td>{{formatNumberSize(orc.codigo)}}</td>
             <td>{{orc.vendedor}}</td>
             <td>{{orc.dataorcamento | date : 'dd/MM/yyyy'}}</td>
             <td>{{orc.dataentrega | date : 'dd/MM/yyyy'}}</td>

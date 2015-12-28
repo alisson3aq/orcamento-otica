@@ -5,10 +5,12 @@ mainApp
     $scope.items = [];
     $scope.select = {};
 
-    $http.get("api/v1/orcamentos")
-        .then(function (response) {
-            $scope.orcamentos = response.data;
-    });
+     $scope.refreshOrcList = function(){
+        $http.get("api/v1/orcamentos")
+            .then(function (response) {
+                $scope.orcamentos = response.data;
+        });
+     }
 
      $scope.excluir = function(codigo){
          $http.delete('api/v1/orcamentos/' + codigo)
@@ -17,52 +19,59 @@ mainApp
          });
      }
 
-    $scope.create = function(){
+
+      $scope.clearAlertFlags = function(){
+            $scope.showFrontErrorAlert = false;
+            $scope.showSuccessAlert = false;
+            $scope.showErrorAlert = false;
+      }
+
+    var validacaoFront = function(){
         $scope.showFrontErrorAlert = false;
-        if(angular.isUndefined($scope.orcamento.codigo)){
-            $scope.showFrontErrorAlert = true;
-            $scope.frontErrorMessage = "Código inválido!";
-            return;
-        }else if(angular.isUndefined($scope.orcamento.vendedor)){
+         if(angular.isUndefined($scope.orcamento.vendedor)){
             $scope.showFrontErrorAlert = true;
             $scope.frontErrorMessage = "Vendedor inválido!";
-            return;
         }else if(angular.isUndefined($scope.orcamento.validade)){
             $scope.showFrontErrorAlert = true;
             $scope.frontErrorMessage = "Validade inválida!";
-            return;
         }else if(angular.isUndefined($scope.orcamento.dataentrega)){
             $scope.showFrontErrorAlert = true;
             $scope.frontErrorMessage = "Data da entrega inválida!";
-            return;
         }else if(angular.isUndefined($scope.orcamento.dataorcamento)){
             $scope.showFrontErrorAlert = true;
             $scope.frontErrorMessage = "Data do orcamento inválida!";
-            return;
         }else if(angular.isUndefined($scope.orcamento.cliente)){
             $scope.showFrontErrorAlert = true;
             $scope.frontErrorMessage = "Cliente inváildo!";
-            return;
         }else if(angular.isUndefined($scope.items)){
             $scope.showFrontErrorAlert = true;
             $scope.frontErrorMessage = "Items inválidos!";
+        }
+        return !$scope.showFrontErrorAlert;
+    }
+
+    var getOrcamento = function(){
+        return {
+                codigo : $scope.orcamento.codigo,
+                vendedor : $scope.orcamento.vendedor,
+                validade : $scope.orcamento.validade,
+                dataentrega : $scope.orcamento.dataentrega,
+                dataorcamento : $scope.orcamento.dataorcamento,
+                cliente : JSON.parse($scope.orcamento.cliente),
+                items : $scope.items
+            };
+    }
+
+    $scope.create = function(){
+        if(validacaoFront() == false){
             return;
         }
 
-        var data = {
-            codigo : $scope.orcamento.codigo,
-            vendedor : $scope.orcamento.vendedor,
-            validade : $scope.orcamento.validade,
-            dataentrega : $scope.orcamento.dataentrega,
-            dataorcamento : $scope.orcamento.dataorcamento,
-            cliente : JSON.parse($scope.orcamento.cliente),
-            items : $scope.items
-        };
+        var data = getOrcamento();
+
         $http.post('api/v1/orcamentos/', data)
         .success(function(data, status) {
-                $scope.orcamentos = data;
-                $scope.orcamento = {};
-                $scope.items = [];
+                $scope.orcamento.codigo = data.codigo;
                 $scope.showSuccessAlert = true;
                 $scope.showErrorAlert = false;
         })
@@ -73,7 +82,28 @@ mainApp
     }
 
     $scope.exportToPDF = function(){
-        window.open("reportServlet", "_blank");
+        if(validacaoFront() == false){
+            return;
+        }
+
+        var data = getOrcamento();
+
+        if(angular.isUndefined(data.codigo)){
+            $http.post('api/v1/orcamentos', data)
+            .success(function(response) {
+                    //window.open("reportServlet?orcamento=" + encodeURIComponent(response.codigo), "_blank");
+                    open('POST', "reportServlet", "orcamento=response.codigo", '_blank');
+                    $scope.orcamento.codigo = response.codigo;
+                    $scope.showSuccessAlert = true;
+                    $scope.showErrorAlert = false;
+            })
+            .error(function(data, status) {
+                    $scope.showSuccessAlert = false;
+                    $scope.showErrorAlert = true;
+            });
+        }else{
+            window.open("reportServlet?orcamento=" + data.codigo, "_blank");
+        }
     }
 
 
@@ -155,6 +185,11 @@ mainApp
        }
         },function() {}
     );
+
+    $scope.formatNumberSize = function(a){
+        return(1e5+a+"").slice(-5);
+    }
+
     //Código para o Datepicker
     $scope.minDate = new Date();
     $scope.maxDate = new Date(2020, 5, 22);

@@ -1,12 +1,10 @@
 package orcamento.dao;
 
 import orcamento.bean.OrcamentoBean;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -16,7 +14,7 @@ import java.util.List;
 public class OrcamentosDAO {
 
 
-    public void createOrcamento(OrcamentoBean orcamentoBean){
+    public OrcamentoBean createOrcamento(OrcamentoBean orcamentoBean){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();
 
@@ -25,6 +23,7 @@ public class OrcamentosDAO {
         manager.getTransaction().commit();
 
         factory.close();
+        return orcamentoBean;
     }
 
     public Collection<OrcamentoBean> listOrcamentos(){

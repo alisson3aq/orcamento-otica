@@ -24,9 +24,9 @@ public class OrcamentosService implements IOrcamentosService {
     }
 
     @Override
-    public void createOrcamento(OrcamentoBean orcamentoBean) {
+    public OrcamentoBean createOrcamento(OrcamentoBean orcamentoBean) {
         final OrcamentosDAO orcamentosDAO = new OrcamentosDAO();
-        orcamentosDAO.createOrcamento(orcamentoBean);
+        return orcamentosDAO.createOrcamento(orcamentoBean);
     }
 
     @Override

@@ -5,7 +5,6 @@ import orcamento.service.impl.OrcamentosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 
 @Controller
@@ -23,9 +22,8 @@ public class OrcamentosController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
-	public Collection<OrcamentoBean> postOrcamento(@RequestBody OrcamentoBean orcamentoBean){
-		orcamentosService.createOrcamento(orcamentoBean);
-		return orcamentosService.listOrcamentos();
+	public OrcamentoBean postOrcamento(@RequestBody OrcamentoBean orcamentoBean){
+		return orcamentosService.createOrcamento(orcamentoBean);
 	}
 
 	@RequestMapping(value = " /{codigo}",method = RequestMethod.DELETE)

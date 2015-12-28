@@ -12,17 +12,18 @@ import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.JasperRunManager;
-import net.sf.jasperreports.engine.util.ClassUtils;
 import net.sf.jasperreports.engine.util.JRLoader;
 
 public class ReportServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private final String jasper_path = "/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasper/orcamento.jasper";
-//	private final String jasper_path = "/home/mgustavo/dev/openshift-projects/orcamento/src/main/resources/jasper/orcamento.jasper";
+//	private final String jasper_path = "/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasper/orcamento.jasper";
+	private final String jasper_path = "/home/mgustavo/dev/openshift-projects/orcamento/src/main/resources/jasper/orcamento.jasper";
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+			final Long codigo = Long.parseLong(req.getParameter("codigo"));
 
 			Map paramMap = new HashMap();
 			 //Variaveis locais..  
@@ -54,44 +55,6 @@ public class ReportServlet extends HttpServlet {
 	        servletOutputStream.write( pdfSegundaVia );  
 	        servletOutputStream.flush();  
 	        servletOutputStream.close();  
-			
-
-
-			//byte[] byteStream = JasperRunManager.runReportToPdf("/home/mgustavocoder/dev/eclipse-workspace/orcamento/src/main/resources/jasper/orcamento.jasper",paramMap);
-		/*	byte[] byteStream = JasperRunManager.runReportToPdf("/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasper/orcamento.jasper",paramMap);
-		
-			//resp.setHeader("Content-Disposition","inline, filename=myReport.pdf");
-			resp.setContentType("application/pdf");
-			resp.setContentLength(byteStream.length);
-			resp.getOutputStream().write(byteStream,0,byteStream.length);
-			resp.getOutputStream().flush();     
-			resp.getOutputStream().close(); */
-			
-			// System.out.println("Diretorio do jasper: " +
-			// getServletContext().getRealPath("../resources/jasper/orcamento.jrxml"));
-
-			// JasperReport report =
-			// JasperCompileManager.compileReport("/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasper/orcamento.jrxml");
-			// JasperReport report =
-			// JasperCompileManager.compileReport(getServletContext().getRealPath("../resources/jasper/orcamento.jrxml"));
-
-			/*
-			 * System.out.println("2"); Collection<?> clientes = null;
-			 * JasperPrint print = null; print =
-			 * JasperFillManager.fillReport(report, null,new
-			 * JRBeanCollectionDataSource(clientes)); System.out.println("3");
-			 */
-			// JasperExportManager.exportReportToPdfFile(print,"/home/mgustavo/Relatorio_de_Clientes.pdf");
-
-			// resp.getOutputStream().write(JasperExportManager.exportReportToPdf(print));
-
-			// JasperRunManager.runReportToPdfStream(print,
-			// resp.getOutputStream(), null, new JREmptyDataSource());
-
-			//System.out.println("4");
-/*		} catch (JRException e) {
-			e.printStackTrace();
-		}*/
 
 	}
 

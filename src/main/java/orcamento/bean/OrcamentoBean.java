@@ -10,7 +10,8 @@ import java.util.Date;
 @Entity
 public class OrcamentoBean {
     @Id
-    private String codigo;
+    @GeneratedValue
+    private Long codigo;
     //TODO: Transformar isso em objeto?
     private String validade;
     /*    //TODO: enum?...
@@ -33,11 +34,11 @@ public class OrcamentoBean {
         this.items = items;
     }
 
-    public String getCodigo() {
+    public Long getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(Long codigo) {
         this.codigo = codigo;
     }
 
