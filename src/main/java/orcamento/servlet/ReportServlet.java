@@ -8,19 +8,22 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.jasperreports.data.cache.DoubleArrayStore;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.JasperRunManager;
 import net.sf.jasperreports.engine.util.JRLoader;
+import orcamento.bean.ItemBean;
 import orcamento.bean.OrcamentoBean;
 import orcamento.service.impl.OrcamentosService;
 
 public class ReportServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private final String jasper_path = "/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasper/orcamento.jasper";
-    //private final String jasper_path = "/home/mgustavocoder/dev/idea-workspace/orcamento/src/main/resources/jasper/orcamento.jasper";
+    //private final String jasper_path = "/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasper/orcamento.jasper";
+    private final String jasper_path = "/home/mgustavocoder/dev/idea-workspace/orcamento/src/main/resources/jasper/orcamento.jasper";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,6 +31,12 @@ public class ReportServlet extends HttpServlet {
         final Long codigo = Long.parseLong(req.getParameter("codigo"));
         OrcamentosService orcamentosService = new OrcamentosService();
         OrcamentoBean orcamentoBean = orcamentosService.getOrcamento(codigo);
+
+        Double valorTotal = 0.0;
+        for(ItemBean item : orcamentoBean.getItems()){
+            valorTotal += item.getValorUnitario() * item.getQuantidade();
+        }
+        orcamentoBean.setValorTotal(valorTotal);
 
         Map paramMap = new HashMap();
         paramMap.put("orcamentoBean",orcamentoBean);

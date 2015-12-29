@@ -3,14 +3,52 @@ mainApp
 
     $scope.orcamento = {};
     $scope.items = [];
+    $scope.clientes = [];
     $scope.select = {};
+    $scope.produtos = [];
+    $scope.servicos = [];
+    $scope.totalGeral = 0.00;
+    $scope.empresa;
 
-     $scope.refreshOrcList = function(){
-        $http.get("api/v1/orcamentos")
-            .then(function (response) {
-                $scope.orcamentos = response.data;
-        });
-     }
+    $scope.novoOrcamento = function(){
+        $scope.orcamento = {};
+        $scope.items = [];
+        $scope.clientes = [];
+        $scope.select = {};
+        $scope.produtos = [];
+        $scope.servicos = [];
+        $scope.totalGeral = 0.00;
+        $scope.dt = new Date();
+        $scope.dt_orc = new Date();
+        $scope.clearAlertFlags();
+    }
+
+    $scope.clearAlertFlags = function(){
+        $scope.showFrontErrorAlert = false;
+        $scope.showSuccessAlert = false;
+        $scope.showErrorAlert = false;
+    }
+
+
+    $scope.detalhes = function(orc){
+       $scope.orcamento = orc;
+       $scope.orcamento.cliente = JSON.stringify(orc.cliente);
+       $scope.items = orc.items;
+       $scope.op = 'cadastrar';
+    }
+
+    $scope.refreshOrcList = function(){
+    $http.get("api/v1/orcamentos")
+        .then(function (response) {
+            $scope.orcamentos = response.data;
+    });
+    }
+    $scope.refreshOrcList();
+
+    $http.get("api/v1/empresas/mockId")
+        .then(function (response) {
+            $scope.empresa = response.data;
+    });
 
      $scope.excluir = function(codigo){
          $http.delete('api/v1/orcamentos/' + codigo)
@@ -20,11 +58,7 @@ mainApp
      }
 
 
-      $scope.clearAlertFlags = function(){
-            $scope.showFrontErrorAlert = false;
-            $scope.showSuccessAlert = false;
-            $scope.showErrorAlert = false;
-      }
+
 
     var validacaoFront = function(){
         $scope.showFrontErrorAlert = false;
@@ -46,6 +80,9 @@ mainApp
         }else if(angular.isUndefined($scope.items)){
             $scope.showFrontErrorAlert = true;
             $scope.frontErrorMessage = "Items inválidos!";
+        }else if(angular.isUndefined($scope.empresa)){
+            $scope.showFrontErrorAlert = true;
+            $scope.frontErrorMessage = "Os dados da empresa devem ser definidos antes de gerar um relatório. Acesse o menu empresa e preencha os dados.";
         }
         return !$scope.showFrontErrorAlert;
     }
@@ -57,6 +94,7 @@ mainApp
                 validade : $scope.orcamento.validade,
                 dataentrega : $scope.orcamento.dataentrega,
                 dataorcamento : $scope.orcamento.dataorcamento,
+                empresa : $scope.empresa,
                 cliente : JSON.parse($scope.orcamento.cliente),
                 items : $scope.items
             };
@@ -133,7 +171,6 @@ mainApp
         }
     }
 
-    $scope.clientes = [];
     $scope.listarClientes = function(){
        $http.get("api/v1/clientes")
            .then(function (response) {
@@ -143,7 +180,6 @@ mainApp
     $scope.listarClientes();
 
 
-    $scope.produtos = [];
     $scope.listarProdutos = function(){
        $http.get("api/v1/produtos")
            .then(function (response) {
@@ -193,7 +229,6 @@ mainApp
     }
 
     $scope.$watch('items', function() {
-       $scope.totalGeral = 0.00;
        for(var i in $scope.items){
              $scope.totalGeral =  $scope.totalGeral + ($scope.items[i].valorUnitario * $scope.items[i].quantidade);
        }

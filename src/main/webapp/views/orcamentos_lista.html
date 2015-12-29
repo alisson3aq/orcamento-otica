@@ -18,7 +18,9 @@
             <td>{{orc.dataentrega | date : 'dd/MM/yyyy'}}</td>
             <td>{{orc.cliente.nome}}</td>
             <td>
-                <button name="button1id" class="btn btn-default">Detalhes</button>
+
+                <button ng-click="detalhes(orc)" name="button1id" class="btn btn-default">Detalhes</button>
+
                 <button ng-click="excluir(orc.codigo)"
                  name="button2id" class="btn btn-danger">Excluir</button>
             </td>

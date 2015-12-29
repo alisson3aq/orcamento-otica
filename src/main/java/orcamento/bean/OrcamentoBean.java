@@ -1,6 +1,7 @@
 package orcamento.bean;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -22,6 +23,11 @@ public class OrcamentoBean {
     private String vendedor;
     @OneToOne
     private ClienteBean cliente;
+    @OneToOne
+    private EmpresaBean empresa;
+    @Transient
+    private Double valorTotal;
+
 
     @ElementCollection(fetch = FetchType.EAGER)
     private Collection<ItemBean> items;
@@ -82,6 +88,21 @@ public class OrcamentoBean {
         this.cliente = cliente;
     }
 
+    public EmpresaBean getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(EmpresaBean empresa) {
+        this.empresa = empresa;
+    }
+
+    public Double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
 }
 
 
