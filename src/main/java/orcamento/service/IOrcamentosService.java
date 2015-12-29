@@ -16,6 +16,6 @@ public interface IOrcamentosService {
 
     Boolean updateOrcamento(OrcamentoBean orcamentoBean);
 
-    Boolean deleteOrcamento(String chavePrimaria);
+    Boolean deleteOrcamento(Long chavePrimaria);
 
 }

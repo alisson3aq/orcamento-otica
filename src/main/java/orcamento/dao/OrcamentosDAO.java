@@ -47,7 +47,7 @@ public class OrcamentosDAO {
         return listOrcamento;
     }
 
-    public void deleteOrcamento(String codigo){
+    public void deleteOrcamento(Long codigo){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();
 

@@ -29,7 +29,7 @@ public class OrcamentosController {
 	@RequestMapping(value = " /{codigo}",method = RequestMethod.DELETE)
 	@ResponseBody
 	public Collection<OrcamentoBean> deleteUsuario(@PathVariable String codigo){
-		orcamentosService.deleteOrcamento(codigo);
+		orcamentosService.deleteOrcamento(Long.parseLong(codigo));
 		return orcamentosService.listOrcamentos();
 	}
 	
