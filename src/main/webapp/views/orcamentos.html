@@ -16,33 +16,33 @@
 
 	<div class="form-inline form-group input-group">
 			<span class="input-group-addon" style="width:160px" id="basic-addon1">Vendedor</span>
-			<input ng-model="orcamento.vendedor" type="text" class="form-control" placeholder="Renato" aria-describedby="basic-addon1">
+			<input ng-disabled="disabilitarEdicao" ng-model="orcamento.vendedor" type="text" class="form-control" placeholder="Renato" aria-describedby="basic-addon1">
 	</div>
 
 	<div class="form-inline form-group input-group">
 			<span class="input-group-addon" style="width:160px" id="basic-addon1">Validade da proposta</span>
-			<input ng-model="orcamento.validade" type="text" class="form-control col-md-4" placeholder="10 dias" aria-describedby="basic-addon1">
+			<input ng-disabled="disabilitarEdicao" ng-model="orcamento.validade" type="text" class="form-control col-md-4" placeholder="10 dias" aria-describedby="basic-addon1">
 	</div>
 
 	<div class="form-inline form-group input-group">
 			<span class="input-group-addon" style="width:160px" id="basic-addon1">Data da entrega</span>
-			<input ng-model="orcamento.dataentrega" type="text" class="form-control" show-weeks="false" show-button-bar="false" uib-datepicker-popup="dd/MM/yyyy" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate"/>
-              <span ng-click="open($event)" class="input-group-addon btn btn-default">
+			<input ng-disabled="disabilitarEdicao" ng-model="orcamento.dataentrega" type="text" class="form-control" show-weeks="false" show-button-bar="false" uib-datepicker-popup="dd/MM/yyyy" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate"/>
+              <span ng-hide="disabilitarEdicao" ng-click="open($event)" class="input-group-addon btn btn-default">
                 <i class="glyphicon glyphicon-calendar"></i>
               </span>
 	</div>
 
 	<div class="form-inline form-group input-group">
 			<span class="input-group-addon" style="width:160px" id="basic-addon1">Data do orcamento</span>
-			<input ng-model="orcamento.dataorcamento" type="text" class="form-control" show-weeks="false" show-button-bar="false" uib-datepicker-popup="dd/MM/yyyy" ng-model="dt_orc" is-open="status_orc.opened" min-date="minDate" max-date="maxDate"/>
-              <span class="input-group-addon btn btn-default" ng-click="open_orc_dt($event)">
+			<input ng-disabled="disabilitarEdicao" ng-model="orcamento.dataorcamento" type="text" class="form-control" show-weeks="false" show-button-bar="false" uib-datepicker-popup="dd/MM/yyyy" ng-model="dt_orc" is-open="status_orc.opened" min-date="minDate" max-date="maxDate"/>
+              <span ng-hide="disabilitarEdicao" class="input-group-addon btn btn-default" ng-click="open_orc_dt($event)">
                 <i class="glyphicon glyphicon-calendar"></i>
               </span>
 	</div>
 
 	<div class="form-inline form-group input-group">
 			<span class="input-group-addon" style="width:160px" id="basic-addon1">Cliente</span>
-		<select ng-model="orcamento.cliente" class="form-control" id="sel1">
+		<select ng-disabled="disabilitarEdicao" ng-model="orcamento.cliente" class="form-control" id="sel1">
 			<option value="">Selecione o cliente</option>
 			<option ng-repeat="cliente in clientes" value="{{cliente}}">
 				{{cliente.nome}}&nbsp;-&nbsp;{{cliente.cidade}}
@@ -50,7 +50,7 @@
 		</select>
 	</div>
 
-	<div class="form-inline form-group input-group">
+	<div ng-hide="disabilitarEdicao" class="form-inline form-group input-group">
 			<span class="input-group-addon" style="width:160px" id="basic-addon1">Produtos</span>
 				<select ng-model="orcamento.produto" class="form-control" id="sel1">
 					<option value="">Lista de produtos:</option>
@@ -63,7 +63,7 @@
       </span>
 	</div>
 
-	<div class="form-inline form-group input-group">
+	<div ng-hide="disabilitarEdicao" class="form-inline form-group input-group">
 			<span class="input-group-addon" style="width:160px" id="basic-addon1">Servicos</span>
 		<select ng-model="orcamento.servico" class="form-control">
 			<option value="">Lista de servicos:</option>
@@ -101,10 +101,10 @@
 				<td>{{item.valorUnitario | currency:"R$ "}}</td>
 				<td>{{(item.valorUnitario * item.quantidade) | currency:"R$ "}}</td>
 				<td>
-					<button ng-click="plus($index)" id="buttonplus" name="button2id" class="btn btn-default">
+					<button ng-hide="disabilitarEdicao" ng-click="plus($index)" id="buttonplus" name="button2id" class="btn btn-default">
 						<i class="glyphicon glyphicon-plus"></i>
 					</button>
-					<button ng-click="minus($index)" id="buttonminus"
+					<button ng-hide="disabilitarEdicao" ng-click="minus($index)" id="buttonminus"
 							name="button2id" class="btn btn-default">
 						<i class="glyphicon glyphicon-minus"></i>
 					</button>

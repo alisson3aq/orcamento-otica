@@ -21,6 +21,7 @@ mainApp
         $scope.dt = new Date();
         $scope.dt_orc = new Date();
         $scope.clearAlertFlags();
+        $scope.disabilitarEdicao = false;
     }
 
     $scope.clearAlertFlags = function(){
@@ -35,6 +36,7 @@ mainApp
        $scope.orcamento.cliente = JSON.stringify(orc.cliente);
        $scope.items = orc.items;
        $scope.op = 'cadastrar';
+       $scope.disabilitarEdicao = true;
     }
 
     $scope.refreshOrcList = function(){
