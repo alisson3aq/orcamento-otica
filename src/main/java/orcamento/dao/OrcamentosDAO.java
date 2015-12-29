@@ -26,6 +26,16 @@ public class OrcamentosDAO {
         return orcamentoBean;
     }
 
+    public OrcamentoBean readOrcamento(Long codigo){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
+        EntityManager manager = factory.createEntityManager();
+
+        OrcamentoBean orcamentoBean = manager.find(OrcamentoBean.class,codigo);
+
+        factory.close();
+        return orcamentoBean;
+    }
+
     public Collection<OrcamentoBean> listOrcamentos(){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();

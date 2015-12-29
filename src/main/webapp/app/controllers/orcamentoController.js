@@ -81,6 +81,21 @@ mainApp
         });
     }
 
+    var exportPDFSubmit = function(codigo){
+        var mapForm = document.createElement("form");
+        mapForm.target = "Map";
+        mapForm.method = "POST"; // or "post" if appropriate
+        mapForm.action = "reportServlet";
+        var mapInput = document.createElement("input");
+        mapInput.type = "text";
+        mapInput.name = "codigo";
+        mapInput.value = codigo;
+        mapForm.appendChild(mapInput);
+        document.body.appendChild(mapForm);
+        mapForm.submit();
+    }
+
+
     $scope.exportToPDF = function(){
         if(validacaoFront() == false){
             return;
@@ -91,8 +106,7 @@ mainApp
         if(angular.isUndefined(data.codigo)){
             $http.post('api/v1/orcamentos', data)
             .success(function(response) {
-                    //window.open("reportServlet?orcamento=" + encodeURIComponent(response.codigo), "_blank");
-                    open('POST', "reportServlet", "orcamento=response.codigo", '_blank');
+                    exportPDFSubmit(response.codigo);
                     $scope.orcamento.codigo = response.codigo;
                     $scope.showSuccessAlert = true;
                     $scope.showErrorAlert = false;
@@ -102,7 +116,7 @@ mainApp
                     $scope.showErrorAlert = true;
             });
         }else{
-            window.open("reportServlet?orcamento=" + data.codigo, "_blank");
+            exportPDFSubmit(data.codigo);
         }
     }
 

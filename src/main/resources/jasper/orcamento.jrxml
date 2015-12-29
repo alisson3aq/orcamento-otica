@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orcamento" pageWidth="595" pageHeight="1000" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b44921d8-0507-46ed-8d52-978b81482867">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="246"/>
+	<property name="ireport.y" value="366"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -45,6 +45,7 @@
 	</style>
 	<subDataset name="Table Dataset 1" uuid="4ce62dd5-8419-4186-aca7-9a53d9021b92"/>
 	<subDataset name="Table Dataset 2" uuid="d4b56d73-70cd-4cdf-ac7d-2c9ea8283786"/>
+	<parameter name="orcamentoBean" class="orcamento.bean.OrcamentoBean" isForPrompting="false"/>
 	<background>
 		<band/>
 	</background>
@@ -130,56 +131,56 @@
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA["José Carlos Goncalves"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getCliente().getNome()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="85" y="45" width="170" height="20" uuid="99769f37-f06a-4df3-82ab-fe7c5974c2bd"/>
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA["36784909-06"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getCliente().getCpf()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="85" y="65" width="170" height="20" uuid="434383b5-106b-4a43-9628-ee332030193d"/>
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA["(21)32764563"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getCliente().getTelefone()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="85" y="85" width="170" height="20" uuid="21e55e6f-1865-4bc3-85c8-abeb73ea1590"/>
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA["jose@gmail.com"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getCliente().getEmail()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="370" y="25" width="185" height="20" uuid="d192ef35-e40c-4916-9a80-19b9ff8fe610"/>
 					<textElement>
 						<font size="12" isBold="false"/>
 					</textElement>
-					<textFieldExpression><![CDATA["Rua Algusto Malagutti, 228"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getCliente().getEndereco()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="370" y="45" width="185" height="20" uuid="6832a65f-1fd8-4aa8-994f-a7726759d756"/>
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA["Jardim Miriam"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getCliente().getBairro()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="370" y="65" width="185" height="20" uuid="2b0e5a4f-0eb6-456e-afe3-42e32771708b"/>
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA["Sorocaba"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getCliente().getCidade()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="370" y="85" width="185" height="20" uuid="62d602d6-62f4-4269-bafe-4b68c68822b2"/>
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA["SP"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getCliente().getEstado()]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -286,7 +287,7 @@
 					<textElement>
 						<font size="12" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Prazo de entrega:]]></text>
+					<text><![CDATA[Data da entrega:]]></text>
 				</staticText>
 				<textField>
 					<reportElement x="445" y="3" width="100" height="20" uuid="ae56c9b8-5dd8-45be-ae4f-791839f51cbf"/>
@@ -300,14 +301,14 @@
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA["25/12/2015"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getDataorcamento()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="445" y="43" width="100" height="20" uuid="787837bc-0a5b-4cb5-8d5d-7f86428ff246"/>
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA["15 dias"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getDataentrega()]]></textFieldExpression>
 				</textField>
 			</frame>
 			<staticText>
@@ -329,14 +330,14 @@
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["10 dias"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{orcamentoBean}.getValidade()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="175" y="92" width="371" height="20" uuid="376e9dee-d0ef-4075-9b10-73cae2fa6b6d"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Ronaldo Ferrari"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{orcamentoBean}.getVendedor()]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

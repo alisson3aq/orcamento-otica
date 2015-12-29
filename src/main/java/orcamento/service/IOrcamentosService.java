@@ -10,7 +10,7 @@ public interface IOrcamentosService {
 
     Collection<OrcamentoBean> listOrcamentos();
 
-    OrcamentoBean getOrcamento(String chavePrimaria);
+    OrcamentoBean getOrcamento(Long chavePrimaria);
 
     OrcamentoBean createOrcamento(OrcamentoBean orcamentoBean);
 

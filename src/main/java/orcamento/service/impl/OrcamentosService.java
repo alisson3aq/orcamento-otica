@@ -19,8 +19,9 @@ public class OrcamentosService implements IOrcamentosService {
     }
 
     @Override
-    public OrcamentoBean getOrcamento(String chavePrimaria) {
-        return null;
+    public OrcamentoBean getOrcamento(Long chavePrimaria) {
+        final OrcamentosDAO orcamentosDAO = new OrcamentosDAO();
+        return orcamentosDAO.readOrcamento(chavePrimaria);
     }
 
     @Override
