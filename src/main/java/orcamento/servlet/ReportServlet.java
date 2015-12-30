@@ -20,8 +20,8 @@ import orcamento.service.impl.OrcamentosService;
 public class ReportServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private final String jasper_path = "/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasper/orcamento.jasper";
-    //private final String jasper_path = "/home/mgustavocoder/dev/idea-workspace/orcamento/src/main/resources/jasper/orcamento.jasper";
+    //private final String jasper_path = "/var/lib/openshift/56589fd589f5cfbf2e000042/app-root/repo/target/classes/jasper/orcamento.jasper";
+    private final String jasper_path = "/home/mgustavocoder/dev/idea-workspace/orcamento/src/main/resources/jasper/orcamento.jasper";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
