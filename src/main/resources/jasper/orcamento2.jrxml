@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orcamento2" pageWidth="595" pageHeight="842" columnWidth="523" leftMargin="36" rightMargin="36" topMargin="50" bottomMargin="32" uuid="6a7bfc1e-1626-4c6d-b7db-3e5e50628569">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="SansSerif" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="SansSerif" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="SansSerif" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="SansSerif" fontSize="12"/>
+	<parameter name="orcamentoBean" class="orcamento.bean.OrcamentoBean" isForPrompting="false"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band height="129">
+				<textField>
+					<reportElement style="SubTitle" x="15" y="87" width="400" height="20" forecolor="#666666" uuid="082a316e-a06d-4ba9-bb94-7f68066ac0ee"/>
+					<textElement markup="none">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA["fone: " + $P{orcamentoBean}.getCliente().getTelefone() + " e-mail: " + $P{orcamentoBean}.getCliente().getEmail()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="SubTitle" x="15" y="68" width="400" height="20" forecolor="#666666" uuid="8ac5f145-10ef-4693-81d0-cc4148dabc55"/>
+					<textElement markup="none">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getCliente().getCep() + " ," + $P{orcamentoBean}.getCliente().getCidade() + " - " + $P{orcamentoBean}.getCliente().getEstado()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="SubTitle" x="15" y="49" width="400" height="20" forecolor="#666666" uuid="0ab8af55-589f-46fe-ac2c-6745f232f63f"/>
+					<textElement markup="none">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getCliente().getEndereco() + " - " + $P{orcamentoBean}.getCliente().getBairro()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="SubTitle" x="15" y="30" width="400" height="20" forecolor="#666666" uuid="42702356-feb7-4e2b-92cc-34c187360416"/>
+					<textElement markup="none">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA["CPF: " + $P{orcamentoBean}.getCliente().getCpf()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="SubTitle" x="15" y="10" width="400" height="20" forecolor="#666666" uuid="cff30244-4eab-4a56-804d-5672f644749a"/>
+					<textElement markup="none">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getCliente().getNome()]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="21">
+				<textField>
+					<reportElement style="Column header" x="275" y="4" width="245" height="15" forecolor="#242424" uuid="5cb1d1bc-934e-4f4e-b623-4a02f55df78a"/>
+					<textElement textAlignment="Right" markup="none">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA["VALOR TOTAL: R$ " + $P{orcamentoBean}.getValorTotal()]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="522" height="1" uuid="8c6ad935-5613-4902-99cb-c893c910957c"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#999999"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="18" width="522" height="1" uuid="23ef1a49-fef0-41ba-98b8-26188bb44901"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#999999"/>
+					</graphicElement>
+				</line>
+				<textField>
+					<reportElement style="Column header" x="6" y="3" width="314" height="15" forecolor="#242424" uuid="50ffb58d-4026-405a-ac8e-3bf358e147e1"/>
+					<textElement markup="none">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA["VENDEDOR: " + $P{orcamentoBean}.getVendedor()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="329" y="3" width="191" height="15" forecolor="#242424" uuid="5a1155b9-5c73-4cfb-8a74-6de4f17c17c2"/>
+					<textElement markup="none">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA["VALIDADE: " + $P{orcamentoBean}.getValidade()]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="143" splitType="Stretch">
+			<textField>
+				<reportElement style="Title" x="0" y="0" width="174" height="22" uuid="c5eacafc-4c87-488a-83c0-311907979fa4"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{orcamentoBean}.getEmpresa().getNome()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="SubTitle" x="15" y="23" width="400" height="20" uuid="4351d9b7-ce97-4cd0-afd3-7d72ff05a830"/>
+				<textElement markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CNPJ: " + $P{orcamentoBean}.getEmpresa().getCnpj()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="SubTitle" x="15" y="43" width="400" height="20" uuid="1b399145-3940-4faa-bfb6-760bf0c8bf28"/>
+				<textElement markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{orcamentoBean}.getEmpresa().getEndereco() + " - " + $P{orcamentoBean}.getEmpresa().getBairro()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="SubTitle" x="15" y="63" width="400" height="20" uuid="860bce3e-6a2f-4b40-909c-3ac32164198a"/>
+				<textElement markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{orcamentoBean}.getEmpresa().getCep() + " ," + $P{orcamentoBean}.getEmpresa().getCidade() + " - " + $P{orcamentoBean}.getEmpresa().getEstado()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="SubTitle" x="15" y="83" width="400" height="20" uuid="5efb4651-181b-4f78-a42c-f21cfaec10ad"/>
+				<textElement markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["fone: " + $P{orcamentoBean}.getEmpresa().getTelefone()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="373" y="22" width="150" height="103" uuid="f5e3d784-cdd5-4c2d-91cc-7237f51a8621"/>
+				<imageExpression><![CDATA["/home/mgustavo/dev/openshift-projects/orcamento/src/main/resources/jasper/oculos.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement style="SubTitle" x="15" y="103" width="400" height="20" uuid="e6dbf601-d8ca-4810-992d-5622e89d70ac"/>
+				<textElement markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["e-mail: " + $P{orcamentoBean}.getEmpresa().getEmail()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="522" height="1" uuid="26c329bc-293d-4559-9f2d-34f92a99957e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="1" width="522" height="1" uuid="fb90f92e-105f-4164-a3c2-1c9e36c10d16"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Column header" x="6" y="4" width="302" height="15" forecolor="#242424" uuid="807d12c4-aea7-43a3-9659-7d25bf346ff0"/>
+				<textElement markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ORÇAMENTO: " + $P{orcamentoBean}.getCodigo()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column header" x="329" y="4" width="191" height="15" forecolor="#242424" uuid="5d39103c-54ce-4fb9-9da3-0b02d0c3fa2a"/>
+				<textElement markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["DATA: " + $P{orcamentoBean}.getDataorcamento()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="223" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="523" height="1" uuid="2e82fd1e-6059-4d52-acc0-7f8226d8b3f7"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="1fa58cad-b022-42eb-95a5-24098ad120ec"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="4e0d4f3c-f501-4287-a8fa-8fa92cdbb603"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="0758c05d-6e1e-4161-b855-29bffdf17e6d"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
