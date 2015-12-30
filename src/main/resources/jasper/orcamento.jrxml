@@ -134,10 +134,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA["fone: " + $P{orcamentoBean}.getEmpresa().getTelefone()]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="373" y="22" width="150" height="103" uuid="f5e3d784-cdd5-4c2d-91cc-7237f51a8621"/>
-				<imageExpression><![CDATA["/home/mgustavo/dev/openshift-projects/orcamento/src/main/resources/jasper/oculos.png"]]></imageExpression>
-			</image>
 			<textField>
 				<reportElement style="SubTitle" x="15" y="103" width="400" height="20" uuid="e6dbf601-d8ca-4810-992d-5622e89d70ac"/>
 				<textElement markup="none">
