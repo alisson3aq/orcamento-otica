@@ -2,6 +2,7 @@ package orcamento.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 public class EmpresaBean {
 
     @Id
+    @GeneratedValue
+    private Long id;
     private String cnpj;
     @Column(nullable = false,unique = true)
     private String nome;
@@ -25,6 +28,14 @@ public class EmpresaBean {
     private String cep;
     private String telefone;
     private String email;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getCnpj() {
         return cnpj;

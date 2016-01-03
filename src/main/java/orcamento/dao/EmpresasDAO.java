@@ -50,39 +50,28 @@ public class EmpresasDAO {
     public EmpresaBean updateEmpresa(EmpresaBean empresaBean){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();
-
-/*        Query query = manager.createQuery("SELECT p FROM EmpresaBean p" ) ;
-        List<EmpresaBean> listEmpresa = query.getResultList();*/
-
-        //Deleta tudo e grava novamente
-        manager.getTransaction().begin();
-        manager.createNativeQuery("delete from EmpresaBean").executeUpdate();
-        manager.getTransaction().commit();
-        factory.close();
-        createEmpresa(empresaBean);
-        return empresaBean;
-
-
-/*        EmpresaBean emp = manager.find(EmpresaBean.class,empresaBean.getCnpj());
-
-        if(emp != null) {
+        final EmpresaBean empresaBean1;
+        if(empresaBean.getId() != null) {
             manager.getTransaction().begin();
-            emp.setTelefone(empresaBean.getTelefone());
-            emp.setEstado(empresaBean.getEstado());
-            emp.setNome(empresaBean.getNome());
-            emp.setEndereco(empresaBean.getEndereco());
-            emp.setBairro(empresaBean.getBairro());
-            emp.setCep(empresaBean.getCep());
-            emp.setCidade(empresaBean.getCidade());
-            emp.setEmail(empresaBean.getEmail());
-            manager.persist(emp);
+            empresaBean1 = manager.find(EmpresaBean.class, empresaBean.getId());
+            empresaBean1.setBairro(empresaBean.getBairro());
+            empresaBean1.setCep(empresaBean.getCep());
+            empresaBean1.setCidade(empresaBean.getCidade());
+            empresaBean1.setCnpj(empresaBean.getCnpj());
+            empresaBean1.setEmail(empresaBean.getEmail());
+            empresaBean1.setEndereco(empresaBean.getEndereco());
+            empresaBean1.setEstado(empresaBean.getEstado());
+            empresaBean1.setNome(empresaBean.getNome());
+            empresaBean1.setTelefone(empresaBean.getTelefone());
             manager.getTransaction().commit();
             factory.close();
-            return emp;
-        }else {
+            return empresaBean1;
+
+        }else{
             createEmpresa(empresaBean);
-            return empresaBean;
-        }*/
+        }
+
+        return empresaBean;
     }
 
 }

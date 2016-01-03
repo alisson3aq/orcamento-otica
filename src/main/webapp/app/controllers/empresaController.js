@@ -22,6 +22,7 @@ mainApp
 
         $scope.editar = function(){
             var data = {
+                id : $scope.empresa.id,
                 nome : $scope.empresa.nome,
                 cnpj : $scope.empresa.cnpj,
                 endereco : $scope.empresa.endereco,
