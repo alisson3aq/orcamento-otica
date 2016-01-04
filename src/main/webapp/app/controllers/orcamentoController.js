@@ -32,10 +32,6 @@ mainApp
         $scope.orcamento = orc;
         $scope.orcamento.cliente = JSON.stringify(orc.cliente);
         $scope.items = orc.items;
-        $scope.totalGeral = 0.00;
-        for(var i in $scope.items){
-            $scope.totalGeral =  $scope.totalGeral + ($scope.items[i].valorUnitario * $scope.items[i].quantidade);
-        }
         $scope.disabilitarEdicao = true;
         $scope.op = 'cadastrar';
     }
@@ -233,6 +229,7 @@ mainApp
     }
 
     $scope.$watch('items', function() {
+       $scope.totalGeral = 0.00;
        for(var i in $scope.items){
              $scope.totalGeral =  $scope.totalGeral + ($scope.items[i].valorUnitario * $scope.items[i].quantidade);
        }
