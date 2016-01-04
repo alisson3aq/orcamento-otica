@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orcamento2" pageWidth="595" pageHeight="842" columnWidth="523" leftMargin="36" rightMargin="36" topMargin="50" bottomMargin="32" uuid="6a7bfc1e-1626-4c6d-b7db-3e5e50628569">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="322"/>
 	<style name="Title" fontName="SansSerif" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="SansSerif" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="SansSerif" fontSize="12" isBold="true"/>
@@ -172,13 +172,23 @@
 		</box>
 	</style>
 	<subDataset name="orc_items" uuid="e529e053-23a6-44a2-8a5b-f352b21c6eb6">
-		<queryString language="SQL">
-			<![CDATA[SELECT * FROM OrcamentoBean_items]]>
+		<parameter name="codigo" class="java.lang.Long"/>
+		<queryString>
+			<![CDATA[SELECT * FROM OrcamentoBean_items where OrcamentoBean_codigo = $P{codigo}]]>
 		</queryString>
+		<field name="OrcamentoBean_codigo" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
 		<field name="codigo" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
 		<field name="descricao" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fabricante" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fornecedor" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
 		<field name="quantidade" class="java.lang.Integer">
@@ -195,6 +205,7 @@
 		</group>
 	</subDataset>
 	<parameter name="orcamentoBean" class="orcamento.bean.OrcamentoBean" isForPrompting="false"/>
+	<parameter name="codigo" class="java.lang.Long"/>
 	<queryString>
 		<![CDATA[select 1 from dual]]>
 	</queryString>
@@ -386,7 +397,10 @@
 			<componentElement>
 				<reportElement key="table 7" style="table 7" x="9" y="9" width="504" height="50" uuid="d55d6462-05a8-4f5b-b99d-cf0b706887fd"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="orc_items" uuid="35f27f8f-adc3-40ea-981a-9b05e32f1a77">
+					<datasetRun subDataset="orc_items" uuid="b428740b-d6d1-4bbc-9d3a-b731d5235111">
+						<datasetParameter name="codigo">
+							<datasetParameterExpression><![CDATA[$P{codigo}]]></datasetParameterExpression>
+						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:column width="90" uuid="d2e5cd93-9b63-47d6-a9ba-272420d14159">
