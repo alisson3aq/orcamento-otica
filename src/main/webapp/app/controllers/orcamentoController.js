@@ -13,10 +13,7 @@ mainApp
     $scope.novoOrcamento = function(){
         $scope.orcamento = {};
         $scope.items = [];
-        $scope.clientes = [];
         $scope.select = {};
-        $scope.produtos = [];
-        $scope.servicos = [];
         $scope.totalGeral = 0.00;
         $scope.dt = new Date();
         $scope.dt_orc = new Date();
@@ -53,6 +50,7 @@ mainApp
     });
 
      $scope.excluir = function(codigo){
+         $scope.novoOrcamento();
          $http.delete('api/v1/orcamentos/' + codigo)
              .then(function (response) {
                  $scope.orcamentos = response.data;

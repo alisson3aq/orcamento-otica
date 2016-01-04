@@ -1,6 +1,8 @@
 package orcamento.servlet;
 
 import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -8,6 +10,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.mysql.jdbc.Connection;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperReport;
@@ -39,6 +43,7 @@ public class ReportServlet extends HttpServlet {
 
         Map paramMap = new HashMap();
         paramMap.put("orcamentoBean",orcamentoBean);
+        paramMap.put("codigo",orcamentoBean.getCodigo());
         //Variaveis locais..
         JasperReport jasperReport = null;
         byte[] pdfSegundaVia = null;
@@ -52,8 +57,10 @@ public class ReportServlet extends HttpServlet {
 
         //Gera o pdf para exibicao..
         try {
-            pdfSegundaVia = JasperRunManager.runReportToPdf(jasperReport, paramMap, new JREmptyDataSource());
-        } catch (JRException jre) {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/orcamento?useUnicode=true&characterEncoding=UTF-8","admine8eKGLZ","NZlq5Npa4umb");
+            pdfSegundaVia = JasperRunManager.runReportToPdf(jasperReport, paramMap,conn);
+        } catch (Exception jre) {
             jre.printStackTrace();
         }
 
