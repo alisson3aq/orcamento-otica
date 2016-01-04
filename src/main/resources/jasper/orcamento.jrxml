@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orcamento2" pageWidth="595" pageHeight="842" columnWidth="523" leftMargin="36" rightMargin="36" topMargin="50" bottomMargin="32" uuid="6a7bfc1e-1626-4c6d-b7db-3e5e50628569">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="280"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="SansSerif" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="SansSerif" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="SansSerif" fontSize="12" isBold="true"/>
@@ -352,11 +352,11 @@
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement style="Column header" x="6" y="4" width="302" height="15" forecolor="#242424" uuid="807d12c4-aea7-43a3-9659-7d25bf346ff0"/>
+				<reportElement style="Column header" x="6" y="4" width="112" height="15" forecolor="#242424" uuid="807d12c4-aea7-43a3-9659-7d25bf346ff0"/>
 				<textElement markup="none">
 					<font fontName="SansSerif"/>
 				</textElement>
-				<textFieldExpression><![CDATA["ORÇAMENTO: " + $P{orcamentoBean}.getCodigo()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["ORÇAMENTO: "]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="Column header" x="329" y="4" width="63" height="15" forecolor="#242424" uuid="5d39103c-54ce-4fb9-9da3-0b02d0c3fa2a"/>
@@ -371,6 +371,13 @@
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{orcamentoBean}.getDataorcamento()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column header" x="118" y="4" width="112" height="15" forecolor="#242424" uuid="c27c0786-2beb-4eec-a9e9-61d34ac26726"/>
+				<textElement markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{orcamentoBean}.getCodigo()]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
@@ -455,10 +462,10 @@
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table 7_TD" height="20" rowSpan="1">
-							<textField>
+							<textField pattern="R$ 0.00">
 								<reportElement x="0" y="0" width="90" height="20" uuid="9a683ee2-91b2-4fd0-9fdb-235e97237b52"/>
 								<textElement textAlignment="Center"/>
-								<textFieldExpression><![CDATA["R$ " + $F{valorUnitario}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{valorUnitario}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
