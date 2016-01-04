@@ -58,7 +58,8 @@ public class ReportServlet extends HttpServlet {
         //Gera o pdf para exibicao..
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/orcamento?useUnicode=true&characterEncoding=UTF-8","admine8eKGLZ","NZlq5Npa4umb");
+            //Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/orcamento?useUnicode=true&characterEncoding=UTF-8","admine8eKGLZ","NZlq5Npa4umb");
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://127.12.98.130:3306/orcamento?useUnicode=true&characterEncoding=UTF-8","admine8eKGLZ","NZlq5Npa4umb");
             pdfSegundaVia = JasperRunManager.runReportToPdf(jasperReport, paramMap,conn);
         } catch (Exception jre) {
             jre.printStackTrace();
