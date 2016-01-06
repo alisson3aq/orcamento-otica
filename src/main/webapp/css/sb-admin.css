@@ -31,6 +31,10 @@ body {
     color: #E4E5F3;
 }
 
+.navbar-inverse .navbar-nav > li > a {
+    color: #E4E5F3;
+}
+
 .huge {
     font-size: 50px;
     line-height: normal;

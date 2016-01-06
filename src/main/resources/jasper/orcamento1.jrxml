@@ -76,11 +76,25 @@
 			<frame>
 				<reportElement style="frame" x="0" y="0" width="394" height="79" uuid="09b42c64-9648-4055-83ab-a3a920a6b57c"/>
 				<textField>
-					<reportElement x="0" y="20" width="394" height="30" uuid="1dbae20e-8a06-47a3-b0d2-c13c17d16f98"/>
+					<reportElement x="0" y="9" width="394" height="30" uuid="1dbae20e-8a06-47a3-b0d2-c13c17d16f98"/>
 					<textElement textAlignment="Center" verticalAlignment="Bottom" markup="styled">
 						<font size="14" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA["<style isBold='true' size='14'>" + $P{orcamentoBean}.getEmpresa().getNome() + "</style>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="39" width="394" height="20" uuid="04f8212f-685a-4756-8c1e-1b38cec495b8"/>
+					<textElement markup="none">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Telefone: " + $P{orcamentoBean}.getEmpresa().getTelefone()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="59" width="394" height="20" uuid="be655d53-7454-447f-bc83-b1f0fb523946"/>
+					<textElement markup="none">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA["e-mail: " + $P{orcamentoBean}.getEmpresa().getEmail()]]></textFieldExpression>
 				</textField>
 			</frame>
 			<frame>
@@ -154,14 +168,14 @@
 				<reportElement style="frame" x="0" y="117" width="555" height="20" uuid="5d57a636-2d4f-4ebc-983c-00a6e986ce03"/>
 				<textField>
 					<reportElement x="345" y="3" width="191" height="15" forecolor="#242424" uuid="36c0045a-fb65-4727-a6ac-95ad01c5f289"/>
-					<textElement markup="none">
+					<textElement markup="styled">
 						<font fontName="SansSerif" size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA["<style isBold='true'>validade: </style>" + $P{orcamentoBean}.getValidade()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="14" y="3" width="314" height="15" forecolor="#242424" uuid="fb09cce9-fca6-4866-9c34-9ef65e09c38e"/>
-					<textElement markup="none">
+					<textElement markup="styled">
 						<font fontName="SansSerif" size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA["<style isBold='true'>vendedor: </style>" + $P{orcamentoBean}.getVendedor()]]></textFieldExpression>
