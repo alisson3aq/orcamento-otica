@@ -83,14 +83,14 @@
 					<textFieldExpression><![CDATA["<style isBold='true' size='14'>" + $P{orcamentoBean}.getEmpresa().getNome() + "</style>"]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="0" y="39" width="394" height="20" uuid="04f8212f-685a-4756-8c1e-1b38cec495b8"/>
+					<reportElement x="14" y="39" width="380" height="20" uuid="04f8212f-685a-4756-8c1e-1b38cec495b8"/>
 					<textElement markup="none">
 						<font fontName="SansSerif"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Telefone: " + $P{orcamentoBean}.getEmpresa().getTelefone()]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="0" y="59" width="394" height="20" uuid="be655d53-7454-447f-bc83-b1f0fb523946"/>
+					<reportElement x="14" y="59" width="380" height="20" uuid="be655d53-7454-447f-bc83-b1f0fb523946"/>
 					<textElement markup="none">
 						<font fontName="SansSerif"/>
 					</textElement>
