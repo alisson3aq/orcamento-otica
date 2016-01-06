@@ -64,36 +64,10 @@
 	</subDataset>
 	<parameter name="orcamentoBean" class="orcamento.bean.OrcamentoBean" isForPrompting="false"/>
 	<parameter name="codigo" class="java.lang.Long"/>
-	<queryString language="SQL">
-		<![CDATA[select * from OrcamentoBean_items;]]>
+	<queryString>
+		<![CDATA[select 1 from dual]]>
 	</queryString>
-	<field name="OrcamentoBean_codigo" class="java.lang.Long">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="codigo" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="descricao" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fabricante" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fornecedor" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="quantidade" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="unidade" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="valorUnitario" class="java.lang.Double">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<group name="OrcamentoBean_codigo">
-		<groupExpression><![CDATA[$F{OrcamentoBean_codigo}]]></groupExpression>
-	</group>
+	<field name="1" class="java.lang.Long"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -104,7 +78,7 @@
 				<textField>
 					<reportElement x="0" y="0" width="394" height="30" uuid="1dbae20e-8a06-47a3-b0d2-c13c17d16f98"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-						<font size="14"/>
+						<font size="14" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA["<style isBold='true' size='14'>" + $P{orcamentoBean}.getEmpresa().getNome() + "</style>"]]></textFieldExpression>
 				</textField>
@@ -126,7 +100,7 @@
 				<textField>
 					<reportElement x="0" y="20" width="161" height="23" uuid="8d9994bb-ff06-43c1-a9b0-c8e88dd1d45c"/>
 					<textElement textAlignment="Center" verticalAlignment="Bottom" markup="styled">
-						<font isBold="true"/>
+						<font isBold="true" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA["<style isBold='true' size='18'>"+ $P{orcamentoBean}.getCodigo() + "</style>"]]></textFieldExpression>
 				</textField>
@@ -165,7 +139,7 @@
 			<textField>
 				<reportElement x="0" y="4" width="100" height="20" uuid="e62b5d6d-475b-4b8f-92e0-99bcdee20008"/>
 				<textElement verticalAlignment="Bottom" markup="styled">
-					<font isBold="false"/>
+					<font isBold="false" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["<style isBold='true'>cliente</style>"]]></textFieldExpression>
 			</textField>
@@ -264,6 +238,10 @@
 					</jr:column>
 				</jr:table>
 			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="100" splitType="Stretch">
 			<frame>
 				<reportElement style="frame" x="0" y="0" width="555" height="20" uuid="32587dd8-a1fb-4de4-82c6-ded67ac22d95"/>
 				<textField>
@@ -273,9 +251,6 @@
 				</textField>
 			</frame>
 		</band>
-	</columnHeader>
-	<detail>
-		<band splitType="Stretch"/>
 	</detail>
 	<columnFooter>
 		<band height="29" splitType="Stretch"/>
