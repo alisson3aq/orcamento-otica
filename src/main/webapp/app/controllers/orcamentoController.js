@@ -125,7 +125,7 @@ mainApp
         mapForm.method = "POST"; // or "post" if appropriate
         mapForm.action = "reportServlet";
         var mapInput = document.createElement("input");
-        mapInput.type = "text";
+        mapInput.type = "hidden";
         mapInput.name = "codigo";
         mapInput.value = codigo;
         mapForm.appendChild(mapInput);
