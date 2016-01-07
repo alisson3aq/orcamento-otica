@@ -283,9 +283,14 @@
 			<frame>
 				<reportElement style="frame" x="0" y="0" width="555" height="20" uuid="32587dd8-a1fb-4de4-82c6-ded67ac22d95"/>
 				<textField>
-					<reportElement x="308" y="0" width="238" height="20" uuid="7228561d-11c8-4c9b-86b7-7188778e0382"/>
+					<reportElement x="193" y="0" width="238" height="20" uuid="7228561d-11c8-4c9b-86b7-7188778e0382"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="styled"/>
-					<textFieldExpression><![CDATA["<style isBold='true'>valor total:</style> R$ " + $P{orcamentoBean}.getValorTotal()]]></textFieldExpression>
+					<textFieldExpression><![CDATA["<style isBold='true'>valor total:</style> "]]></textFieldExpression>
+				</textField>
+				<textField pattern="R$ #,##0.00" isBlankWhenNull="false">
+					<reportElement x="431" y="0" width="124" height="20" uuid="70391303-d109-4492-9420-cd39f81ba6e7"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getValorTotal()]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
