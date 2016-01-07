@@ -87,13 +87,15 @@ mainApp
         return !$scope.showFrontErrorAlert;
     }
 
-    var getOrcamento = function(){
+    var mountOrcamentoJson = function(){
         return {
                 codigo : $scope.orcamento.codigo,
                 vendedor : $scope.orcamento.vendedor,
                 validade : $scope.orcamento.validade,
                 dataentrega : $scope.orcamento.dataentrega,
                 dataorcamento : $scope.orcamento.dataorcamento,
+                formapagamento : $scope.orcamento.formapagamento,
+                comentario : $scope.orcamento.comentario,
                 empresa : $scope.empresa,
                 cliente : JSON.parse($scope.orcamento.cliente),
                 items : $scope.items
@@ -105,7 +107,7 @@ mainApp
             return;
         }
 
-        var data = getOrcamento();
+        var data = mountOrcamentoJson();
 
         $http.post('api/v1/orcamentos/', data)
         .success(function(data, status) {
@@ -139,7 +141,7 @@ mainApp
             return;
         }
 
-        var data = getOrcamento();
+        var data = mountOrcamentoJson();
 
         if(angular.isUndefined(data.codigo)){
             $http.post('api/v1/orcamentos', data)

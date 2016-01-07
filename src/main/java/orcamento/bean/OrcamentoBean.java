@@ -21,6 +21,8 @@ public class OrcamentoBean {
     private Date dataorcamento;
     //TODO: Transformar isso em objeto, vendedor é um perfil do usuário?
     private String vendedor;
+    private String formapagamento;
+    private String comentario;
     @OneToOne
     private ClienteBean cliente;
     @OneToOne
@@ -103,6 +105,23 @@ public class OrcamentoBean {
     public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
     }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public String getFormapagamento() {
+        return formapagamento;
+    }
+
+    public void setFormapagamento(String formapagamento) {
+        this.formapagamento = formapagamento;
+    }
+
 }
 
 
