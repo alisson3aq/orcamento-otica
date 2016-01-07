@@ -1,0 +1,145 @@
+<h4>Médicos</h4>
+
+<label class="radio-inline">
+        <input ng-init="op = 'cadastrar'" ng-click="showSuccessAlert = false;showErrorAlert = false;" ng-model="op" type="radio" name="cadastrar" value="cadastrar">Cadastrar médico
+    </label>
+    <label class="radio-inline">
+        <input ng-model="op" type="radio" name="listar" value="listar">Listar médicos
+    </label>
+
+    <div ng-if="op == 'cadastrar'" class="form-horizontal">
+        <fieldset style="background-color: #fff">
+
+            <!-- Form Name -->
+            <legend></legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nomeinput">nome</label>
+                <div class="col-md-5">
+                    <input ng-model="cliente.nome" id="nomeinput" name="textinput" type="text" placeholder="José Carlos Goncalves" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="cpfinput">cpf</label>
+                <div class="col-md-5">
+                    <input ng-model="cliente.cpf" id="cpfinput" name="textinput" type="text" placeholder="36784909-06" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="enderecoinput">endereco</label>
+                <div class="col-md-5">
+                    <input ng-model="cliente.endereco" id="enderecoinput" name="textinput" type="text" placeholder="Rua Algusto Malagutti, 228" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="bairroinput">bairro</label>
+                <div class="col-md-5">
+                    <input ng-model="cliente.bairro" id="bairroinput" name="textinput" type="text" placeholder="Jardim Miriam" class="form-control input-md">
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="cidadeinput">cidade</label>
+                <div class="col-md-5">
+                    <input ng-model="cliente.cidade" id="cidadeinput" name="textinput" type="text" placeholder="Sorocaba" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="estadoinput">estado</label>
+                <div class="col-md-5">
+                    <input ng-model="cliente.estado" id="estadoinput" name="textinput" type="text" placeholder="SP" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="cepinput">cep</label>
+                <div class="col-md-5">
+                    <input ng-model="cliente.cep" id="cepinput" name="textinput" type="text" placeholder="147367-890" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="telefoneinput">telefone</label>
+                <div class="col-md-5">
+                    <input ng-model="cliente.telefone" id="telefoneinput" name="textinput" type="text" placeholder="(21)32764563" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="emailinput">e-mail</label>
+                <div class="col-md-5">
+                    <input ng-model="cliente.email" id="emailinput" name="textinput" type="text" placeholder="jose@gmail.com" class="form-control input-md">
+                </div>
+            </div>
+
+            <div ng-if="showSuccessAlert" class="alert alert-success" role="alert">
+                <strong>Sucesso!</strong> Cliente cadastrado.
+            </div>
+
+            <div ng-if="showErrorAlert"  class="alert alert-danger" role="alert">
+                <strong>Erro!</strong> Erro ao cadastrar o cliente.
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-4">
+                    <button ng-click="create()" id="singlebutton" name="singlebutton" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>&nbsp;Adicionar</button>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+
+
+<div class="table-responsive">
+    <table ng-if="op == 'listar'" class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>nome</th>
+                <th>cpf</th>
+                <th>endereco</th>
+                <th>bairro</th>
+                <th>cidade</th>
+                <th>estado</th>
+                <th>cep</th>
+                <th>telefone</th>
+                <th>e-mail</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="cliente in clientes">
+            <tr>
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.cpf}}</td>
+                <td>{{cliente.endereco}}</td>
+                <td>{{cliente.bairro}}</td>
+                <td>{{cliente.cidade}}</td>
+                <td>{{cliente.estado}}</td>
+                <td>{{cliente.cep}}</td>
+                <td>{{cliente.telefone}}</td>
+                <td>{{cliente.email}}</td>
+                <td>
+                    <button ng-click="excluir(cliente.cpf)" id="button2id" name="button2id" class="btn btn-danger">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    </div>
+    </div>
+
+    </div>

@@ -15,7 +15,8 @@ module.exports = function( grunt ) {
 		'app/controllers/empresaController.js',  
 		'app/controllers/orcamentoController.js',  
 		'app/controllers/produtosController.js',  
-		'app/controllers/servicosController.js',  			
+		'app/controllers/servicosController.js',
+        'app/controllers/medicosController.js',
 		'app/controllers/usuariosController.js'
 		]
         }
