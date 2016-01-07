@@ -62,8 +62,8 @@ public class ReportServlet extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             //Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/orcamento?useUnicode=true&characterEncoding=UTF-8","admine8eKGLZ","NZlq5Npa4umb");
             Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://127.12.98.130:3306/orcamento?useUnicode=true&characterEncoding=UTF-8","admine8eKGLZ","NZlq5Npa4umb");
-            //pdfSegundaVia = JasperRunManager.runReportToPdf(jasperReport, paramMap,conn);
-            String reportPath = JasperRunManager.runReportToHtmlFile(jasper_path, paramMap, conn);
+            pdfSegundaVia = JasperRunManager.runReportToPdf(jasperReport, paramMap,conn);
+/*            String reportPath = JasperRunManager.runReportToHtmlFile(jasper_path, paramMap, conn);
 
             File reportHtmlFile = new File(reportPath);
             FileInputStream fis = new FileInputStream(reportHtmlFile);
@@ -75,7 +75,7 @@ public class ReportServlet extends HttpServlet {
             ServletOutputStream servletOutputStream = resp.getOutputStream();
             servletOutputStream.write(bytes, 0, bytes.length);
             servletOutputStream.flush();
-            servletOutputStream.close();
+            servletOutputStream.close();*/
 
         } catch (Exception jre) {
             jre.printStackTrace();
@@ -84,7 +84,7 @@ public class ReportServlet extends HttpServlet {
 
 
 
-/*        //Parametros para nao fazer cache e o que será exibido..
+        //Parametros para nao fazer cache e o que será exibido..
         resp.setContentType("application/pdf");
         resp.setHeader("Cache-Control", "no-store");
         resp.setHeader("Pragma", "no-cache");
@@ -95,7 +95,7 @@ public class ReportServlet extends HttpServlet {
         ServletOutputStream servletOutputStream = resp.getOutputStream();
         servletOutputStream.write(pdfSegundaVia);
         servletOutputStream.flush();
-        servletOutputStream.close();*/
+        servletOutputStream.close();
 
     }
 
