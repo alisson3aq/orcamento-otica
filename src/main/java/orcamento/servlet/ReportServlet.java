@@ -63,22 +63,25 @@ public class ReportServlet extends HttpServlet {
             //Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/orcamento?useUnicode=true&characterEncoding=UTF-8","admine8eKGLZ","NZlq5Npa4umb");
             Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://127.12.98.130:3306/orcamento?useUnicode=true&characterEncoding=UTF-8","admine8eKGLZ","NZlq5Npa4umb");
             //pdfSegundaVia = JasperRunManager.runReportToPdf(jasperReport, paramMap,conn);
-            String retorno = JasperRunManager.runReportToHtmlFile(jasper_path, paramMap, conn);
+            String reportPath = JasperRunManager.runReportToHtmlFile(jasper_path, paramMap, conn);
+
+            File reportHtmlFile = new File(reportPath);
+            FileInputStream fis = new FileInputStream(reportHtmlFile);
+            byte[] bytes =  new byte[(int)reportHtmlFile.length()];
+            fis.read(bytes);
+            resp.setHeader("Content-Disposition","inline; filename=myReport.html");
+            resp.setContentType("text/html");
+            resp.setContentLength(bytes.length);
+            ServletOutputStream servletOutputStream = resp.getOutputStream();
+            servletOutputStream.write(bytes, 0, bytes.length);
+            servletOutputStream.flush();
+            servletOutputStream.close();
+
         } catch (Exception jre) {
             jre.printStackTrace();
         }
 
-        File reportHtmlFile = new File(jasper_path);
-        FileInputStream fis = new FileInputStream(reportHtmlFile);
-        byte[] bytes =  new byte[(int)reportHtmlFile.length()];
-        fis.read(bytes);
-        resp.setHeader("Content-Disposition","inline; filename=myReport.html");
-        resp.setContentType("text/html");
-        resp.setContentLength(bytes.length);
-        ServletOutputStream servletOutputStream = resp.getOutputStream();
-        servletOutputStream.write(bytes, 0, bytes.length);
-        servletOutputStream.flush();
-        servletOutputStream.close();
+
 
 
 /*        //Parametros para nao fazer cache e o que será exibido..
