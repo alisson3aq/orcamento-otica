@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orcamento1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6de178b9-49ab-4f3f-83b9-fc81d365a1db">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="136"/>
 	<style name="frame">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -181,18 +181,26 @@
 					<textFieldExpression><![CDATA["<style isBold='true'>vendedor: </style>" + $P{orcamentoBean}.getVendedor()]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="14" y="18" width="314" height="15" forecolor="#242424" uuid="f9affa3f-68db-46cf-a87d-e93a6849979b"/>
+					<reportElement x="14" y="18" width="128" height="15" forecolor="#242424" uuid="f9affa3f-68db-46cf-a87d-e93a6849979b"/>
 					<textElement markup="styled">
 						<font fontName="SansSerif" size="10" isBold="false"/>
 					</textElement>
-					<textFieldExpression><![CDATA["<style isBold='true'>forma de pagamento: </style>" + $P{orcamentoBean}.getFormapagamento() != null ? $P{orcamentoBean}.getFormapagamento() : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA["<style isBold='true'>forma de pagamento: </style>"]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement x="14" y="33" width="537" height="15" forecolor="#242424" uuid="e7f09521-cb06-430e-938f-28e290cf9639"/>
+					<reportElement x="14" y="33" width="78" height="15" forecolor="#242424" uuid="e7f09521-cb06-430e-938f-28e290cf9639"/>
 					<textElement markup="styled">
 						<font fontName="SansSerif" size="10" isBold="false"/>
 					</textElement>
-					<textFieldExpression><![CDATA["<style isBold='true'>comentários: </style>" + $P{orcamentoBean}.getComentario() != null ? $P{orcamentoBean}.getComentario() : ""]]></textFieldExpression>
+					<textFieldExpression><![CDATA["<style isBold='true'>comentários: </style>"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="142" y="18" width="409" height="15" uuid="96cf91e7-49b0-42d0-af9b-2a829b180721"/>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getFormapagamento()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="92" y="33" width="459" height="15" uuid="d47fa77d-1b58-447d-8a42-3eacf471d0aa"/>
+					<textFieldExpression><![CDATA[$P{orcamentoBean}.getComentario()]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
