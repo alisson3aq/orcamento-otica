@@ -1,5 +1,7 @@
 package orcamento.servlet;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -60,12 +62,26 @@ public class ReportServlet extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             //Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/orcamento?useUnicode=true&characterEncoding=UTF-8","admine8eKGLZ","NZlq5Npa4umb");
             Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://127.12.98.130:3306/orcamento?useUnicode=true&characterEncoding=UTF-8","admine8eKGLZ","NZlq5Npa4umb");
-            pdfSegundaVia = JasperRunManager.runReportToPdf(jasperReport, paramMap,conn);
+            //pdfSegundaVia = JasperRunManager.runReportToPdf(jasperReport, paramMap,conn);
+            String retorno = JasperRunManager.runReportToHtmlFile(jasper_path, paramMap, conn);
         } catch (Exception jre) {
             jre.printStackTrace();
         }
 
-        //Parametros para nao fazer cache e o que será exibido..
+        File reportHtmlFile = new File(jasper_path);
+        FileInputStream fis = new FileInputStream(reportHtmlFile);
+        byte[] bytes =  new byte[(int)reportHtmlFile.length()];
+        fis.read(bytes);
+        resp.setHeader("Content-Disposition","inline; filename=myReport.html");
+        resp.setContentType("text/html");
+        resp.setContentLength(bytes.length);
+        ServletOutputStream servletOutputStream = resp.getOutputStream();
+        servletOutputStream.write(bytes, 0, bytes.length);
+        servletOutputStream.flush();
+        servletOutputStream.close();
+
+
+/*        //Parametros para nao fazer cache e o que será exibido..
         resp.setContentType("application/pdf");
         resp.setHeader("Cache-Control", "no-store");
         resp.setHeader("Pragma", "no-cache");
@@ -76,7 +92,7 @@ public class ReportServlet extends HttpServlet {
         ServletOutputStream servletOutputStream = resp.getOutputStream();
         servletOutputStream.write(pdfSegundaVia);
         servletOutputStream.flush();
-        servletOutputStream.close();
+        servletOutputStream.close();*/
 
     }
 
