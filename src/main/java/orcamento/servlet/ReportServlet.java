@@ -70,6 +70,7 @@ public class ReportServlet extends HttpServlet {
         resp.setHeader("Cache-Control", "no-store");
         resp.setHeader("Pragma", "no-cache");
         resp.setDateHeader("Expires", 0);
+        resp.setHeader("Content-disposition", "attachment; filename=\"orc-" + orcamentoBean.getCodigo() + ".pdf\"");
 
         //Envia para o navegador o pdf..
         ServletOutputStream servletOutputStream = resp.getOutputStream();
