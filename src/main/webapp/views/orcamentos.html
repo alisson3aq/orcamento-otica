@@ -37,7 +37,7 @@
 
 	<div class="form-inline form-group input-group">
 			<span class="input-group-addon" style="width:160px" id="basic-addon1">Data do orcamento</span>
-			<input ng-disabled="true" ng-model="orcamento.dataorcamento" type="text" class="form-control" show-weeks="true" show-button-bar="false" uib-datepicker-popup="dd/MM/yyyy" ng-model="dt_orc" is-open="status_orc.opened" min-date="minDate" max-date="maxDate"/>
+			<input ng-disabled="true" ng-model="orcamento.dataorcamento" type="text" class="form-control" show-weeks="true" show-button-bar="false" uib-datepicker-popup="dd/MM/yyyy" ng-model="dt_orc" is-open="status_orc.opened"/>
               <span ng-hide="disabilitarEdicao" class="input-group-addon btn btn-primary" ng-click="open_orc_dt($event)">
                 <i class="glyphicon glyphicon-calendar"></i>
               </span>
@@ -45,7 +45,7 @@
 
 	<div class="form-inline form-group input-group">
 		<span class="input-group-addon" style="width:160px" id="basic-addon1">Data da entrega</span>
-		<input ng-disabled="true" ng-model="orcamento.dataentrega" type="text" class="form-control" show-weeks="true" show-button-bar="false" uib-datepicker-popup="dd/MM/yyyy" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate"/>
+		<input ng-disabled="true" ng-model="orcamento.dataentrega" type="text" class="form-control" show-weeks="true" show-button-bar="false" uib-datepicker-popup="dd/MM/yyyy" ng-model="dt" is-open="status.opened"/>
 		  <span ng-hide="disabilitarEdicao" ng-click="open($event)" class="input-group-addon btn btn-primary">
 			<i class="glyphicon glyphicon-calendar"></i>
 		  </span>
