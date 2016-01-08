@@ -55,9 +55,6 @@ public class OrcamentosDAO {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();
 
-        from = new Date();
-        to = new Date();
-
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(from);
         calendar.set(Calendar.SECOND, 0);

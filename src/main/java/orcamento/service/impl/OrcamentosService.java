@@ -5,6 +5,7 @@ import orcamento.dao.OrcamentosDAO;
 import orcamento.service.IOrcamentosService;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * Created by mgustavo on 03/12/15.
@@ -13,9 +14,9 @@ import java.util.Collection;
 public class OrcamentosService implements IOrcamentosService {
 
     @Override
-    public Collection<OrcamentoBean> listOrcamentos() {
+    public Collection<OrcamentoBean> listOrcamentos(Date inicio, Date fim) {
         final OrcamentosDAO orcamentosDAO = new OrcamentosDAO();
-        return orcamentosDAO.listOrcamentos();
+        return orcamentosDAO.listOrcamentos(inicio,fim);
     }
 
     @Override

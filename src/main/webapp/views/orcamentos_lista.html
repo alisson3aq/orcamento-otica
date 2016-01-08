@@ -1,7 +1,34 @@
 <div class="table-responsive">
 
-    De<input type="date" name="bday">Até<input type="date" name="bday">
+<!--    De<input type="date" id="exampleInput" name="input" ng-model="filtro.inicio" placeholder="yyyy-MM-dd"/>
+    Até<input type="date" id="exampleInput" name="input" ng-model="filtro.fim" placeholder="yyyy-MM-dd"/>-->
+    <div class="row">
+        <div class="col-md-6"><!-- style="background-color:green" -->
+    <div class="form-inline form-group input-group">
+        <span class="input-group-addon" style="width:160px" id="basic-addon1">De</span>
+        <input ng-disabled="true" ng-model="filtro.inicio" type="text" class="form-control"
+               show-weeks="true" show-button-bar="false" uib-datepicker-popup="dd/MM/yyyy"
+               ng-model="filtro.inicio" is-open="filtro.inicio_opened"/>
+              <span ng-click="open_date_filter_from($event)" class="input-group-addon btn btn-default">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+        </div>
 
+    <div class="form-inline form-group input-group">
+        <span class="input-group-addon" style="width:160px" id="basic-addon1">Até</span>
+        <input ng-disabled="true" ng-model="filtro.fim" type="text" class="form-control"
+               show-weeks="true" show-button-bar="false" uib-datepicker-popup="dd/MM/yyyy"
+               ng-model="filtro.fim" is-open="filtro.fim_opened"/>
+              <span class="input-group-addon btn btn-default" ng-click="open_date_filter_to($event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+    </div>
+
+
+
+    <button ng-click="refreshOrcList()" name="button1id" class="btn btn-success"><i
+            class="glyphicon glyphicon-filter"></i>Filtrar</button>
+</div></div>
 
     <table class="table table-hover table-striped">
         <thead>
@@ -14,7 +41,7 @@
             <th></th>
         </tr>
         </thead>
-        <tbody ng-repeat="orc in orcamentos | orderBy:'-codigo'">
+        <tbody ng-repeat="orc in orcamentos | orderBy:'-dataorcamento'">
         <tr>
             <td>{{formatNumberSize(orc.codigo)}}</td>
             <td>{{orc.vendedor}}</td>

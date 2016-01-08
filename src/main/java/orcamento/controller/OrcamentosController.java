@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/orcamentos")
@@ -14,10 +15,10 @@ public class OrcamentosController {
 	@Autowired
 	OrcamentosService orcamentosService;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = " /{inicio}/{fim}" ,method = RequestMethod.GET)
 	@ResponseBody
-	public Collection<OrcamentoBean> listOrcamento(){
-		return orcamentosService.listOrcamentos();
+	public Collection<OrcamentoBean> listOrcamento(@PathVariable Date inicio, @PathVariable Date fim){
+		return orcamentosService.listOrcamentos(inicio,fim);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -30,7 +31,8 @@ public class OrcamentosController {
 	@ResponseBody
 	public Collection<OrcamentoBean> deleteUsuario(@PathVariable String codigo){
 		orcamentosService.deleteOrcamento(Long.parseLong(codigo));
-		return orcamentosService.listOrcamentos();
+		//TODO:retorna lista vazia e chama depois pelo front
+		return null;
 	}
 	
 }

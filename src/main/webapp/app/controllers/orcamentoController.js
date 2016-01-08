@@ -9,14 +9,16 @@ mainApp
     $scope.servicos = [];
     $scope.totalGeral = 0.00;
     $scope.empresa;
+    $scope.filtro = {};
+
 
     $scope.novoOrcamento = function(){
         $scope.orcamento = {};
         $scope.items = [];
         $scope.select = {};
         $scope.totalGeral = 0.00;
-        $scope.dt = new Date();
-        $scope.dt_orc = new Date();
+        $scope.orcamento.dataentrega = new Date();
+        $scope.orcamento.dataorcamento = new Date();
         $scope.clearAlertFlags();
         $scope.disabilitarEdicao = false;
     }
@@ -37,7 +39,7 @@ mainApp
     }
 
     $scope.refreshOrcList = function(){
-    $http.get("api/v1/orcamentos")
+    $http.get("api/v1/orcamentos/" + $scope.filtro.inicio + "/" + $scope.filtro.fim)
         .then(function (response) {
             $scope.orcamentos = response.data;
     });
@@ -245,8 +247,8 @@ mainApp
     //Código para o Datepicker
     $scope.minDate = new Date();
     $scope.maxDate = new Date(2020, 5, 22);
-    $scope.dt = new Date();
-    $scope.dt_orc = new Date();
+    $scope.orcamento.dataentrega = new Date();
+    $scope.orcamento.dataorcamento = new Date();
 
     $scope.status = {
       opened: false
@@ -264,4 +266,18 @@ mainApp
       $scope.status_orc.opened = true;
     };
     //Fim código Datapicker
+
+    //Código datepicker do filtro
+    $scope.filtro.inicio = new Date();
+    $scope.filtro.inicio.setDate($scope.filtro.inicio.getDate()-15);
+    $scope.filtro.fim = new Date();
+
+    $scope.open_date_filter_from = function($event) {
+      $scope.filtro.inicio_opened = true;
+    };
+
+    $scope.open_date_filter_to = function($event) {
+      $scope.filtro.fim_opened = true;
+    };
+    //Fimcódigo datepicker do filtro
 })
