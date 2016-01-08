@@ -5,6 +5,8 @@ import orcamento.service.impl.OrcamentosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
@@ -18,7 +20,21 @@ public class OrcamentosController {
 	@RequestMapping(value = " /{inicio}/{fim}" ,method = RequestMethod.GET)
 	@ResponseBody
 	public Collection<OrcamentoBean> listOrcamento(@PathVariable Long inicio, @PathVariable Long fim){
-		return orcamentosService.listOrcamentos(new Date(inicio),new Date(fim));
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date(inicio));
+		calendar.set(Calendar.SECOND, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.HOUR_OF_DAY, 0);
+		final Date inicioAsDate =  calendar.getTime();
+
+		calendar.setTime(new Date(fim));
+		calendar.set(Calendar.SECOND, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.HOUR_OF_DAY, 0);
+		final Date fimAsDate =  calendar.getTime();
+
+		return orcamentosService.listOrcamentos(inicioAsDate,fimAsDate);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
