@@ -91,7 +91,7 @@ mainApp
          $scope.novoOrcamento();
          $http.delete('api/v1/orcamentos/' + codigo)
              .then(function (response) {
-                 $scope.orcamentos = response.data;
+                 $scope.refreshOrcList();
          });
      }
 
