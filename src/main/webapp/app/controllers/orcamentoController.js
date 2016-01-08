@@ -11,6 +11,42 @@ mainApp
     $scope.empresa;
     $scope.filtro = {};
 
+    //Código para o Datepicker
+    $scope.minDate = new Date();
+    $scope.maxDate = new Date(2020, 5, 22);
+    $scope.orcamento.dataentrega = new Date();
+    $scope.orcamento.dataorcamento = new Date();
+
+    $scope.status = {
+      opened: false
+    };
+
+    $scope.status_orc = {
+       opened: false
+    };
+
+    $scope.open = function($event) {
+      $scope.status.opened = true;
+    };
+
+    $scope.open_orc_dt = function($event) {
+      $scope.status_orc.opened = true;
+    };
+    //Fim código Datapicker
+
+    //Código datepicker do filtro
+    $scope.filtro.inicio = new Date();
+    $scope.filtro.inicio.setDate($scope.filtro.inicio.getDate()-15);
+    $scope.filtro.fim = new Date();
+
+    $scope.open_date_filter_from = function($event) {
+      $scope.filtro.inicio_opened = true;
+    };
+
+    $scope.open_date_filter_to = function($event) {
+      $scope.filtro.fim_opened = true;
+    };
+    //Fimcódigo datepicker do filtro
 
     $scope.novoOrcamento = function(){
         $scope.orcamento = {};
@@ -243,41 +279,4 @@ mainApp
     $scope.formatNumberSize = function(a){
         return(1e5+a+"").slice(-5);
     }
-
-    //Código para o Datepicker
-    $scope.minDate = new Date();
-    $scope.maxDate = new Date(2020, 5, 22);
-    $scope.orcamento.dataentrega = new Date();
-    $scope.orcamento.dataorcamento = new Date();
-
-    $scope.status = {
-      opened: false
-    };
-
-    $scope.status_orc = {
-       opened: false
-    };
-
-    $scope.open = function($event) {
-      $scope.status.opened = true;
-    };
-
-    $scope.open_orc_dt = function($event) {
-      $scope.status_orc.opened = true;
-    };
-    //Fim código Datapicker
-
-    //Código datepicker do filtro
-    $scope.filtro.inicio = new Date();
-    $scope.filtro.inicio.setDate($scope.filtro.inicio.getDate()-15);
-    $scope.filtro.fim = new Date();
-
-    $scope.open_date_filter_from = function($event) {
-      $scope.filtro.inicio_opened = true;
-    };
-
-    $scope.open_date_filter_to = function($event) {
-      $scope.filtro.fim_opened = true;
-    };
-    //Fimcódigo datepicker do filtro
 })
