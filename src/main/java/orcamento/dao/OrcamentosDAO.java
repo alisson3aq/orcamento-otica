@@ -21,6 +21,19 @@ public class OrcamentosDAO {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(orcamentoBean.getDataorcamento());
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        orcamentoBean.setDataorcamento(calendar.getTime());
+
+        calendar.setTime(orcamentoBean.getDataentrega());
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        orcamentoBean.setDataentrega(calendar.getTime());
+
         manager.getTransaction().begin();
         manager.persist(orcamentoBean);
         manager.getTransaction().commit();
