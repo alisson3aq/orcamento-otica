@@ -17,8 +17,8 @@ public class OrcamentosController {
 
 	@RequestMapping(value = " /{inicio}/{fim}" ,method = RequestMethod.GET)
 	@ResponseBody
-	public Collection<OrcamentoBean> listOrcamento(@PathVariable Date inicio, @PathVariable Date fim){
-		return orcamentosService.listOrcamentos(inicio,fim);
+	public Collection<OrcamentoBean> listOrcamento(@PathVariable Long inicio, @PathVariable Long fim){
+		return orcamentosService.listOrcamentos(new Date(inicio),new Date(fim));
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
