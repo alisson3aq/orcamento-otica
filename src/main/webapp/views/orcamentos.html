@@ -152,6 +152,10 @@
 	</button>
 	<button ng-click="exportToPDF()" name="singlebutton"
 			class="btn btn-primary">
+		<i class="glyphicon glyphicon-download"></i>&nbsp;Imprimir
+	</button>
+	<button ng-click="downloadToPDF()" name="singlebutton"
+			class="btn btn-primary">
 		<i class="glyphicon glyphicon-download"></i>&nbsp;Baixar
 	</button>
 	<button ng-disabled="orcamento.codigo == '' || orcamento.codigo == undefined" ng-click="novoOrcamento()" name="singlebutton"

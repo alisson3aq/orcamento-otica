@@ -173,6 +173,44 @@ mainApp
         mapForm.submit();
     }
 
+        var downloadPDFSubmit = function(codigo){
+            var mapForm = document.createElement("form");
+            mapForm.target = "Map";
+            mapForm.method = "POST"; // or "post" if appropriate
+            mapForm.action = "reportDownloadServlet";
+            var mapInput = document.createElement("input");
+            mapInput.type = "hidden";
+            mapInput.name = "codigo";
+            mapInput.value = codigo;
+            mapForm.appendChild(mapInput);
+            document.body.appendChild(mapForm);
+            mapForm.submit();
+        }
+
+    $scope.downloadToPDF = function(){
+        if(validacaoFront() == false){
+            return;
+        }
+
+        var data = mountOrcamentoJson();
+
+        if(angular.isUndefined(data.codigo)){
+            $http.post('api/v1/orcamentos', data)
+            .success(function(response) {
+                    downloadPDFSubmit(response.codigo);
+                    $scope.orcamento.codigo = response.codigo;
+                    $scope.showSuccessAlert = true;
+                    $scope.showErrorAlert = false;
+            })
+            .error(function(data, status) {
+                    $scope.showSuccessAlert = false;
+                    $scope.showErrorAlert = true;
+            });
+        }else{
+            exportPDFSubmit(data.codigo);
+        }
+    }
+
 
     $scope.exportToPDF = function(){
         if(validacaoFront() == false){

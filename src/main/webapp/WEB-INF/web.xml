@@ -16,6 +16,16 @@
 		<url-pattern>/reportServlet</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>reportDownloadServlet</servlet-name>
+		<servlet-class>orcamento.servlet.ReportDownloadServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>reportDownloadServlet</servlet-name>
+		<url-pattern>/reportDownloadServlet</url-pattern>
+	</servlet-mapping>
+
 	<!-- Rest -->
 	<servlet>
 		<servlet-name>rest</servlet-name>
