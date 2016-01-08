@@ -39,7 +39,7 @@ mainApp
     }
 
     $scope.refreshOrcList = function(){
-    $http.get("api/v1/orcamentos/" + $scope.filtro.inicio + "/" + $scope.filtro.fim)
+    $http.get("api/v1/orcamentos/" + $scope.filtro.inicio.getTime() + "/" + $scope.filtro.fim.getTime())
         .then(function (response) {
             $scope.orcamentos = response.data;
     });
