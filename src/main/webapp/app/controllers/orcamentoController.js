@@ -207,7 +207,7 @@ mainApp
                     $scope.showErrorAlert = true;
             });
         }else{
-            exportPDFSubmit(data.codigo);
+            downloadPDFSubmit(data.codigo);
         }
     }
 
