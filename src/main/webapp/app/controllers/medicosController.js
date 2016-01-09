@@ -1,41 +1,43 @@
 mainApp
 .controller('medicosController', function($scope,$http) {
-        $scope.cliente = {};
+        $scope.medico = {};
         $scope.showSuccessAlert = false;
         $scope.showErrorAlert = false;
 
-        $scope.listarClientes = function(){
-            $http.get("api/v1/clientes")
+        $scope.medico.nome;
+        $scope.medico.crm;
+        $scope.medico.clinica;
+        $scope.medico.telefone;
+        $scope.medico.email;
+
+        $scope.listarMedicos = function(){
+            $http.get("api/v1/medicos")
                 .then(function (response) {
-                    $scope.clientes = response.data;
+                    $scope.medicos = response.data;
             });
         }
 
-         $scope.listarClientes();
+         $scope.listarMedicos();
 
-         $scope.excluir = function(cpf){
-             $http.delete('api/v1/clientes/' + cpf)
+         $scope.excluir = function(codigo){
+             $http.delete('api/v1/medicos/' + codigo)
                  .then(function (response) {
-                     $scope.clientes = response.data;
+                     $scope.medicos = response.data;
              });
          }
 
          $scope.create = function(){
              var data = {
-                 nome : $scope.cliente.nome,
-                 cpf : $scope.cliente.cpf,
-                 endereco : $scope.cliente.endereco,
-                 bairro : $scope.cliente.bairro,
-                 cidade : $scope.cliente.cidade,
-                 estado : $scope.cliente.estado,
-                 cep : $scope.cliente.cep,
-                 telefone : $scope.cliente.telefone,
-                 email : $scope.cliente.email
+                 nome : $scope.medico.nome,
+                 crm : $scope.medico.crm,
+                 clinica : $scope.medico.clinica,
+                 telefone : $scope.medico.telefone,
+                 email : $scope.medico.email
              };
-             $http.post('api/v1/clientes/', data)
+             $http.post('api/v1/medicos/', data)
              .success(function(data, status) {
-                 $scope.clientes = data;
-                 $scope.cliente = {};
+                 $scope.medicos = data;
+                 $scope.medico = {};
                  $scope.showSuccessAlert = true;
                  $scope.showErrorAlert = false;
              })

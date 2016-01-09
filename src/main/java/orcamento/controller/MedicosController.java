@@ -27,10 +27,10 @@ public class MedicosController {
 		return medicosService.listMedicos();
 	}
 
-	@RequestMapping(value = " /{cpf}",method = RequestMethod.DELETE)
+	@RequestMapping(value = " /{codigo}",method = RequestMethod.DELETE)
 	@ResponseBody
-	public ArrayList<MedicoBean> deleteMedico(@PathVariable String cpf){
-		medicosService.deleteMedico(cpf);
+	public ArrayList<MedicoBean> deleteMedico(@PathVariable Long codigo){
+		medicosService.deleteMedico(codigo);
 		return medicosService.listMedicos();
 	}
 

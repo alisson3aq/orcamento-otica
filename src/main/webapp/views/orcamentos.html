@@ -21,11 +21,6 @@
 	</div>
 
 	<div class="form-inline form-group input-group">
-		<span class="input-group-addon" style="width:160px" id="basic-addon1">Médico</span>
-		<input ng-disabled="disabilitarEdicao" ng-model="orcamento.medico" type="text" class="form-control" placeholder="Dr Sérgio Mendes" aria-describedby="basic-addon1">
-	</div>
-
-	<div class="form-inline form-group input-group">
 			<span class="input-group-addon" style="width:160px" id="basic-addon1">Validade da proposta</span>
 			<input ng-disabled="disabilitarEdicao" ng-model="orcamento.validade" type="text" class="form-control col-md-8" placeholder="10 dias" aria-describedby="basic-addon1">
 	</div>
@@ -50,6 +45,17 @@
 			<i class="glyphicon glyphicon-calendar"></i>
 		  </span>
 	</div>
+
+		<div class="form-inline form-group input-group">
+			<span class="input-group-addon" style="width:160px" id="basic-addon1">Médico</span>
+			<select ng-disabled="disabilitarEdicao" ng-model="orcamento.medico" class="form-control" id="sel1">
+				<option value="">Selecione o médico</option>
+				<option ng-repeat="medico in medicos" value="{{medico}}">
+					{{medico.nome}}&nbsp;-&nbsp;{{medico.clinica}}
+				</option>
+			</select>
+		</div>
+
 
 	<div class="form-inline form-group input-group">
 			<span class="input-group-addon" style="width:160px" id="basic-addon1">Cliente</span>

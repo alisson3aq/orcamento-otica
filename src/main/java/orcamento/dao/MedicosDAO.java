@@ -37,7 +37,7 @@ public class MedicosDAO {
         return (ArrayList) listMedico;
     }
 
-    public void deleteMedico(String codigo){
+    public void deleteMedico(Long codigo){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();
 

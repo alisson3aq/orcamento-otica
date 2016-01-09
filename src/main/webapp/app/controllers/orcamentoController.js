@@ -1,5 +1,5 @@
 mainApp
-.controller('orcamentoController', function($scope,$http) {
+.controller('orcamentoController', function($scope,$http,$filter) {
 
     $scope.orcamento = {};
     $scope.items = [];
@@ -69,6 +69,7 @@ mainApp
     $scope.detalhes = function(orc){
         $scope.orcamento = orc;
         $scope.orcamento.cliente = JSON.stringify(orc.cliente);
+        $scope.orcamento.medico = JSON.stringify(orc.medico);
         $scope.items = orc.items;
         $scope.disabilitarEdicao = true;
         $scope.op = 'cadastrar';
@@ -77,6 +78,7 @@ mainApp
     $scope.refreshOrcList = function(){
     $http.get("api/v1/orcamentos/" + $scope.filtro.inicio.getTime() + "/" + $scope.filtro.fim.getTime())
         .then(function (response) {
+            //response.data = $filter('orderBy')(response.data, '-dataorcamento');
             $scope.orcamentos = response.data;
     });
     }
@@ -95,7 +97,13 @@ mainApp
          });
      }
 
-
+        $scope.listarMedicos = function(){
+            $http.get("api/v1/medicos")
+                .then(function (response) {
+                    $scope.medicos = response.data;
+            });
+        }
+         $scope.listarMedicos();
 
 
     var validacaoFront = function(){
@@ -136,6 +144,7 @@ mainApp
                 comentario : $scope.orcamento.comentario,
                 empresa : $scope.empresa,
                 cliente : JSON.parse($scope.orcamento.cliente),
+                medico : JSON.parse($scope.orcamento.medico),
                 items : $scope.items
             };
     }

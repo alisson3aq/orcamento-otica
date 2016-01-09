@@ -1,7 +1,6 @@
 package orcamento.bean;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -23,6 +22,8 @@ public class OrcamentoBean {
     private String vendedor;
     private String formapagamento;
     private String comentario;
+    @OneToOne
+    private MedicoBean medico;
     @OneToOne
     private ClienteBean cliente;
     @OneToOne
@@ -122,6 +123,13 @@ public class OrcamentoBean {
         this.formapagamento = formapagamento;
     }
 
+    public MedicoBean getMedico() {
+        return medico;
+    }
+
+    public void setMedico(MedicoBean medico) {
+        this.medico = medico;
+    }
 }
 
 

@@ -17,79 +17,47 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="nomeinput">nome</label>
                 <div class="col-md-5">
-                    <input ng-model="cliente.nome" id="nomeinput" name="textinput" type="text" placeholder="José Carlos Goncalves" class="form-control input-md">
+                    <input ng-model="medico.nome" id="nomeinput" name="textinput" type="text" placeholder="Dr Augusto" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="cpfinput">cpf</label>
+                <label class="col-md-4 control-label" for="cpfinput">crm</label>
                 <div class="col-md-5">
-                    <input ng-model="cliente.cpf" id="cpfinput" name="textinput" type="text" placeholder="36784909-06" class="form-control input-md">
+                    <input ng-model="medico.crm" id="cpfinput" name="textinput" type="text" placeholder="21092" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="enderecoinput">endereco</label>
+                <label class="col-md-4 control-label" for="enderecoinput">clínica</label>
                 <div class="col-md-5">
-                    <input ng-model="cliente.endereco" id="enderecoinput" name="textinput" type="text" placeholder="Rua Algusto Malagutti, 228" class="form-control input-md">
+                    <input ng-model="medico.clinica" id="enderecoinput" name="textinput" type="text" placeholder="Clínica Fares" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="bairroinput">bairro</label>
+                <label class="col-md-4 control-label" for="bairroinput">telefone</label>
                 <div class="col-md-5">
-                    <input ng-model="cliente.bairro" id="bairroinput" name="textinput" type="text" placeholder="Jardim Miriam" class="form-control input-md">
+                    <input ng-model="medico.telefone" id="bairroinput" name="textinput" type="text" placeholder="(21)32764563" class="form-control input-md">
                 </div>
             </div>
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="cidadeinput">cidade</label>
-                <div class="col-md-5">
-                    <input ng-model="cliente.cidade" id="cidadeinput" name="textinput" type="text" placeholder="Sorocaba" class="form-control input-md">
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="estadoinput">estado</label>
-                <div class="col-md-5">
-                    <input ng-model="cliente.estado" id="estadoinput" name="textinput" type="text" placeholder="SP" class="form-control input-md">
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="cepinput">cep</label>
-                <div class="col-md-5">
-                    <input ng-model="cliente.cep" id="cepinput" name="textinput" type="text" placeholder="147367-890" class="form-control input-md">
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="telefoneinput">telefone</label>
-                <div class="col-md-5">
-                    <input ng-model="cliente.telefone" id="telefoneinput" name="textinput" type="text" placeholder="(21)32764563" class="form-control input-md">
-                </div>
-            </div>
-
-            <!-- Text input-->
+             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="emailinput">e-mail</label>
                 <div class="col-md-5">
-                    <input ng-model="cliente.email" id="emailinput" name="textinput" type="text" placeholder="jose@gmail.com" class="form-control input-md">
+                    <input ng-model="medico.email" id="emailinput" name="textinput" type="text" placeholder="jose@gmail.com" class="form-control input-md">
                 </div>
             </div>
 
             <div ng-if="showSuccessAlert" class="alert alert-success" role="alert">
-                <strong>Sucesso!</strong> Cliente cadastrado.
+                <strong>Sucesso!</strong> Medico cadastrado.
             </div>
 
             <div ng-if="showErrorAlert"  class="alert alert-danger" role="alert">
-                <strong>Erro!</strong> Erro ao cadastrar o cliente.
+                <strong>Erro!</strong> Erro ao cadastrar o medico.
             </div>
 
             <!-- Button -->
@@ -109,30 +77,22 @@
         <thead>
             <tr>
                 <th>nome</th>
-                <th>cpf</th>
-                <th>endereco</th>
-                <th>bairro</th>
-                <th>cidade</th>
-                <th>estado</th>
-                <th>cep</th>
+                <th>crm</th>
+                <th>clinica</th>
                 <th>telefone</th>
                 <th>e-mail</th>
                 <th></th>
             </tr>
         </thead>
-        <tbody ng-repeat="cliente in clientes">
+        <tbody ng-repeat="medico in medicos">
             <tr>
-                <td>{{cliente.nome}}</td>
-                <td>{{cliente.cpf}}</td>
-                <td>{{cliente.endereco}}</td>
-                <td>{{cliente.bairro}}</td>
-                <td>{{cliente.cidade}}</td>
-                <td>{{cliente.estado}}</td>
-                <td>{{cliente.cep}}</td>
-                <td>{{cliente.telefone}}</td>
-                <td>{{cliente.email}}</td>
+                <td>{{medico.nome}}</td>
+                <td>{{medico.crm}}</td>
+                <td>{{medico.clinica}}</td>
+                <td>{{medico.telefone}}</td>
+                <td>{{medico.email}}</td>
                 <td>
-                    <button ng-click="excluir(cliente.cpf)" id="button2id" name="button2id" class="btn btn-danger">Excluir</button>
+                    <button ng-click="excluir(medico.codigo)" id="button2id" name="button2id" class="btn btn-danger">Excluir</button>
                 </td>
             </tr>
         </tbody>

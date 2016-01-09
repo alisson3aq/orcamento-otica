@@ -17,6 +17,6 @@ public interface IMedicosService {
 
     Boolean updateMedico(MedicoBean medicoBean);
 
-    Boolean deleteMedico(String chavePrimaria);
+    Boolean deleteMedico(Long id);
     
 }

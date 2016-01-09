@@ -21,17 +21,7 @@ public class MedicoService implements IMedicosService {
 
     @Override
     public MedicoBean getMedico(String chavePrimaria) {
-        final MedicoBean medicoBean = new MedicoBean();
-        medicoBean.setTelefone("(19)32856521");
-        medicoBean.setEstado("Washington");
-        medicoBean.setEndereco("Rua Gomes da Costa 885");
-        medicoBean.setBairro("Parque Imperador");
-        medicoBean.setCep("13529-965");
-        medicoBean.setCidade("Campinas");
-        medicoBean.setCpf("785002238-96");
-        medicoBean.setEmail("reginaldo@gmail.com");
-        medicoBean.setNome("Reginaldo Gomes");
-        return medicoBean;
+        return null;
     }
 
     @Override
@@ -47,9 +37,9 @@ public class MedicoService implements IMedicosService {
     }
 
     @Override
-    public Boolean deleteMedico(String cpf) {
+    public Boolean deleteMedico(Long codigo) {
         MedicosDAO medicosDAO = new MedicosDAO();
-        medicosDAO.deleteMedico(cpf);
+        medicosDAO.deleteMedico(codigo);
         return true;
     }
 }

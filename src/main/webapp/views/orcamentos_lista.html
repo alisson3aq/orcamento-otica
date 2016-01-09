@@ -41,7 +41,7 @@
             <th></th>
         </tr>
         </thead>
-        <tbody ng-repeat="orc in orcamentos | orderBy:'-dataorcamento'">
+        <tbody ng-repeat="orc in orcamentos | orderBy:'-codigo'">
         <tr>
             <td>{{formatNumberSize(orc.codigo)}}</td>
             <td>{{orc.vendedor}}</td>
