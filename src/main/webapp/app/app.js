@@ -24,7 +24,19 @@ mainApp
 	}).when('/empresa', {
 		templateUrl : 'views/empresa.html',
 		controller : 'empresaController'
+	}).when('/login', {
+	    templateUrl : 'views/login.html',
+	    controller : 'loginController'
 	}).otherwise({
 		redirectTo : '/orcamentos'
 	});
-} ]);
+} ]).run(['$rootScope', '$location', 'securityService', function($rootScope, $location, securityService) {
+    $rootScope.location = $location;
+    $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+        var loggedIn = securityService.isAuthenticated();
+        if (restrictedPage && !loggedIn) {
+            $location.path('/login');
+        }
+    });
+}]);

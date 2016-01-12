@@ -36,6 +36,15 @@ public class UsuariosDAO {
         return (ArrayList) listUsuario;
     }
 
+    public UsuarioBean getUsuarioByLogin(String login) {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("SELECT u FROM UsuarioBean u WHERE u.login = '" + login + "'");
+        UsuarioBean usuario = (UsuarioBean) query.getSingleResult();
+        return usuario;
+    }
+
     public void deleteUsuario(String login){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("orcamento_pu");
         EntityManager manager = factory.createEntityManager();

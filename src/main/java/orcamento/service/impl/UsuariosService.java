@@ -49,4 +49,10 @@ public class UsuariosService implements IUsuariosService {
         usuariosDAO.deleteUsuario(login);
         return true;
     }
+
+    @Override
+    public UsuarioBean getUsuarioByLogin(String login) {
+        UsuariosDAO usuariosDAO = new UsuariosDAO();
+        return usuariosDAO.getUsuarioByLogin(login);
+    }
 }

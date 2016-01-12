@@ -15,15 +15,17 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="app/app_minified.js"></script>
-<!--    <script src="app/app.js"></script>
+    <!--<script src="app/app_minified.js"></script>-->
+    <script src="app/app.js"></script>
+    <script src="app/services/authService.js"></script>
     <script src="app/controllers/orcamentoController.js"></script>
     <script src="app/controllers/clientesController.js"></script>
     <script src="app/controllers/medicosController.js"></script>
     <script src="app/controllers/empresaController.js"></script>
     <script src="app/controllers/produtosController.js"></script>
     <script src="app/controllers/servicosController.js"></script>
-    <script src="app/controllers/usuariosController.js"></script>-->
+    <script src="app/controllers/usuariosController.js"></script>
+    <script src="app/controllers/loginController.js"></script>
 </head>
 
 <body>
@@ -43,19 +45,19 @@
             <a class="navbar-brand" style="height: 100%;" data-toggle="collapse" data-target=".navbar-ex1-collapse" href="#orcamentos">Orçamentos ótica</a>
         </div>
         <!-- Top Menu Items -->
-        <ul class="nav navbar-right top-nav">
+        <ul class="nav navbar-right top-nav" ng-if="location.path() !== '/login'">
             <li class="dropdown"><a href="#orcamentos" class="dropdown-toggle"
                 data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp João da
                 Silva <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><i class="fa fa-fw fa-power-off"></i>&nbsp
+                    <li><a href="#/login"><i class="fa fa-fw fa-power-off"></i>&nbsp
                         Log Out</a></li>
                 </ul>
             </li>
         </ul>
         <!-- Sidear Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav side-nav">
+            <ul class="nav navbar-nav side-nav" ng-if="location.path() !== '/login'">
                 <li><a  data-toggle="collapse" data-target=".navbar-ex1-collapse" href="#orcamentos"><i
                         class="glyphicon glyphicon-th-list"></i>&nbsp;Orçamentos</a></li>
                 <li><a  data-toggle="collapse" data-target=".navbar-ex1-collapse" href="#/clientes"><i

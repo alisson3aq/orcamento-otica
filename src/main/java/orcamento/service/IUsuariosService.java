@@ -17,4 +17,6 @@ public interface IUsuariosService {
     Boolean updateUsuario(UsuarioBean usuarioBean);
 
     Boolean deleteUsuario(String chavePrimaria);
+
+    public UsuarioBean getUsuarioByLogin(String login);
 }
